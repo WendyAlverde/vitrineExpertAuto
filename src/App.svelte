@@ -8,10 +8,12 @@
 
     // Importer nos pages
     import Home from "./lib/pages/Home.svelte";
+    import LegalNotices from "./lib/pages/LegalNotices.svelte";
     import NotFound from "./lib/pages/NotFound.svelte";
 
     const routes = {
         "/": Home,
+        "/legalNotices": LegalNotices,
         "*": NotFound,
     }
 </script>
