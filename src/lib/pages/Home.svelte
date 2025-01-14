@@ -96,3 +96,9 @@
         <buttton type="submit">Envoyer</buttton>
     </form>
 </section>
+
+<style lang="scss">
+    img {
+        width: 20rem;
+    }
+</style>
