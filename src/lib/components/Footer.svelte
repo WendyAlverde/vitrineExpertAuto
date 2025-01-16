@@ -11,5 +11,8 @@
 </footer>
 
 <style lang="scss">
-    
+    footer {
+        background-color: var(--backgroundComponents);
+        background: linear-gradient(135deg, #2b2b3d, #41415c);  
+    }
 </style>
