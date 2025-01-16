@@ -18,20 +18,17 @@
         <p class="contact-pc">Contactez nous ?</p>
         <p class="contact-pc">Amaury Madani</p>
         <!--  -->
-        <!-- Invisible pour la partie pc -->
-        <a href="" class="contact-form">Contactez-nous ?</a>
-        <!--  -->
-        <a class="contact-mobile" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
-        <a class="contact-mobile" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+        <div class="contact-row">
+            <!-- Invisible pour la partie pc -->
+            <a href="/" use:link class="contact-row-form form">Contactez-nous ?</a> <!-- Changer le lien pour amener au formulaire de contact-->
+            <!--  -->
+            <a class="contact-mobile" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+        </div>
+        <div class="contact-row accueil">
+            <a class="contact-mobile" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+            <a href="/" use:link aria-label="Retour à l'accueil">Accueil</a>
+        </div>
     </div>
-    
-    <nav>
-        <ul>
-            <li>
-                <a href="/" use:link aria-label="Retour à l'accueil">Accueil</a>
-            </li>
-        </ul>
-    </nav>
 </header>
 
 <style lang="scss">
@@ -41,16 +38,54 @@
         display: flex;
         flex-direction: column;
 
+        @media (min-width: 769px) { // Grand écran
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
         .entreprise {
             display: flex;
             align-items: center;
+            justify-content: center;
+            padding: 0 0.8rem;
 
-            img {
-                width: 7.3rem;
+            @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                justify-content: flex-start; 
+                padding-left: 1rem;
             }
 
-            &-name {
-                
+            @media (min-width: 769px) { // Grand écran
+                justify-content: flex-start;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            img {
+                width: 7rem;
+
+                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                    margin-right: 1rem;
+                }
+
+                @media (min-width: 769px) { // Grand écran
+                    width: 9rem;
+                }
+            }
+
+            &-name { 
+
+                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                    width: 80%;
+                }
+
+                @media (min-width: 769px) { // Grand écran
+                    width: 9rem;
+                    margin-right: 1rem;
+                    width: 80%;
+                }
+
                 &-titre {
                     font-weight: bold;
                     font-size: 0.938rem;
@@ -70,30 +105,66 @@
         }
 
         .contact {
-            padding: 0 0.5rem;
+            padding: 0 1rem;
             display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            @media (min-width: 321px) and (max-width: 514px) { // Petit écran
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            @media (min-width: 769px) { // Grand écran
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center; 
+            }
+            
             &-pc {
                 display: none;
             }
 
-            &-form {
-                color: var(--clickableElement);
-            }
+            &-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.1rem;
 
-            &-mobile {
-                color: white;
-            }
-        }
+                @media (min-width: 321px) and (max-width: 514px) { // Petit écran
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
 
-        nav {
-            ul {
-                li {
-                    a {
-                        color: white;
+                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                    white-space: nowrap;
+                }
+
+                a {
+                    color: white;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.05rem;
+
+                    @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
+                        padding: 0 0.5rem;
+                        white-space: nowrap;
+                    }
+
+                    @media (min-width: 769px) { // Grand écran
+                        padding-left: 0.5rem;
+                        white-space: nowrap;
                     }
                 }
-            }
+
+                .form {
+                    color: var(--clickableElement);
+                }
+            } 
         }
     }
-
 </style>
