@@ -5,14 +5,33 @@
 </script>
 
 <footer>
-    <a href="/legalNotices" use:link aria-label="Aller à la page mention légales">Mention légales</a>
-    <img src={logoIeta} alt="Logo I.E.T.A : Innovation, expertise des technologies automobiles">
-    <a><img src={logoLinkedIn} alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani"></a>
+    <a href="/legalNotices" use:link aria-label="Aller à la page mention légales" class="legalNotices">Mention légales</a>
+    <img src={logoIeta} class="logoIeta" alt="Logo I.E.T.A : Innovation, expertise des technologies automobiles">
+    <a><img src={logoLinkedIn} class="logoLinkedIn" alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani"></a>
 </footer>
 
 <style lang="scss">
     footer {
         background-color: var(--backgroundComponents);
-        background: linear-gradient(135deg, #2b2b3d, #41415c);  
+        background: linear-gradient(135deg, #2b2b3d, #41415c); 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+
+
+        .legalNotices {
+            color: white;
+            font-size: 0.7rem;
+        }
+
+        .logoIeta {
+            width: 5rem;
+        }
+
+        .logoLinkedIn {
+            width: 1.8rem;
+            margin-right: 0.5rem;
+        }
     }
 </style>

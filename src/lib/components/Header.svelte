@@ -33,10 +33,12 @@
 
 <style lang="scss">
     header {
-        background-color: var(--backgroundComponents);
         background: linear-gradient(135deg, #2b2b3d, #41415c);
         display: flex;
         flex-direction: column;
+        position: sticky;
+        top: 0;
+        z-index: 1;
 
         @media (min-width: 769px) { // Grand écran
             flex-direction: row;
