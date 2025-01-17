@@ -6,26 +6,25 @@
 
 <header>
     <div class="entreprise">
-        <img src={logoIeta} alt="Logo I.E.T.A : Innovation, expertise des technologies automobiles">
+        <a href="/" use:link aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
+        
         <div class="entreprise-name">
-            <p class="entreprise-name-titre">Cabinet I.E.T.A</p>
+            <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
             <p class="entreprise-name-p">Innovation, Expertise des Technologies Automobiles</p>
         </div>
     </div>
 
-    <div class="contact">
-        <!-- Invisible pour la partie mobile -->
-        <p class="contact-pc">Contactez nous ?</p>
-        <p class="contact-pc">Amaury Madani</p>
-        <!--  -->
-        <div class="contact-row">
-            <!-- Invisible pour la partie pc -->
-            <a href="/" use:link class="contact-row-form form">Contactez-nous ?</a> <!-- Changer le lien pour amener au formulaire de contact-->
+    <div class="sticky">
+        <div class="contact">
+            <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+            <!-- Invisible pour la partie mobile -->
+            <p class="contact-pc">Amaury Madani</p>
             <!--  -->
-            <a class="contact-mobile" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+            <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+            <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
         </div>
-        <div class="contact-row accueil">
-            <a class="contact-mobile" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+    
+        <div class="nav">
             <a href="/" use:link aria-label="Retour à l'accueil">Accueil</a>
         </div>
     </div>
@@ -34,139 +33,80 @@
 <style lang="scss">
     header {
         background: linear-gradient(135deg, #2b2b3d, #41415c);
-        display: flex;
-        flex-direction: column;
-        position: sticky;
-        top: 0;
-        z-index: 1;
-
-        @media (min-width: 769px) { // Grand écran
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-        }
-
+        
         .entreprise {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 0 0.8rem;
-
-            @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                justify-content: flex-start; 
-                padding-left: 1rem;
-            }
-
-            @media (min-width: 769px) { // Grand écran
-                justify-content: flex-start;
-                flex-direction: row;
-                align-items: center;
-            }
 
             img {
                 width: 7rem;
-
-                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                    margin-right: 1rem;
-                }
-
-                @media (min-width: 769px) { // Grand écran
-                    width: 9rem;
-                }
             }
 
             &-name { 
-
-                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                    width: 80%;
-                }
-
-                @media (min-width: 769px) { // Grand écran
-                    width: 9rem;
-                    margin-right: 1rem;
-                    width: 80%;
-                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
                 &-titre {
                     font-weight: bold;
                     font-size: 0.938rem;
                     color: white;
                     letter-spacing: 0.07rem;
-                    text-align: center;
+                    padding-bottom: 0.2rem;
+
+                    em {
+                        letter-spacing: 0.3rem;
+                        font-size: 1rem;
+                    }
                 }
 
                 &-p {
-                    // font-weight: bold;
                     font-size: 0.7rem;
                     color: white;
                     letter-spacing: 0.03rem;
                     text-align: center;
+                    line-height: 1.2rem;
                 }
             }  
         }
 
         .contact {
-            padding: 0 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
 
-            @media (min-width: 321px) and (max-width: 514px) { // Petit écran
-                flex-direction: row;
-                justify-content: space-between;
+            a {
+                color: white;
+                font-size: 0.8rem;
+                letter-spacing: 0.05rem;
+                cursor: pointer;
             }
 
-            @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                flex-direction: row;
-                justify-content: center;
+            &-form {
+                background-color: var(--clickableElement);
+                border-radius: 0.4rem;
+                padding: 0.3rem 0.55rem;
             }
 
-            @media (min-width: 769px) { // Grand écran
-                flex-direction: row;
-                justify-content: flex-end;
-                align-items: center; 
+            .form {
+                color: var(--backgroundComponents);
+                font-weight: bold;
             }
-            
+
             &-pc {
                 display: none;
             }
+        }
 
-            &-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.1rem;
+        .nav {
 
-                @media (min-width: 321px) and (max-width: 514px) { // Petit écran
-                    flex-direction: column;
-                    gap: 0.5rem;
-                }
+            a {
+                color: var(--clickableElement);
+                font-size: 0.8rem;
+                letter-spacing: 0.05rem;
+                cursor: pointer; 
+            }
 
-                @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                    white-space: nowrap;
-                }
-
-                a {
-                    color: white;
-                    font-size: 0.8rem;
-                    letter-spacing: 0.05rem;
-
-                    @media (min-width: 515px) and (max-width: 768px) { // Moyen écran
-                        padding: 0 0.5rem;
-                        white-space: nowrap;
-                    }
-
-                    @media (min-width: 769px) { // Grand écran
-                        padding-left: 0.5rem;
-                        white-space: nowrap;
-                    }
-                }
-
-                .form {
-                    color: var(--clickableElement);
-                }
-            } 
+            a:active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
+                border-bottom: 0.2rem solid var(--clickableElement);
+            }
         }
     }
 </style>
