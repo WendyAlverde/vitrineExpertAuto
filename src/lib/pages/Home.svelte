@@ -37,17 +37,17 @@
         <h2>FAQ</h2>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h4>Dans quel contexte faire appel à un expert automobile ?</h4>
+            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
             <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
         </div>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h4>Dans quel contexte faire appel à un expert automobile ?</h4>
+            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
             <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
         </div>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h4>Dans quel contexte faire appel à un expert automobile ?</h4>
+            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
             <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
         </div>
     </section>
@@ -55,21 +55,27 @@
     <section class="formulaire">
         <h2>Formulaire de contact</h2>
         <form action="" method="post">
-            <label for="demande">Quel est votre demande ?</label>
-            <select name="demande" id="demande" required>
+            <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
+            <select name="demande" id="demande" required aria-required="true">
                 <option value="information">Je souhaite avoir une information</option>
                 <option value="Expertise">Expertise véhicule</option>
                 <option value="autre">Autre</option>
             </select>
     
-            <label>Est-elle urgente ?</label>
-            <input type="radio" name="urgence" id="oui" value="oui">
-            <label for="oui">Oui</label>
-            <input type="radio" name="urgence" id="non" value="non">
-            <label for="non">Non</label>
+            <fieldset>
+                <legend>Est-elle urgente&nbsp;? <span aria-hidden="true">*</span></legend>
+                <div>
+                    <input type="radio" name="urgence" id="oui" value="oui" required>
+                    <label for="oui">Oui</label>
+                </div>
+                <div>
+                    <input type="radio" name="urgence" id="non" value="non" required>
+                    <label for="non">Non</label>
+                </div>
+            </fieldset>
     
-            <label for="location">Localisation de votre besoin ?</label>
-            <select name="localisation" id="localisation" required>
+            <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
+            <select name="localisation" id="localisation" required aria-required="true">
                 <option value="Montpellier">Montpellier</option>
                 <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
                 <option value="Var">Var</option>
@@ -77,17 +83,18 @@
                 <option value="Hérault">Hérault</option>
             </select>
     
-            <label for="nom">Votre nom</label>
-            <input type="text" name="nom" id="nom" required>
-    
+            <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
+            <input type="text" name="nom" id="nom" required aria-required="true">
+
             <label for="tel">Votre numéro de téléphone</label>
-            <input type="tel" pattern="^0[1-9]( [0-9]{2}){4}$" placeholder="01.02.03.04.05" name="tel" id="tel">
-    
+            <input type="tel" name="tel" id="tel" pattern="^0[1-9]( [0-9]{2}){4}$" placeholder="01.02.03.04.05" aria-describedby="tel-format">
+
             <label for="email">Votre e-mail</label>
-            <input type="email" name="email" id="email" placeholder="example@gmail.com">
+            <input type="email" name="email" id="email" placeholder="example@gmail.com" aria-describedby="email-example">
+            <small id="email-example">Saisissez une adresse valide (exemple : example@gmail.com)</small>
     
-            <label for="commentaire">Un commentaire</label>
-            <textarea name="commentaire" id="commentaire" required></textarea>
+            <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
+            <textarea name="commentaire" id="commentaire" required aria-required="true"></textarea>
     
             <buttton type="submit">Envoyer</buttton>
         </form>
@@ -192,21 +199,31 @@
                 padding: 0.5rem;
                 margin-bottom: 0.5rem;
 
-                p {
-                    text-align: center;
-                    cursor: pointer;
-                }
-
-                h4 {
-                    padding-bottom: 0.5rem;
-                }
-
                 p:last-of-type {
                     display: none;
                 }
+            }
+        }
 
-                p[aria-hidden="false"] + h4 + p {
-                    display: block;
+        .formulaire {
+            background-color: white;
+            border-radius: 0.625rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: var(--form);
+
+            h2 {
+                padding-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            label, legend {
+                font-size: 0.813rem;
+                font-weight: bold;
+
+                span {
+                    color: red;
+                    font-weight: 200;
                 }
             }
         }

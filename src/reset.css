@@ -46,8 +46,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-/* nos ajouts */
-::placeholder, input[type=file]::file-selector-button, input[type=date], input[type=time], input[type=search], input[type=email] {
-    -webkit-appearance: none;
-}
