@@ -4,7 +4,23 @@
     
     import logoIeta from "../../assets/pictures/logoIeta.png"
 
-    // Menu burger
+    // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
+    let isScrolled = false;
+
+    onMount(() => {
+        const handleScroll = () => {
+            isScrolled = window.scrollY > 0;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Nettoyage pour éviter les fuites mémoire
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    });
+
+    // ==================== Menu burger ==================== //
     // État pour contrôler l'ouverture du menu
     let menuOpen = false;
 
@@ -63,52 +79,73 @@
     });
 </script>
 
-<header>
-    <div class="entreprise">
-        <a href="/" use:link aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
-        
-        <div class="entreprise-name">
-            <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
-            <p class="entreprise-name-p">Innovation, Expertise des Technologies Automobiles</p>
-        </div>
-    </div>
-
-    <div class="sticky">
-        <div class="contact">
-            <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
-            <!-- Invisible pour la partie mobile -->
-            <p class="contact-pc">Amaury Madani</p>
-            <!--  -->
-            <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
-            <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+<header class="header {isScrolled ? 'scrolled' : ''}">
+    <div class="header-content">
+        <div class="entreprise">
+            <a href="/" use:link aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
+            
+            <div class="entreprise-name">
+                <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
+                <p class="entreprise-name-p">Innovation, Expertise des Technologies Automobiles</p>
+            </div>
         </div>
     
-        <!-- <div class="nav">
-            <a href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
-        </div> -->
-
-        <button class="burger" aria-pressed={menuOpen} aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} on:click={toggleMenu}>
-            <em class="burger__bar"></em>
-        </button>
-        <!-- Mobile -->
-        {#if menuOpen}
-        <dialog class="accessibility" aria-modal="true" open>
-            <button class="mobile" aria-label="Fermer le menu" on:click="{closeMenu}">
-                <nav class="mobile-nav" >
-                    <p>IETA</p>
-                    <ul class="mobile-nav-list">
-                        <li><a href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a></li>
-                    </ul>
-                </nav>
+        <div class="sticky">
+            <div class="contact">
+                <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+                <!-- Invisible pour la partie mobile -->
+                <p class="contact-pc">Amaury Madani</p>
+                <!--  -->
+                <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+                <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+            </div>
+        
+            <!-- <div class="nav">
+                <a href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
+            </div> -->
+    
+            <button class="burger" aria-pressed={menuOpen} aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} on:click={toggleMenu}>
+                <em class="burger__bar"></em>
             </button>
-        </dialog>
-        {/if}
+            <!-- Mobile -->
+            {#if menuOpen}
+            <dialog class="accessibility" aria-modal="true" open>
+                <button class="mobile" aria-label="Fermer le menu" on:click="{closeMenu}">
+                    <nav class="mobile-nav" >
+                        <p>IETA</p>
+                        <ul class="mobile-nav-list">
+                            <li><a href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a></li>
+                        </ul>
+                    </nav>
+                </button>
+            </dialog>
+            {/if}
+        </div>
     </div>
 </header>
 
 <style lang="scss">
-    header {
+    .header {
+        position: sticky;
+        top: 0; 
+        z-index: 1; 
         background: linear-gradient(135deg, #2b2b3d, #41415c);
+        
+        &.scrolled {
+            height: 6rem; // Header réduit après scroll
+
+            .header-content {
+                transform: translateY(-5rem); // Décale le contenu vers le haut
+                transition: transform 0.6s ease; 
+            }
+        }
+
+        height: auto; 
+
+        .header-content {
+            height: auto; // Taille réelle du contenu 
+            transition: transform 0.8s ease; 
+        }
         
         .entreprise {
             display: flex;

@@ -174,6 +174,41 @@
                 width: 18rem;
             }
         }
-    }
-    
+
+        .faq {
+            background-color: white;
+            border-radius: 0.625rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+
+            h2 {
+                padding-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .accordeon {
+                border: 0.15rem solid var(--faqLogo);
+                border-radius: 0.625rem;
+                padding: 0.5rem;
+                margin-bottom: 0.5rem;
+
+                p {
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+                h4 {
+                    padding-bottom: 0.5rem;
+                }
+
+                p:last-of-type {
+                    display: none;
+                }
+
+                p[aria-hidden="false"] + h4 + p {
+                    display: block;
+                }
+            }
+        }
+    }   
 </style>
