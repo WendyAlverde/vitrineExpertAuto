@@ -1,6 +1,6 @@
 <script>
     import logoCars from "../../assets/pictures/logoCars.svg"
-
+    import {onMount} from 'svelte';
     // Formulaire de contact
     
     // téléphone
@@ -11,6 +11,21 @@
         if (value.length > 10) value = value.slice(0, 10); // Limite la longueur du numéro à 10 chiffres
         tel = value.replace(/(\d{2})(?=\d)/g, '$1.'); // Applique le format souhaité à savoir un point tout les deux chiffres
     }
+
+    // Taille du textarea de commentaire
+    let commentaire = '';
+    let textarea;
+
+    function adjustSize() {
+        if (textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = `${textarea.scrollHeight}px`;
+        }
+    }
+
+    onMount (() => {
+        adjustSize();
+    });
 </script>
 
 <section id="home">
@@ -116,7 +131,7 @@
             
             <div class="commentaire">
                 <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
-                <textarea name="commentaire" id="commentaire" required aria-required="true"></textarea>
+                <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
             </div>
             
             <button type="submit">Envoyer</button>
@@ -380,7 +395,6 @@
                         width: 50%;
                     }
                 }
-                
 
                 small {
                     font-size: 0.813rem;
@@ -399,18 +413,21 @@
                         border: 0.15rem solid var(--form);
                         border-radius: 0.625rem;
                         padding: 0.5rem;
+                        min-width: 100%;
                         max-width: 100%;
                         margin: 0.5rem 0 0.8rem;
+                        min-height: 2rem;
+                        overflow: hidden;
 
                         @media screen and (min-width: 768px) {
-                            min-width: 50%;
+                            min-width: 80%;
                             max-width: 100%;
                             display: flex;
                             flex-direction: column;
+                            // font-size: 1rem;
                         }
                     }
                 }
-
                 
                 button {
                     background-color: var(--form);
