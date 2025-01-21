@@ -1,5 +1,16 @@
 <script>
     import logoCars from "../../assets/pictures/logoCars.svg"
+
+    // Formulaire de contact
+    
+    // téléphone
+    let tel = ''; // Définition d'une variable tel avec laquelle on fait le lien dans l'input grâce a = bind:value={tel}
+
+    function formatPhoneNumber() {
+        let value = tel.replace(/\D/g, ''); // Supprime tout les caractères numériques
+        if (value.length > 10) value = value.slice(0, 10); // Limite la longueur du numéro à 10 chiffres
+        tel = value.replace(/(\d{2})(?=\d)/g, '$1.'); // Applique le format souhaité à savoir un point tout les deux chiffres
+    }
 </script>
 
 <section id="home">
@@ -63,40 +74,52 @@
             </select>
     
             <fieldset>
-                <legend>Est-elle urgente&nbsp;? <span aria-hidden="true">*</span></legend>
-                <div>
-                    <input type="radio" name="urgence" id="oui" value="oui" required>
-                    <label for="oui">Oui</label>
-                </div>
-                <div>
-                    <input type="radio" name="urgence" id="non" value="non" required>
-                    <label for="non">Non</label>
+                <legend>Est-elle urgente ? <span aria-hidden="true">*</span></legend>
+                <div class="flexRadio">
+                    <div class="radio">
+                        <input type="radio" name="urgence" id="oui" value="oui" required>
+                        <label for="oui">Oui</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="urgence" id="non" value="non" required>
+                        <label for="non">Non</label>
+                    </div>
                 </div>
             </fieldset>
     
-            <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
-            <select name="localisation" id="localisation" required aria-required="true">
-                <option value="Montpellier">Montpellier</option>
-                <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
-                <option value="Var">Var</option>
-                <option value="Gard">Gard</option>
-                <option value="Hérault">Hérault</option>
-            </select>
-    
-            <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-            <input type="text" name="nom" id="nom" required aria-required="true">
-
-            <label for="tel">Votre numéro de téléphone</label>
-            <input type="tel" name="tel" id="tel" pattern="^0[1-9]( [0-9]{2}){4}$" placeholder="01.02.03.04.05" aria-describedby="tel-format">
-
-            <label for="email">Votre e-mail</label>
-            <input type="email" name="email" id="email" placeholder="example@gmail.com" aria-describedby="email-example">
-            <small id="email-example">Saisissez une adresse valide (exemple : example@gmail.com)</small>
-    
-            <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
-            <textarea name="commentaire" id="commentaire" required aria-required="true"></textarea>
-    
-            <buttton type="submit">Envoyer</buttton>
+            <div class="localisation">
+                <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
+                <select name="localisation" id="localisation" required aria-required="true">
+                    <option value="Montpellier">Montpellier</option>
+                    <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
+                    <option value="Var">Var</option>
+                    <option value="Gard">Gard</option>
+                    <option value="Hérault">Hérault</option>
+                </select>
+            </div>
+            
+            <div class="nom">
+                <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
+                <input type="text" name="nom" id="nom" required aria-required="true">
+            </div>
+            
+            <div class="tel">
+                <label for="tel">Votre numéro de téléphone</label>
+                <input type="tel" name="tel" id="tel" bind:value={tel} pattern="^0[1-9]( [0-9]{2}){4}$" on:input={formatPhoneNumber} placeholder="01.02.03.04.05" aria-describedby="tel-format">
+            </div>
+            
+            <div class="email">
+                <label for="email">Votre e-mail</label>
+                <input type="email" name="email" id="email" placeholder="example@gmail.com" aria-describedby="email-example">
+                <small id="email-example">Saisissez une adresse valide (exemple : example@gmail.com)</small>
+            </div>
+            
+            <div class="commentaire">
+                <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
+                <textarea name="commentaire" id="commentaire" required aria-required="true"></textarea>
+            </div>
+            
+            <button type="submit">Envoyer</button>
         </form>
     </section>
 </section>
@@ -105,7 +128,17 @@
     #home {
         padding: 1rem;
 
+        @media screen and (min-width: 768px) {
+            padding: 2rem 3rem;
+        }
+
         .presentation {
+
+            @media screen and (min-width: 768px) {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+            }
 
             &-text {
                 background-color: white;
@@ -113,13 +146,13 @@
                 padding: 1rem;
                 margin-bottom: 1rem;
 
+                @media screen and (min-width: 768px) {
+                    margin-left: 1rem;
+                }
+
                 h1 {
                     padding-bottom: 0.5rem;
                 }
-
-                // p:first-of-type {
-                //     text-indent: 0.8rem; /* Indente la première ligne du premier paragraphe */
-                // }
             }
 
             &-valeurs {
@@ -127,6 +160,10 @@
                 border-radius: 0.625rem;
                 padding: 1rem;
                 margin-bottom: 1rem;
+
+                @media screen and (min-width: 768px) {
+                    height: 13rem;
+                }
 
                 h2 {
                     padding-bottom: 0.5rem;
@@ -139,6 +176,10 @@
                     flex-wrap: wrap;
                     list-style-type: disc;
                     padding-left: 1rem;
+
+                    @media screen and (min-width: 768px) {
+                        flex-direction: column;
+                    }
 
 
                     li {
@@ -217,13 +258,175 @@
                 text-align: center;
             }
 
-            label, legend {
-                font-size: 0.813rem;
-                font-weight: bold;
+            form {
+                display: flex;
+                flex-direction: column;
 
-                span {
-                    color: red;
-                    font-weight: 200;
+                @media screen and (min-width: 768px) {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+                // générale au formulaire
+                label, legend {
+                    font-size: 0.813rem;
+                    font-weight: bold;
+
+                    @media (min-width: 768px) { // Grand écran
+                        font-size: 1.375rem;
+                    }
+
+                    span {
+                        color: red;
+                        font-weight: 200;
+                    }
+                }
+
+                input {
+                    font-family: 'poppins';
+                    color: var(--form);
+                    border: 0.15rem solid var(--form);
+                    border-radius: 0.625rem;
+                    padding: 0.5rem;
+                    margin: 0.5rem 0 0.8rem;
+
+                    @media (min-width: 768px) { // Grand écran
+                        font-size: 1rem;
+                    }
+                }
+                
+                // début des balises du form
+                select {
+                    border: 0.15rem solid var(--form);
+                    border-radius: 0.625rem;
+                    margin: 0.5rem 0 0.8rem;
+                    padding: 0.5rem;
+                    width: 100%;
+                    color: var(--form);
+                    cursor: pointer;
+
+                    @media (min-width: 768px) { // Grand écran
+                        font-size: 1rem;
+                    }
+                }
+
+                fieldset {
+                    display: flex;
+
+                    @media screen and (min-width: 768px) {
+                        width: 50%;
+                    }
+                    
+                    .flexRadio {
+                        display: flex;
+                        width: 50%;
+                        justify-content: space-between;
+
+                        .radio {
+                            display: flex;
+                            align-items: center;
+
+                            input[type="radio"] {
+                                appearance: none; // Supprimer le style natif du bouton radio
+                                width: 0.8rem;
+                                height: 0.8rem;
+                                border: 0.15rem solid var(--form);
+                                border-radius: 1rem;
+                                cursor: pointer;
+                                margin-right: 0.5rem;
+
+                                &:checked {
+                                    background-color: var(--form); // Couleur lorsque sélectionné
+                                }
+                            } 
+
+                            label {
+                                @media (min-width: 768px) { // Grand écran
+                                    font-size: 1rem;
+                                }
+                            }
+                        }
+                    } 
+                }
+
+                .localisation {
+                    @media screen and (min-width: 768px) {
+                        width: 50%;
+                    }
+                }
+
+                .nom {
+                    #nom {
+                        @media screen and (min-width: 768px) {
+                            margin-right: 1rem;
+                        }
+                    }
+                }
+
+                .nom, .tel, .email {
+                    @media screen and (min-width: 768px) {
+                        display: flex;
+                        flex-direction: column;
+                        width: 50%;
+                    }
+                }
+
+                .email {
+                    width: 100%;
+                    padding-right: 1rem;
+
+                    #email {
+                        margin-bottom: 0.4rem;
+                        width: 50%;
+                    }
+                }
+                
+
+                small {
+                    font-size: 0.813rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .commentaire {
+                    @media screen and (min-width: 768px) {
+                        width: 100%;
+                    }
+
+                    textarea {
+                        resize: none;
+                        font-family: 'poppins';
+                        color: var(--form);
+                        border: 0.15rem solid var(--form);
+                        border-radius: 0.625rem;
+                        padding: 0.5rem;
+                        max-width: 100%;
+                        margin: 0.5rem 0 0.8rem;
+
+                        @media screen and (min-width: 768px) {
+                            min-width: 50%;
+                            max-width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+
+                
+                button {
+                    background-color: var(--form);
+                    border: none;
+                    border-radius: 0.625rem;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    letter-spacing: 0.02rem;
+                    padding: 0.5rem;
+                    width: 100%;
+
+                    @media (min-width: 768px) { // Grand écran
+                        font-size: 1.25rem;
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@
 
 <footer>
     <a href="/legalNotices" use:link aria-label="Aller à la page mention légales" class="legalNotices">Mention légales</a>
-    <img src={logoIeta} class="logoIeta" alt="Logo I.E.T.A : Innovation, expertise des technologies automobiles">
+    <a href="/" use:link aria-label="Retour à l'accueil"><img src={logoIeta} class="logoIeta" alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
     <a href="https://www.linkedin.com/in/amaury-m-5638a1192/" use:link aria-label="Redirection vers le profil LinkedIn d'Amaury Madani"><img src={logoLinkedIn} class="logoLinkedIn" alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani"></a>
 </footer>
 
