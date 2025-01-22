@@ -13,6 +13,19 @@
         tel = value.replace(/(\d{2})(?=\d)/g, '$1.'); // Applique le format souhaité à savoir un point tout les deux chiffres
     }
 
+    // email
+    let email = '';
+    let errorMessage = '';
+    
+    function validateEmail() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+        errorMessage = "Veuillez entrer une adresse email valide : exemple@gmail.com";
+        } else {
+        errorMessage = '';
+        }
+    }
+
     // Taille du textarea de commentaire
     let commentaire = '';
     let textarea;
@@ -66,8 +79,16 @@
         <h2>FAQ</h2>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
-            <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
+            <h3>Pourquoi faire appel à un expert en automobile ?</h3>
+            <div class="accordeon-ouvert">
+                <p>L’expertise automobile répond à plusieurs besoins techniques et pratiques :</p>
+                <ul>
+                    <li><em>Évaluation des dommages et des réparations :</em>L’expert identifie la nature des dommages, leur mode de réparation approprié etconforme aux règles de sécurité. </li>
+                    <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements :</em>Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
+                    <li><em>Estimation de la valeur des véhicules :</em>L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
+                    <li><em>Évaluation de la sécurité des véhicules :</em>Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
+                </ul>
+            </div>
         </div>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
@@ -83,7 +104,7 @@
     
     <section class="formulaire">
         <h2>Formulaire de contact</h2>
-        <form action="" method="post">
+        <form action="" method="post" on:submit|preventDefault={() => validateEmail()}>
             <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
             <select name="demande" id="demande" required aria-required="true">
                 <option value="information">Je souhaite avoir une information</option>
@@ -128,8 +149,10 @@
             
             <div class="email">
                 <label for="email">Votre e-mail</label>
-                <input type="email" name="email" id="email" placeholder="example@gmail.com" aria-describedby="email-example">
-                <small id="email-example">Saisissez une adresse valide (exemple : example@gmail.com)</small>
+                <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
+                {#if errorMessage}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem">{errorMessage}</p>
+                {/if}
             </div>
             
             <div class="commentaire">
@@ -137,7 +160,7 @@
                 <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
             </div>
             
-            <button type="submit">Envoyer</button>
+            <button type="submit" disabled={!!errorMessage}>Envoyer</button>
         </form>
     </section>
 </section>
@@ -390,18 +413,14 @@
                 }
 
                 .email {
+                    display: flex;
+                    flex-direction: column;
                     width: 100%;
                     padding-right: 1rem;
 
                     #email {
                         margin-bottom: 0.4rem;
-                        width: 50%;
                     }
-                }
-
-                small {
-                    font-size: 0.813rem;
-                    margin-bottom: 0.5rem;
                 }
 
                 .commentaire {
