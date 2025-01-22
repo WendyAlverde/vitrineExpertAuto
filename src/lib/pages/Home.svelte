@@ -45,8 +45,8 @@
 <section id="home">
     <section class="presentation">
         <div class="presentation-text">
-            <h1>Amaury Madani, expert automobile</h1>
-            <p>Fort de plusieurs années d’expérience, je met mon savoir-faire au service des <strong>automobilistes</strong> avec une approche à la fois humaine et professionnelle.<br><br> Passionné par l’<strong>automobile</strong> et animé par une volonté d’offrir un accompagnement personnalisé, je m’engage à analyser chaque situation avec rigueur et transparence. Grâce à une <strong>expertise</strong> technique pointue, il intervient dans des domaines variés tels que les <strong>litiges</strong>, les évaluations de dommages ou encore les conseils pour l’achat et la vente de véhicules.<br><br>Attentif aux besoins de ses clients, Amaury Madani privilégie toujours un dialogue clair et constructif, afin d’apporter des solutions adaptées et de garantir leur satisfaction. Confier votre <strong>véhicule</strong> à Amaury Madani, c’est faire le choix d’un expert à l’écoute, pour qui chaque détail compte.</p>
+            <h1>Amaury Madani, Expert Automobile</h1>
+            <p>Fort de plusieurs années d’expérience, nous mettons notre savoir-faire au service des <strong>automobilistes</strong> et de leur mobilité avec une approche à la fois humaine et professionnelle.<br><br> Passionnés par l’<strong>automobile</strong> et animés par une volonté d’offrir un accompagnement personnalisé, nous nous engageons à analyser chaque situation avec rigueur et transparence. Grâce à une <strong>expertise</strong> technique pointue, nous intervenons dans des domaines variés tels que les <strong>litiges</strong>, les évaluations de dommages ou encore les conseils pour l’achat et la vente de véhicules.<br><br>Attentif aux besoins de ses clients, Amaury Madani privilégie toujours un dialogue clair et constructif, afin d’apporter des solutions adaptées et de garantir leur satisfaction. Confier votre <strong>véhicule</strong> à Amaury Madani, c’est faire le choix d’un Expert à l’écoute, pour qui chaque détail compte.</p>
         </div>
         <div class="presentation-valeurs">
             <h2>Nos Valeurs</h2>
@@ -62,12 +62,9 @@
     <section class="services">
         <h2>Nos Services</h2>
         <ul>
-            <li><strong>Assistance technique lors de litige :</strong> <br>opposant des tiers professionnels ou particuliers. <br>Exemple : Suite achat d’un véhicule, mauvaise réparation, contestation d’expertise ect...</li>
-            <li><strong>Assistance :</strong> <br>à l’achat d’un véhicule d’occasion.</li>
-            <li><strong>Évaluation de véhicules :</strong> <br>de collections de prestiges et de véhicules particuliers.</li>
-            <li><strong>Conseils juridiques, audit et accompagnement :</strong> <br>auprès des professionnels de la réparation automobiles.</li>
-            <li><strong>Expertise :</strong> <br>à distance via appel vidéo.</li>
-            <li><strong>Estimation :</strong> <br> de parc automobile de véhicule de flotte entreprise.</li>
+            <li><strong>En cas de litiges... :</strong> ↓
+            <li><strong>Expertise de véhicules... :</strong> ↓</li>
+            <li><strong>Assistance a l'achat d'un véhicule d'occasion... :</strong> ↓</li>
         </ul>
     </section>
     
@@ -84,20 +81,20 @@
                 <p>L’expertise automobile répond à plusieurs besoins techniques et pratiques :</p>
                 <ul>
                     <li><em>Évaluation des dommages et des réparations :</em>L’expert identifie la nature des dommages, leur mode de réparation approprié etconforme aux règles de sécurité. </li>
-                    <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements :</em>Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
-                    <li><em>Estimation de la valeur des véhicules :</em>L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
-                    <li><em>Évaluation de la sécurité des véhicules :</em>Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
+                    <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements : </em> Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
+                    <li><em>Estimation de la valeur des véhicules : </em> L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
+                    <li><em>Évaluation de la sécurité des véhicules : </em> Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
                 </ul>
             </div>
         </div>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
+            <h3>Je viens d'acquérir un véhicule d'occasion, il est affecté d'avaries, quels sont mes recours ?</h3>
             <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
         </div>
         <div class="accordeon">
             <p aria-hidden="true">↓</p>
-            <h3>Dans quel contexte faire appel à un expert automobile ?</h3>
+            <h3>Après une prestation de réparations sur mon véhicule, j'ai remarqué qu'il présentait la même panne qu'auparavant.</h3>
             <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
         </div>
     </section>
