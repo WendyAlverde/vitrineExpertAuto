@@ -1,30 +1,152 @@
 <main>
-    <section class="legal-info">
-        <h2>Éditeur du site</h2>
-        <p>
-            Ce site est édité par le Cabinet IETA, spécialisé dans l'Innovation et l'Expertise des Technologies Automobiles.
-        </p>
-        <p>
-            Directeurs de publication : Paul *** et Wendy Alverde.
-        </p>
+    <h1>Mentions légales</h1>
 
-        <h2>Contact</h2>
-        <p>
-            Email : <a href="mailto:contact@ieta.com">contact@ieta.com</a>
-        </p>
-        <p>
-            Téléphone : <a href="tel:0123456789">01.23.45.67.89</a>
-        </p>
+    <!-- Informations légales -->
+    <section>
+        <h2>1. Informations légales</h2>
+        <ul>
+            <li><em>Dénomination sociale :</em> ***</li>
+            <li><em>Forme juridique :</em> ***</li>
+            <li><em>Adresse du siège social :</em> ***</li>
+            <li><em>Montant du capital social :</em> ***</li>
+            <li><em>Contact :</em>
+                <ul>
+                    <li>Email : ***</li>
+                    <li>Téléphone : ***</li>
+                </ul>
+            </li>
+            <li><em>Numéro RCS / RM :</em> ***</li>
+            <li><em>Hébergeur du site :</em>
+                <ul>
+                    <li>Nom : ***</li>
+                    <li>Raison sociale : ***</li>
+                    <li>Adresse : ***</li>
+                    <li>Téléphone : ***</li>
+                </ul>
+            </li>
+            <li><em>Responsable de la publication :</em> ***</li>
+            <li><em>Responsable de la rédaction (en cas de contenu éditorial) :</em> ***</li>
+        </ul>
+    </section>
 
-        <h2>Hébergement</h2>
-        <p>
-            Le site est hébergé par ***.
-        </p>
+    <!-- Utilisation des cookies -->
+    <section>
+        <h2>2. Utilisation des cookies</h2>
+        <p>Un formulaire de contact est utilisé sur ce site. Ce formulaire <em>n’utilise pas de cookies</em> pour son fonctionnement. Aucun cookie de suivi ou de statistiques n’est collecté via cette fonctionnalité.</p>
+    </section>
 
-        <h2>Données personnelles</h2>
-        <p>
-            Les informations collectées via le formulaire de contact (nom, email, téléphone, localisation) sont destinées à répondre à vos demandes.
-            Elles ne seront pas utilisées à des fins commerciales sans votre consentement.
-        </p>
+    <!-- Protection des données personnelles (RGPD) -->
+    <section>
+        <h2>3. Protection des données personnelles (RGPD)</h2>
+        <p>Le site respecte le RGPD (Règlement Général sur la Protection des Données) en vigueur depuis 2018. Les données personnelles collectées via le formulaire de contact (nom, emplacement, téléphone, email) sont traitées dans le cadre suivant :</p>
+        <ul>
+            <li><em>Responsable du traitement des données :</em> ***</li>
+            <li><em>Finalité du traitement :</em> Les informations recueillies permettent de répondre aux demandes effectuées via le formulaire de contact.</li>
+            <li><em>Base légale justifiant le traitement :</em> Consentement explicite donné par l’utilisateur lors de la soumission du formulaire.</li>
+            <li><em>Caractère obligatoire ou facultatif :</em> Les champs du formulaire marqués comme obligatoires doivent être remplis pour envoyer une demande.</li>
+            <li><em>Personnes ayant accès aux données collectées :</em> ***</li>
+            <li><em>Durée de conservation :</em> Les données sont conservées pendant une durée de *** mois/années.</li>
+            <li><em>Droits des utilisateurs :</em>
+                <ul>
+                    <li>Droit d’accès à leurs données.</li>
+                    <li>Droit de rectification ou de suppression de leurs données.</li>
+                    <li>Droit de refuser le traitement de leurs données.</li>
+                    <li>Droit de portabilité des données sur demande.</li>
+                    <li>Possibilité de déposer plainte auprès de la CNIL.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : ***.</p>
     </section>
 </main>
+
+<style lang="scss">
+
+    main {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: var(--text);
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        color: var(--text);
+        margin-top: 2rem;
+        border-bottom: 2px solid var(--text);
+        padding-bottom: 0.5rem;
+    }
+
+    ul {
+        margin-left: 1.5rem;
+        padding-left: 0;
+        list-style-type: none;
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+
+            em {
+                color: var(--text);
+                font-weight: bold;
+            }
+
+            ul {
+                margin-left: 1rem;
+                list-style-type: disc;
+
+                li {
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1rem 0;
+
+        a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+            text-decoration: underline;
+            }
+        }
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        main {
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        p, ul li {
+            font-size: 0.95rem;
+        }
+    }
+</style>

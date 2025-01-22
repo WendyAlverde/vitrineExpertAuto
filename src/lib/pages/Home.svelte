@@ -1,7 +1,8 @@
 <script>
     import logoCars from "../../assets/pictures/logoCars.svg"
     import {onMount} from 'svelte';
-    // Formulaire de contact
+
+    // ==================== Formulaire de contact ==================== //
     
     // téléphone
     let tel = ''; // Définition d'une variable tel avec laquelle on fait le lien dans l'input grâce a = bind:value={tel}
@@ -39,7 +40,7 @@
             <ul>
                 <li>Impartialité</li>
                 <li>Intégrité</li>
-                <li>indépendance</li>
+                <li>Indépendance</li>
                 <li>Excellence</li>
             </ul>
         </div>
@@ -48,10 +49,12 @@
     <section class="services">
         <h2>Nos Services</h2>
         <ul>
-            <li>Partenariat juridique : <br> Lorem ipsum dolor sit amet .</li>
-            <li>Blablabla : <br> Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-            <li>Blablabla2 : <br> Dolor sit amet consectetur adipisicing elit.</li>
-            <li>... : <br> Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            <li><strong>Assistance technique lors de litige :</strong> <br>opposant des tiers professionnels ou particuliers. <br>Exemple : Suite achat d’un véhicule, mauvaise réparation, contestation d’expertise ect...</li>
+            <li><strong>Assistance :</strong> <br>à l’achat d’un véhicule d’occasion.</li>
+            <li><strong>Évaluation de véhicules :</strong> <br>de collections de prestiges et de véhicules particuliers.</li>
+            <li><strong>Conseils juridiques, audit et accompagnement :</strong> <br>auprès des professionnels de la réparation automobiles.</li>
+            <li><strong>Expertise :</strong> <br>à distance via appel vidéo.</li>
+            <li><strong>Estimation :</strong> <br> de parc automobile de véhicule de flotte entreprise.</li>
         </ul>
     </section>
     
@@ -181,7 +184,7 @@
                 }
 
                 h2 {
-                    padding-bottom: 0.5rem;
+                    padding-bottom: 0.8rem;
                     text-align: center;
                 }
 
@@ -212,20 +215,20 @@
             margin-bottom: 1rem;
 
             h2 {
-                padding-bottom: 0.5rem;
+                padding-bottom: 0.8rem;
                 text-align: center;
             }
 
             ul {
                 display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
+                flex-direction: column;
                 list-style-type: disc;
-                padding-left: 1rem;
+                padding-left: 1.1rem;
+                // margin: 0 0.5rem;
 
                 li {
-                    width: 50%;
                     list-style-type: inherit; 
+                    padding-bottom: 0.8rem;
                 }
             }
         }
@@ -245,7 +248,7 @@
             margin-bottom: 1rem;
 
             h2 {
-                padding-bottom: 0.5rem;
+                padding-bottom: 0.8rem;
                 text-align: center;
             }
 
@@ -269,7 +272,7 @@
             color: var(--form);
 
             h2 {
-                padding-bottom: 0.5rem;
+                padding-bottom: 0.8rem;
                 text-align: center;
             }
 
