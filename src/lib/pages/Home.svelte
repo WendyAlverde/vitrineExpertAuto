@@ -3,7 +3,8 @@
     import {onMount} from 'svelte';
 
     // Import composants
-    import Accordion from '../components/Accordion.svelte';
+    import AccordionFaq from '../components/AccordionFaq.svelte';
+    import AccordionServices from '../components/AccordionServices.svelte';
 
     // Import images
     import logoBerline from "../../assets/pictures/logosAmaury/berline.webp"
@@ -77,11 +78,7 @@
 
     <section class="services">
         <h2>Nos Services</h2>
-        <ul>
-            <li><strong>En cas de litiges... :</strong> ↓
-            <li><strong>Expertise de véhicules... :</strong> ↓</li>
-            <li><strong>Assistance a l'achat d'un véhicule d'occasion... :</strong> ↓</li>
-        </ul>
+        <AccordionServices />
     </section>
     
     <section class="logoVehicules">
@@ -96,7 +93,7 @@
     
     <section class="faq">
         <h2>Foire aux Questions</h2>
-        <Accordion />
+        <AccordionFaq />
     </section>
     
     <section class="formulaire">
