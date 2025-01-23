@@ -14,9 +14,6 @@
     import logoJustice from "../../assets/pictures/logosAmaury/justice.webp"
     import logoCollection from "../../assets/pictures/logosAmaury/collection.webp"
 
-    // ==================== Accordion ==================== //
-    export let title = "FAQ"; 
-
     // ==================== Formulaire de contact ==================== //
     
     // téléphone
@@ -97,67 +94,10 @@
         <img src={logoJustice} alt="Juridique">
     </section>
     
-
     <section class="faq">
-        <h2>{title}</h2>
+        <h2>Foire aux Questions</h2>
         <Accordion />
     </section>
-
-    <!-- <section class="faq">
-        <h2>FAQ</h2> -->
-        <!-- <div class="accordeon">
-            {#each questions as question, index}
-                <div class="accordeon-item">
-                    <div class="accordion-header" on:click={() => toggleAccordion(index)}>
-                        <h3>{question.title}</h3>
-                        <p aria-hidden="true" class="arrow" class:down={openIndex === index}>↓</p>
-                    </div>
-                    {#if openIndex === index}
-                        <div class="accordeon-ouvert">
-                            <p>{question.content}</p>
-                        </div>
-                    {/if}
-                </div>
-            {/each} -->
-            <!-- <div class="accordion-header" on:click={toggleAccordion}>
-                <h3>{title}Pourquoi faire appel à un expert en automobile ?</h3>
-                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
-                {#if isOpen}
-                <div class="accordeon-ouvert">
-                    <p>L’expertise automobile répond à plusieurs besoins techniques et pratiques :</p>
-                    <ul>
-                        <li><em>Évaluation des dommages et des réparations :</em>L’expert identifie la nature des dommages, leur mode de réparation approprié etconforme aux règles de sécurité. </li>
-                        <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements : </em> Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
-                        <li><em>Estimation de la valeur des véhicules : </em> L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
-                        <li><em>Évaluation de la sécurité des véhicules : </em> Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
-                    </ul>
-                </div>
-                {/if}
-            </div>
-        </div>
-        <div class="accordeon">
-            <div class="accordion-header" on:click={toggleAccordion}>
-                <h3>{title}Je viens d'acquérir un véhicule d'occasion, il est affecté d'avaries, quels sont mes recours ?</h3>
-                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
-                {#if isOpen}
-                <div class="accordeon-ouvert">
-                    <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude.</p>
-                </div>
-                {/if}
-            </div>
-        </div>
-        <div class="accordeon">
-            <div class="accordion-header" on:click={toggleAccordion}>
-                <h3>{title}Après une prestation de réparations sur mon véhicule, j'ai remarqué qu'il présentait la même panne qu'auparavant.</h3>
-                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
-                {#if isOpen}
-                <div class="accordeon-ouvert">
-                    <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude.</p>
-                </div>
-                {/if}
-            </div>
-        </div> -->
-    <!-- </section> -->
     
     <section class="formulaire">
         <h2>Formulaire de contact</h2>
@@ -333,17 +273,6 @@
                 padding-bottom: 0.8rem;
                 text-align: center;
             }
-
-            // .accordeon {
-            //     border: 0.15rem solid var(--faqLogo);
-            //     border-radius: 0.625rem;
-            //     padding: 0.5rem;
-            //     margin-bottom: 0.5rem;
-
-            //     p:last-of-type {
-            //         display: none;
-            //     }
-            // }
         }
 
         .formulaire {
