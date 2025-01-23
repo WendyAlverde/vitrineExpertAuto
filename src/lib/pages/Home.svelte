@@ -1,7 +1,26 @@
 <script>
-    import logoCars from "../../assets/pictures/logoCars.svg"
+    // Import Svelte
     import {onMount} from 'svelte';
+    
+    // Import images
+    import logoBerline from "../../assets/pictures/logosAmaury/berline.webp"
+    import logoTruck from "../../assets/pictures/logosAmaury/camion.webp"
+    import logoPorsche from "../../assets/pictures/logosAmaury/porsche.webp"
+    import logoMoto from "../../assets/pictures/logosAmaury/moto.webp"
+    import logoTractor from "../../assets/pictures/logosAmaury/tracteur.webp"
+    import logoJustice from "../../assets/pictures/logosAmaury/justice.webp"
+    import logoCollection from "../../assets/pictures/logosAmaury/collection.webp"
 
+    // ==================== Accordion ==================== //
+    export let title;
+    export let children;
+
+    let isOpen = false;
+
+    const toggleAccordion = () => {
+        isOpen = !isOpen;
+    };
+    
     // ==================== Formulaire de contact ==================== //
     
     // téléphone
@@ -18,7 +37,11 @@
     let errorMessage = '';
     
     function validateEmail() {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // vérifie la validité d'une adresse email en respectant les règles suivantes :
+        // - La partie avant le @ peut contenir des lettres, chiffres et certains caractères spéciaux (., _, %, +, -).
+        // - Un seul @ est autorisé, suivi par le nom de domaine (lettres, chiffres, tirets, et points).
+        // - L'email doit se terminer par un TLD valide (ex. .com, .fr) contenant au moins 2 lettres.
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(email)) {
         errorMessage = "Veuillez entrer une adresse email valide : exemple@gmail.com";
         } else {
@@ -69,34 +92,56 @@
     </section>
     
     <section class="logoVehicules">
-        <img src={logoCars} alt="Voiture citadine">
+        <img src={logoBerline} alt="Berline">
+        <img src={logoCollection} alt="Voiture de collection">
+        <img src={logoTruck} alt="Camion">
+        <img src={logoPorsche} alt="Voiture de sport">
+        <img src={logoMoto} alt="Deux roues motorisés">
+        <img src={logoTractor} alt="Véhicule agricole">
+        <img src={logoJustice} alt="Juridique">
     </section>
     
     <section class="faq">
         <h2>FAQ</h2>
-        <div class="accordeon">
-            <p aria-hidden="true">↓</p>
-            <h3>Pourquoi faire appel à un expert en automobile ?</h3>
-            <div class="accordeon-ouvert">
-                <p>L’expertise automobile répond à plusieurs besoins techniques et pratiques :</p>
-                <ul>
-                    <li><em>Évaluation des dommages et des réparations :</em>L’expert identifie la nature des dommages, leur mode de réparation approprié etconforme aux règles de sécurité. </li>
-                    <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements : </em> Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
-                    <li><em>Estimation de la valeur des véhicules : </em> L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
-                    <li><em>Évaluation de la sécurité des véhicules : </em> Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
-                </ul>
+        <!-- <div class="accordeon">
+            <div class="accordion-header" on:click={toggleAccordion}>
+                <h3>{title}Pourquoi faire appel à un expert en automobile ?</h3>
+                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
+                {#if isOpen}
+                <div class="accordeon-ouvert">
+                    <p>L’expertise automobile répond à plusieurs besoins techniques et pratiques :</p>
+                    <ul>
+                        <li><em>Évaluation des dommages et des réparations :</em>L’expert identifie la nature des dommages, leur mode de réparation approprié etconforme aux règles de sécurité. </li>
+                        <li><em>Recherche des causes et des origines des sinistres ou dysfonctionnements : </em> Cela peut inclure l’analyse d’un défaut de conformité, une malfaçon, ou encore un litige dans le cadre d’une vente ou d’un achat.</li>
+                        <li><em>Estimation de la valeur des véhicules : </em> L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.</li>
+                        <li><em>Évaluation de la sécurité des véhicules : </em> Garantir que les véhicules respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.</li>
+                    </ul>
+                </div>
+                {/if}
             </div>
         </div>
         <div class="accordeon">
-            <p aria-hidden="true">↓</p>
-            <h3>Je viens d'acquérir un véhicule d'occasion, il est affecté d'avaries, quels sont mes recours ?</h3>
-            <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
+            <div class="accordion-header" on:click={toggleAccordion}>
+                <h3>{title}Je viens d'acquérir un véhicule d'occasion, il est affecté d'avaries, quels sont mes recours ?</h3>
+                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
+                {#if isOpen}
+                <div class="accordeon-ouvert">
+                    <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude.</p>
+                </div>
+                {/if}
+            </div>
         </div>
         <div class="accordeon">
-            <p aria-hidden="true">↓</p>
-            <h3>Après une prestation de réparations sur mon véhicule, j'ai remarqué qu'il présentait la même panne qu'auparavant.</h3>
-            <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude. </p>
-        </div>
+            <div class="accordion-header" on:click={toggleAccordion}>
+                <h3>{title}Après une prestation de réparations sur mon véhicule, j'ai remarqué qu'il présentait la même panne qu'auparavant.</h3>
+                <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
+                {#if isOpen}
+                <div class="accordeon-ouvert">
+                    <p>En cas d’accident pour évaluer les dommages subis par votre véhicule et déterminer le coût des réparations. Pour vérifier l’état général d’un véhicule ou évaluer la valeur d’un véhicule lors d’un achat en vérifiant qu’il ne présente pas de vices cachés. En cas de litiges ou désaccord ou un soupçon de fraude.</p>
+                </div>
+                {/if}
+            </div>
+        </div> -->
     </section>
     
     <section class="formulaire">
@@ -258,6 +303,8 @@
 
             img {
                 width: 18rem;
+                max-width: 5rem;
+                
             }
         }
 
