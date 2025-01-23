@@ -1,7 +1,10 @@
 <script>
     // Import Svelte
     import {onMount} from 'svelte';
-    
+
+    // Import composants
+    import Accordion from '../components/Accordion.svelte';
+
     // Import images
     import logoBerline from "../../assets/pictures/logosAmaury/berline.webp"
     import logoTruck from "../../assets/pictures/logosAmaury/camion.webp"
@@ -12,15 +15,8 @@
     import logoCollection from "../../assets/pictures/logosAmaury/collection.webp"
 
     // ==================== Accordion ==================== //
-    export let title;
-    export let children;
+    export let title = "FAQ"; 
 
-    let isOpen = false;
-
-    const toggleAccordion = () => {
-        isOpen = !isOpen;
-    };
-    
     // ==================== Formulaire de contact ==================== //
     
     // téléphone
@@ -101,10 +97,29 @@
         <img src={logoJustice} alt="Juridique">
     </section>
     
+
     <section class="faq">
-        <h2>FAQ</h2>
+        <h2>{title}</h2>
+        <Accordion />
+    </section>
+
+    <!-- <section class="faq">
+        <h2>FAQ</h2> -->
         <!-- <div class="accordeon">
-            <div class="accordion-header" on:click={toggleAccordion}>
+            {#each questions as question, index}
+                <div class="accordeon-item">
+                    <div class="accordion-header" on:click={() => toggleAccordion(index)}>
+                        <h3>{question.title}</h3>
+                        <p aria-hidden="true" class="arrow" class:down={openIndex === index}>↓</p>
+                    </div>
+                    {#if openIndex === index}
+                        <div class="accordeon-ouvert">
+                            <p>{question.content}</p>
+                        </div>
+                    {/if}
+                </div>
+            {/each} -->
+            <!-- <div class="accordion-header" on:click={toggleAccordion}>
                 <h3>{title}Pourquoi faire appel à un expert en automobile ?</h3>
                 <p aria-hidden="true" class="arrow" class:down={isOpen}>↓</p>
                 {#if isOpen}
@@ -142,7 +157,7 @@
                 {/if}
             </div>
         </div> -->
-    </section>
+    <!-- </section> -->
     
     <section class="formulaire">
         <h2>Formulaire de contact</h2>
@@ -319,16 +334,16 @@
                 text-align: center;
             }
 
-            .accordeon {
-                border: 0.15rem solid var(--faqLogo);
-                border-radius: 0.625rem;
-                padding: 0.5rem;
-                margin-bottom: 0.5rem;
+            // .accordeon {
+            //     border: 0.15rem solid var(--faqLogo);
+            //     border-radius: 0.625rem;
+            //     padding: 0.5rem;
+            //     margin-bottom: 0.5rem;
 
-                p:last-of-type {
-                    display: none;
-                }
-            }
+            //     p:last-of-type {
+            //         display: none;
+            //     }
+            // }
         }
 
         .formulaire {
