@@ -12,7 +12,7 @@
             content: "..."
         },
         {
-            title: "Assistance a l'achat d'un véhicule d'occasion... :",
+            title: "Assistance à l'achat d'un véhicule d'occasion... :",
             content: "..."
         }
     ];

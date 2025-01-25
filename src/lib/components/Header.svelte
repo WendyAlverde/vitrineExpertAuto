@@ -34,16 +34,21 @@
     
         <div class="sticky">
             <div class="contact">
-                <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
-                <!-- Invisible pour la partie mobile -->
-                <p class="contact-pc">Amaury Madani</p>
-                <!--  -->
-                <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
-                <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+                <div  class="contact-gauche">
+                    <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+                    <!-- Invisible pour la partie mobile -->
+                    <p class="contact-pc">Amaury Madani</p>
+                    <!--  -->
+                    <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+                </div>
+                <div  class="contact-droite">
+                    <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+                    <a class="accueil-mobile" href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
+                </div>
+                
             </div>
-        
             <div class="nav">
-                <a href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="accueil-tablette" href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
             </div>
         </div>
     </div>
@@ -75,31 +80,45 @@
         .entreprise {
             display: flex;
             align-items: center;
+            padding: 0 0.5rem;
+            position: relative;
+            
 
-            img {
-                width: 7rem;
+            a {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                img {
+                    width: 7rem;
+                }
             }
+            
 
             &-name { 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin-left: 7rem;
+                height: 6rem;
 
                 &-titre {
                     font-weight: bold;
-                    font-size: 0.938rem;
+                    
                     color: white;
                     letter-spacing: 0.07rem;
                     padding-bottom: 0.2rem;
 
                     em {
                         letter-spacing: 0.3rem;
-                        font-size: 1rem;
+                        
                     }
                 }
 
                 &-p {
-                    font-size: 0.7rem;
+                    
                     color: white;
                     letter-spacing: 0.03rem;
                     text-align: center;
@@ -111,23 +130,118 @@
         .sticky {
 
             .contact {
+                padding: 0.5rem;
+                display: flex;
+                width: 100%;
+
+                @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                    padding: 0;
+                }
+                
+                &-gauche {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 50%;
+                    height: 5rem;
+
+                    .contact-pc {
+                        display: none;
+
+                        @media screen and (min-width: 768px) {
+                            display: block;
+                            color: white;
+                        }
+                    }
+
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        flex-direction: row;
+                        width: 80%;
+                        justify-content: space-around;
+                        height: 4.5rem;
+                    }
+
+                    @media screen and (min-width: 1440px) {
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 60%;
+                    }
+                }
+
+                &-droite {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    height: 5rem;
+
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        flex-direction: row;
+                        width: 20%;
+                        justify-content: space-around;
+                        align-items: center;
+                        height: 4.5rem;
+                    }
+
+                    @media screen and (min-width: 1440px) {
+                        flex-direction: row;
+                        justify-content: space-around;
+                        align-items: center;
+                        width: 40%;
+                    }
+
+                    .accueil-mobile {
+                        color: var(--clickableElement);
+
+                        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                            display: none;
+                        }
+                    }
+                }
 
                 a {
                     color: white;
-                    font-size: 0.8rem;
                     letter-spacing: 0.05rem;
                     cursor: pointer;
+                    text-align: center;
+                    margin-bottom: 0.5rem;
+                    height: 50%;
+                    align-content: center;
+
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        margin-bottom: 0;
+                    }
+
+                    @media screen and (min-width: 1440px) {
+                        margin-bottom: 0;
+                    }
                 }
 
                 &-form {
                     background-color: var(--clickableElement);
                     border-radius: 0.4rem;
-                    padding: 0.3rem 0.55rem;
+                    padding: 0.3rem;
+
+                    @media screen and (min-width: 768px) {
+                        padding: 0.2rem 1rem;
+                    }
                 }
 
                 .form {
                     color: var(--backgroundComponents);
                     font-weight: bold;
+                }
+
+                .form, .contact-tel {
+                    margin-bottom: 1rem;
+
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        margin-bottom: 0;
+                    }
+
+                    @media screen and (min-width: 1440px) {
+                        margin-bottom: 0;
+                    }
                 }
 
                 &-pc {
@@ -136,10 +250,17 @@
             }
 
             .nav {
+                display: none;
+
+                @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                    display: flex;
+                    justify-content: center;
+                    padding-bottom: 1rem;
+                }
 
                 a {
                     color: var(--clickableElement);
-                    font-size: 0.8rem;
+                    // font-size: 0.8rem;
                     letter-spacing: 0.05rem;
                     cursor: pointer; 
                 }
