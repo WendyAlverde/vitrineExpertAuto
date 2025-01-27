@@ -6,6 +6,7 @@
 
     // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
     let isScrolled = false;
+    
     onMount(() => {
         const handleScroll = () => {
             isScrolled = window.scrollY > 0;

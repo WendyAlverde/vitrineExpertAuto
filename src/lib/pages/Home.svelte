@@ -162,13 +162,10 @@
 </section>
 
 <style lang="scss">
-
-    // #home {
-    //     scroll-margin-top: 5rem;
-    // }
-
     #home {
         padding: 1rem;
+
+        scroll-margin-top: 5rem;
 
         @media screen and (min-width: 768px) {
             padding: 2rem 3rem;
@@ -268,7 +265,7 @@
         }
 
         #contact-form {
-            scroll-margin-top: 5rem;
+            scroll-margin-top: 6rem;
         }
 
         .formulaire {
@@ -381,6 +378,8 @@
                 }
 
                 .nom {
+                    display: flex;
+                    flex-direction: column;
                     #nom {
                         @media screen and (min-width: 768px) {
                             margin-right: 1rem;
