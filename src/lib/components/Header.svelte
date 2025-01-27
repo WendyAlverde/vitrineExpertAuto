@@ -1,30 +1,29 @@
 <script>
     import {link} from "svelte-spa-router"
     import { onMount } from 'svelte';
-    
+
     import logoIeta from "../../assets/pictures/logoIeta.png"
 
     // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
     let isScrolled = false;
-
     onMount(() => {
         const handleScroll = () => {
+            console.log("ScrollY:", window.scrollY);
             isScrolled = window.scrollY > 0;
         };
-
         window.addEventListener("scroll", handleScroll);
-
         // Nettoyage pour éviter les fuites mémoire
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
     });
+
 </script>
 
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="/" use:link aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
+            <a href="#home" aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
             
             <div class="entreprise-name">
                 <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
@@ -35,7 +34,7 @@
         <div class="sticky">
             <div class="contact">
                 <div  class="contact-gauche">
-                    <a href="/" use:link class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+                    <a href="#contact-form" class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
                     <!--  -->
@@ -43,18 +42,25 @@
                 </div>
                 <div  class="contact-droite">
                     <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
-                    <a class="accueil-mobile" href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
+                    <a class="accueil-mobile" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 </div>
                 
             </div>
+
+            <!-- Partie Laptop -->
             <div class="nav">
-                <a class="accueil-tablette" href="/" use:link aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="accueil-tablette" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
             </div>
         </div>
     </div>
 </header>
 
 <style lang="scss">
+    
+    #home {
+        scroll-margin-top: 5rem;
+    }
+
     .header {
         position: sticky;
         top: 0; 
@@ -63,15 +69,12 @@
         
         &.scrolled {
             height: 6rem; // Header réduit après scroll
-
             .header-content {
                 transform: translateY(-5rem); // Décale le contenu vers le haut
                 transition: transform 0.6s ease; 
             }
         }
-
         height: auto; 
-
         .header-content {
             height: auto; // Taille réelle du contenu 
             transition: transform 0.8s ease; 
@@ -133,6 +136,7 @@
                 padding: 0.5rem;
                 display: flex;
                 width: 100%;
+                
 
                 @media screen and (min-width: 1024px) and (max-width: 1439px) {
                     padding: 0;
@@ -148,7 +152,7 @@
                     .contact-pc {
                         display: none;
 
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 1024px) {
                             display: block;
                             color: white;
                         }
@@ -249,6 +253,7 @@
                 }
             }
 
+            // Partie Laptop
             .nav {
                 display: none;
 

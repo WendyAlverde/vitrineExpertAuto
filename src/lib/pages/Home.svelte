@@ -57,6 +57,8 @@
     onMount (() => {
         adjustSize();
     });
+
+    
 </script>
 
 <section id="home">
@@ -96,7 +98,7 @@
         <AccordionFaq />
     </section>
     
-    <section class="formulaire">
+    <section id="contact-form" class="formulaire">
         <h2>Formulaire de contact</h2>
         <form action="" method="post" on:submit|preventDefault={() => validateEmail()}>
             <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
@@ -252,6 +254,7 @@
 
         .logoVehicules {
             margin-bottom: 1rem;
+            
 
             img {
                 width: 18rem;
@@ -270,6 +273,10 @@
                 padding-bottom: 0.8rem;
                 text-align: center;
             }
+        }
+
+        #contact-form {
+            scroll-margin-top: 5rem;
         }
 
         .formulaire {
