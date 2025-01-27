@@ -8,7 +8,6 @@
     let isScrolled = false;
     onMount(() => {
         const handleScroll = () => {
-            console.log("ScrollY:", window.scrollY);
             isScrolled = window.scrollY > 0;
         };
         window.addEventListener("scroll", handleScroll);
@@ -56,25 +55,43 @@
 </header>
 
 <style lang="scss">
-    
-    #home {
-        scroll-margin-top: 5rem;
-    }
 
     .header {
         position: sticky;
         top: 0; 
         z-index: 1; 
         background: linear-gradient(135deg, #2b2b3d, #41415c);
+        height: auto;
         
         &.scrolled {
             height: 6rem; // Header réduit après scroll
+
+            @media (min-width: 768px) { // Tablette
+                height: 7rem;
+            }
+
+            @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
+                height: 7rem;
+            }
+
+            @media screen and (min-width: 1440px) { // Laptop
+                height: 5.5rem;
+            }
+
             .header-content {
-                transform: translateY(-5rem); // Décale le contenu vers le haut
+                transform: translateY(-5.5rem); // Décale le contenu vers le haut
                 transition: transform 0.6s ease; 
+
+                @media screen and (min-width: 1024px) { // Laptop
+                    transform: translateY(-6.2rem); // Décale le contenu vers le haut
+                }
+
+                @media screen and (min-width: 1024px) { // Laptop
+                    transform: translateY(-6.2rem); // Décale le contenu vers le haut
+                }
             }
         }
-        height: auto; 
+
         .header-content {
             height: auto; // Taille réelle du contenu 
             transition: transform 0.8s ease; 
@@ -92,11 +109,19 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+
                 img {
                     width: 7rem;
+
+                    @media (min-width: 768px) { // Tablette
+                        width: 7.5rem;
+                    }
+
+                    @media (min-width: 1024px) { // Laptop
+                        width: 8rem;
+                    }
                 }
             }
-            
 
             &-name { 
                 display: flex;
@@ -116,7 +141,11 @@
 
                     em {
                         letter-spacing: 0.3rem;
-                        
+                        font-size: 1rem;
+
+                        @media (min-width: 768px) { // Tablette
+                            font-size: 1.8rem;
+                        }
                     }
                 }
 
@@ -136,9 +165,12 @@
                 padding: 0.5rem;
                 display: flex;
                 width: 100%;
-                
 
-                @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                @media (min-width: 768px) { // Tablette
+                    padding-bottom: 1rem;
+                }
+
+                @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
                     padding: 0;
                 }
                 
@@ -152,20 +184,20 @@
                     .contact-pc {
                         display: none;
 
-                        @media screen and (min-width: 1024px) {
+                        @media screen and (min-width: 1024px) { // Laptop
                             display: block;
                             color: white;
                         }
                     }
 
-                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
                         flex-direction: row;
                         width: 80%;
                         justify-content: space-around;
                         height: 4.5rem;
                     }
 
-                    @media screen and (min-width: 1440px) {
+                    @media screen and (min-width: 1440px) { // Grand écran
                         flex-direction: row;
                         justify-content: space-around;
                         align-items: center;

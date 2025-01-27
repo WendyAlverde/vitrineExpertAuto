@@ -162,6 +162,11 @@
 </section>
 
 <style lang="scss">
+
+    // #home {
+    //     scroll-margin-top: 5rem;
+    // }
+
     #home {
         padding: 1rem;
 
@@ -236,19 +241,6 @@
             h2 {
                 padding-bottom: 0.8rem;
                 text-align: center;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: column;
-                list-style-type: disc;
-                padding-left: 1.1rem;
-                // margin: 0 0.5rem;
-
-                li {
-                    list-style-type: inherit; 
-                    padding-bottom: 0.8rem;
-                }
             }
         }
 
