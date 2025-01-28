@@ -7,13 +7,12 @@
     import AccordionServices from '../components/AccordionServices.svelte';
 
     // Import images
-    import logoBerline from "../../assets/pictures/véhicules/berline.webp";
-    import logoTruck from "../../assets/pictures/véhicules/camion.webp";
-    import logoPorsche from "../../assets/pictures/véhicules/porsche.webp";
-    import logoMoto from "../../assets/pictures/véhicules/moto.webp";
-    import logoTractor from "../../assets/pictures/véhicules/tracteur.webp";
-    import logoCollection from "../../assets/pictures/véhicules/collection.webp";
-    import logoJustice from "../../assets/pictures/logosAmaury/justice.webp"
+    import logoBerline from "../../assets/pictures/vehicules/berline.webp";
+    import logoTruck from "../../assets/pictures/vehicules/camion.webp";
+    import logoPorsche from "../../assets/pictures/vehicules/porsche.webp";
+    import logoMoto from "../../assets/pictures/vehicules/moto.webp";
+    import logoTractor from "../../assets/pictures/vehicules/tracteur.webp";
+    import logoCollection from "../../assets/pictures/vehicules/collection.webp";
 
     // ==================== Formulaire de contact ==================== //
     
@@ -57,8 +56,6 @@
     onMount (() => {
         adjustSize();
     });
-
-    
 </script>
 
 <section id="home">
@@ -90,7 +87,7 @@
         <img src={logoPorsche} alt="Voiture de sport">
         <img src={logoMoto} alt="Deux roues motorisés">
         <img src={logoTractor} alt="Véhicule agricole">
-        <img src={logoJustice} alt="Juridique">
+        <!-- <img src={logoJustice} alt="Juridique"> -->
     </section>
     
     <section class="faq">
@@ -233,7 +230,6 @@
             background-color: white;
             border-radius: 0.625rem;
             padding: 1rem;
-            margin-bottom: 1rem;
 
             h2 {
                 padding-bottom: 0.8rem;
@@ -242,13 +238,27 @@
         }
 
         .logoVehicules {
-            margin-bottom: 1rem;
-            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
 
             img {
-                width: 18rem;
-                max-width: 5rem;
-                
+                width: 5rem;
+                margin: 1rem 0.5rem;
+
+                @media screen and (min-width: 768px) { // Tablette
+                    width: 6rem;
+                }
+
+                @media screen and (min-width: 1024px) { // Laptop
+                    width: 7.5rem;
+                    margin: 1rem;
+                }
+
+                @media screen and (min-width: 1440px) { // Grand écran
+                    width: 9rem;
+                    margin: 1rem 2.5rem;
+                }
             }
         }
 
@@ -294,7 +304,7 @@
                     font-size: 0.813rem;
                     font-weight: bold;
 
-                    @media (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Grand écran
                         font-size: 1.375rem;
                     }
 
@@ -312,7 +322,7 @@
                     padding: 0.5rem;
                     margin: 0.5rem 0 0.8rem;
 
-                    @media (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Grand écran
                         font-size: 1rem;
                     }
                 }
@@ -327,7 +337,7 @@
                     color: var(--form);
                     cursor: pointer;
 
-                    @media (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Grand écran
                         font-size: 1rem;
                     }
                 }
@@ -363,7 +373,7 @@
                             } 
 
                             label {
-                                @media (min-width: 768px) { // Grand écran
+                                @media screen and (min-width: 768px) { // Grand écran
                                     font-size: 1rem;
                                 }
                             }
@@ -378,8 +388,7 @@
                 }
 
                 .nom {
-                    display: flex;
-                    flex-direction: column;
+
                     #nom {
                         @media screen and (min-width: 768px) {
                             margin-right: 1rem;
@@ -388,16 +397,15 @@
                 }
 
                 .nom, .tel, .email {
+                    display: flex;
+                    flex-direction: column;
+
                     @media screen and (min-width: 768px) {
-                        display: flex;
-                        flex-direction: column;
                         width: 50%;
                     }
                 }
 
                 .email {
-                    display: flex;
-                    flex-direction: column;
                     width: 100%;
                     padding-right: 1rem;
 
@@ -446,7 +454,7 @@
                     padding: 0.5rem;
                     width: 100%;
 
-                    @media (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Grand écran
                         font-size: 1.25rem;
                     }
                 }
