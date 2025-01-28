@@ -15,9 +15,19 @@
         "/": Home,
         "/legalNotices": LegalNotices,
         "*": NotFound,
+    };
+
+    const onRouteLoaded = () => {
+        // Forcer le scroll en haut de la page
+        window.scrollTo(0, 0);
+    };
+
+    // Empêcher le navigateur de restaurer la position de scroll automatiquement
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
     }
 </script>
 
 <Header />
-<Router {routes} />
+<Router {routes} on:routeLoaded={onRouteLoaded} />
 <Footer />

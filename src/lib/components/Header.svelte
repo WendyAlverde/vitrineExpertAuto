@@ -1,12 +1,12 @@
 <script>
     import {link} from "svelte-spa-router"
     import { onMount } from 'svelte';
-
     import logoIeta from "../../assets/pictures/logoIeta.png"
 
     // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
-    let isScrolled = false;
+    let isScrolled = false;    
     
+
     onMount(() => {
         const handleScroll = () => {
             isScrolled = window.scrollY > 0;
@@ -17,6 +17,16 @@
             window.removeEventListener("scroll", handleScroll);
         };
     });
+
+    const scrollToAnchor = (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du navigateur
+        const targetId = event.target.getAttribute('href').substring(1); // Récupère l'ID cible (sans le #)
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll fluide vers l'élément cible
+        }
+    };
 
 </script>
 
@@ -34,7 +44,7 @@
         <div class="sticky">
             <div class="contact">
                 <div  class="contact-gauche">
-                    <a href="#contact-form" class="contact-form form">Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+                    <a href="#contact-form" class="contact-form form" onclick={scrollToAnchor}>Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
                     <!--  -->
