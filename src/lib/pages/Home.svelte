@@ -7,13 +7,13 @@
     import AccordionServices from '../components/AccordionServices.svelte';
 
     // Import images
-    import logoBerline from "../../assets/pictures/logosAmaury/berline.webp"
-    import logoTruck from "../../assets/pictures/logosAmaury/camion.webp"
-    import logoPorsche from "../../assets/pictures/logosAmaury/porsche.webp"
-    import logoMoto from "../../assets/pictures/logosAmaury/moto.webp"
-    import logoTractor from "../../assets/pictures/logosAmaury/tracteur.webp"
+    import logoBerline from "../../assets/pictures/véhicules/berline.webp";
+    import logoTruck from "../../assets/pictures/véhicules/camion.webp";
+    import logoPorsche from "../../assets/pictures/véhicules/porsche.webp";
+    import logoMoto from "../../assets/pictures/véhicules/moto.webp";
+    import logoTractor from "../../assets/pictures/véhicules/tracteur.webp";
+    import logoCollection from "../../assets/pictures/véhicules/collection.webp";
     import logoJustice from "../../assets/pictures/logosAmaury/justice.webp"
-    import logoCollection from "../../assets/pictures/logosAmaury/collection.webp"
 
     // ==================== Formulaire de contact ==================== //
     
