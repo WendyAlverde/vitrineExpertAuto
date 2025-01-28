@@ -5,12 +5,15 @@
 
     // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
     let isScrolled = false;    
-    
+
 
     onMount(() => {
         const handleScroll = () => {
             isScrolled = window.scrollY > 0;
         };
+
+        // Vérifie si la route actuelle correspond à "Mentions Légales"
+
         window.addEventListener("scroll", handleScroll);
         // Nettoyage pour éviter les fuites mémoire
         return () => {
@@ -43,18 +46,18 @@
     
         <div class="sticky">
             <div class="contact">
-                <div  class="contact-gauche">
-                    <a href="#contact-form" class="contact-form form" onclick={scrollToAnchor}>Formulaire Contact</a> <!-- Changer le lien pour amener au formulaire de contact-->
+                <div class="contact-gauche ">
+                    <a href="#contact-form" class="contact-form form" onclick={scrollToAnchor}>
+                        Formulaire Contact
+                    </a>
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
-                    <!--  -->
-                    <a class="contact-mail" href="mailto:amaury@gmail.com">amaury@gmail.com</a> <!-- Changer l'email par le sien-->
+                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a>
                 </div>
                 <div  class="contact-droite">
                     <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
                     <a class="accueil-mobile" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 </div>
-                
             </div>
 
             <!-- Partie Laptop -->
@@ -66,7 +69,7 @@
 </header>
 
 <style lang="scss">
-
+    
     .header {
         position: sticky;
         top: 0; 
@@ -191,7 +194,7 @@
                     align-items: center;
                     width: 50%;
                     height: 5rem;
-
+                    
                     .contact-pc {
                         display: none;
 

@@ -5,27 +5,25 @@
     <section>
         <h2>1. Informations légales</h2>
         <ul>
-            <li><em>Dénomination sociale :</em> ***</li>
-            <li><em>Forme juridique :</em> ***</li>
-            <li><em>Adresse du siège social :</em> ***</li>
-            <li><em>Montant du capital social :</em> ***</li>
+            <li><em>Dénomination sociale :</em> IETA : Innovation, Expertise des Technologies Automobiles</li>
+            <li><em>Forme juridique :</em> SARL</li>
+            <li><em>Montant du capital social :</em> 1000€</li>
             <li><em>Contact :</em>
                 <ul>
-                    <li>Email : ***</li>
-                    <li>Téléphone : ***</li>
+                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a></li>
+                    <li>Téléphone :<a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a></li>
                 </ul>
             </li>
             <li><em>Numéro RCS / RM :</em> ***</li>
             <li><em>Hébergeur du site :</em>
                 <ul>
-                    <li>Nom : ***</li>
-                    <li>Raison sociale : ***</li>
+                    <li>Nom : Vercel Inc.</li>
+                    <li>Raison sociale : Vercel Inc.</li>
                     <li>Adresse : ***</li>
-                    <li>Téléphone : ***</li>
                 </ul>
             </li>
-            <li><em>Responsable de la publication :</em> ***</li>
-            <li><em>Responsable de la rédaction (en cas de contenu éditorial) :</em> ***</li>
+            <li><em>Responsable de la publication :</em> Amaury Madani</li>
+            <li><em>Responsable de la rédaction (en cas de contenu éditorial) :</em> Amaury Madani</li>
         </ul>
     </section>
 
@@ -40,11 +38,11 @@
         <h2>3. Protection des données personnelles (RGPD)</h2>
         <p>Le site respecte le RGPD (Règlement Général sur la Protection des Données) en vigueur depuis 2018. Les données personnelles collectées via le formulaire de contact (nom, emplacement, téléphone, email) sont traitées dans le cadre suivant :</p>
         <ul>
-            <li><em>Responsable du traitement des données :</em> ***</li>
+            <li><em>Responsable du traitement des données :</em> IETA, représentée par Amaury Madani</li>
             <li><em>Finalité du traitement :</em> Les informations recueillies permettent de répondre aux demandes effectuées via le formulaire de contact.</li>
             <li><em>Base légale justifiant le traitement :</em> Consentement explicite donné par l’utilisateur lors de la soumission du formulaire.</li>
             <li><em>Caractère obligatoire ou facultatif :</em> Les champs du formulaire marqués comme obligatoires doivent être remplis pour envoyer une demande.</li>
-            <li><em>Personnes ayant accès aux données collectées :</em> ***</li>
+            <li><em>Personnes ayant accès aux données collectées :</em> Amaury Madani</li>
             <li><em>Durée de conservation :</em> Les données sont conservées pendant une durée de *** mois/années.</li>
             <li><em>Droits des utilisateurs :</em>
                 <ul>
@@ -56,7 +54,7 @@
                 </ul>
             </li>
         </ul>
-        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : ***.</p>
+        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a>.</p>
     </section>
 </main>
 
@@ -72,14 +70,12 @@
     }
 
     h1 {
-        font-size: 2rem;
         color: var(--text);
         text-align: center;
         margin-bottom: 1.5rem;
     }
 
     h2 {
-        font-size: 1.5rem;
         color: var(--text);
         margin-top: 2rem;
         border-bottom: 2px solid var(--text);
@@ -93,7 +89,6 @@
 
         li {
             margin-bottom: 0.8rem;
-            font-size: 1rem;
 
             em {
                 color: var(--text);
@@ -103,16 +98,11 @@
             ul {
                 margin-left: 1rem;
                 list-style-type: disc;
-
-                li {
-                    font-size: 0.95rem;
-                }
             }
         }
     }
 
     p {
-        font-size: 1rem;
         line-height: 1.6;
         margin: 1rem 0;
 
