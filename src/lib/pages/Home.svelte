@@ -14,6 +14,14 @@
     import logoTractor from "../../assets/pictures/vehicules/tracteur.webp";
     import logoCollection from "../../assets/pictures/vehicules/collection.webp";
 
+    // Fonction de scroll vers l'élément cible
+    const scrollToAnchor = () => {
+        const target = document.getElementById("contactForm");
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     // ==================== Formulaire de contact ==================== //
     
     // téléphone
@@ -95,7 +103,7 @@
         <AccordionFaq />
     </section>
     
-    <section id="contact-form" class="formulaire">
+    <section id="contactForm" class="formulaire">
         <h2>Formulaire de contact</h2>
         <form action="" method="post" on:submit|preventDefault={() => validateEmail()}>
             <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
@@ -274,7 +282,7 @@
             }
         }
 
-        #contact-form {
+        #contactForm {
             scroll-margin-top: 6rem;
         }
 

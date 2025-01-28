@@ -20,6 +20,15 @@
     const onRouteLoaded = () => {
         // Forcer le scroll en haut de la page
         window.scrollTo(0, 0);
+
+        // Vérifier si l'URL contient une ancre, et si oui, faire défiler
+        const hash = window.location.hash;
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
     };
 
     // Empêcher le navigateur de restaurer la position de scroll automatiquement

@@ -13,7 +13,6 @@
         };
 
         // Vérifie si la route actuelle correspond à "Mentions Légales"
-
         window.addEventListener("scroll", handleScroll);
         // Nettoyage pour éviter les fuites mémoire
         return () => {
@@ -23,12 +22,16 @@
 
     const scrollToAnchor = (event) => {
         event.preventDefault(); // Empêche le comportement par défaut du navigateur
-        const targetId = event.target.getAttribute('href').substring(1); // Récupère l'ID cible (sans le #)
+        const targetId = event.target.getAttribute('href').substring(2); // Récupère l'ID cible (sans le #)
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll fluide vers l'élément cible
         }
+
+        // Assure-toi que la page d'accueil est correctement affichée
+        window.location.hash = `#${targetId}`; // Ajoute l'ancre dans l'URL
+
     };
 
 </script>
@@ -47,7 +50,7 @@
         <div class="sticky">
             <div class="contact">
                 <div class="contact-gauche ">
-                    <a href="#contact-form" class="contact-form form" onclick={scrollToAnchor}>
+                    <a href="/#contactForm" class="contact-form form" onclick={scrollToAnchor}>
                         Formulaire Contact
                     </a>
                     <!-- Invisible pour la partie mobile -->
