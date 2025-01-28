@@ -58,7 +58,7 @@
                     <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a>
                 </div>
                 <div  class="contact-droite">
-                    <a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a> <!-- Changer les numéro de téléphone par le sien-->
+                    <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
                     <a class="accueil-mobile" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 </div>
             </div>
@@ -204,6 +204,14 @@
                         @media screen and (min-width: 1024px) { // Laptop
                             display: block;
                             color: white;
+                        }
+                    }
+
+                    .contact-mail {
+                        padding-left: 1rem;
+                        
+                        @media screen and (min-width: 768px) { // Laptop
+                            padding: 0;
                         }
                     }
 

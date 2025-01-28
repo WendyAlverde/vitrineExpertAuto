@@ -11,7 +11,7 @@
             <li><em>Contact :</em>
                 <ul>
                     <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a></li>
-                    <li>Téléphone :<a class="contact-tel" href="tel:0123456789">01.23.45.67.89</a></li>
+                    <li>Téléphone : <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a></li>
                 </ul>
             </li>
             <li><em>Numéro RCS / RM :</em> ***</li>
