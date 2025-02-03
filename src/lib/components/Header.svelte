@@ -55,7 +55,7 @@
                     </a>
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
-                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a>
+                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank">cabinet.ieta@outlook.fr</a>
                 </div>
                 <div  class="contact-droite">
                     <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
