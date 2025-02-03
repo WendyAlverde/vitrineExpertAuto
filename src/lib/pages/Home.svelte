@@ -24,18 +24,30 @@
 
     // ==================== Formulaire de contact ==================== //
     
-    // téléphone
-    let tel = ''; // Définition d'une variable tel avec laquelle on fait le lien dans l'input grâce a = bind:value={tel}
+    // Import des variables pour le formulaire
+    let errorMessageForm = '';
 
-    function formatPhoneNumber() {
-        let value = tel.replace(/\D/g, ''); // Supprime tout les caractères numériques
+    // Téléphone
+    let tel = ''; // Définition d'une variable tel avec laquelle on fait le lien dans l'input grâce a = bind:value={tel}
+    let errorMessageTel = '';
+
+    function formatPhoneNumber(event) {
+        let value = event.target.value.replace(/\D/g, ''); // Supprime tout les caractères numériques
         if (value.length > 10) value = value.slice(0, 10); // Limite la longueur du numéro à 10 chiffres
         tel = value.replace(/(\d{2})(?=\d)/g, '$1.'); // Applique le format souhaité à savoir un point tout les deux chiffres
+
+        // Vérification du format
+        validatePhone();
     }
 
-    // email
+    function validatePhone() {
+        const phoneRegex = /^0[1-9](\.[0-9]{2}){4}$/;
+        errorMessageTel = phoneRegex.test(tel) ? "" : "Le numéro doit être au format 01.02.03.04.05";
+    }
+
+    // Email
     let email = '';
-    let errorMessage = '';
+    let errorMessageMail = '';
     
     function validateEmail() {
         // vérifie la validité d'une adresse email en respectant les règles suivantes :
@@ -44,9 +56,9 @@
         // - L'email doit se terminer par un TLD valide (ex. .com, .fr) contenant au moins 2 lettres.
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(email)) {
-        errorMessage = "Veuillez entrer une adresse email valide : exemple@gmail.com";
+        errorMessageMail = "Veuillez entrer une adresse email valide : exemple@gmail.com";
         } else {
-        errorMessage = '';
+        errorMessageMail = '';
         }
     }
 
@@ -145,14 +157,17 @@
             
             <div class="tel">
                 <label for="tel">Votre numéro de téléphone</label>
-                <input type="tel" name="tel" id="tel" bind:value={tel} pattern="^0[1-9]( [0-9]{2}){4}$" on:input={formatPhoneNumber} placeholder="01.02.03.04.05" aria-describedby="tel-format">
+                <input type="tel" name="tel" id="tel" bind:value={tel} pattern="^0[1-9](\.[0-9]{2}){4}$" on:input={formatPhoneNumber} on:blur={validatePhone} placeholder="01.02.03.04.05" aria-describedby="tel-format">
+                {#if errorMessageTel}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageTel}</p>
+                {/if}
             </div>
             
             <div class="email">
                 <label for="email">Votre e-mail</label>
                 <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
-                {#if errorMessage}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem">{errorMessage}</p>
+                {#if errorMessageMail}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageMail}</p>
                 {/if}
             </div>
             
@@ -161,7 +176,7 @@
                 <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
             </div>
             
-            <button type="submit" disabled={!!errorMessage}>Envoyer</button>
+            <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
     </section>
 </section>

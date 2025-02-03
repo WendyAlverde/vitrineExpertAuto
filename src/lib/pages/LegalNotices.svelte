@@ -10,7 +10,7 @@
             <li><em>Montant du capital social :</em> 1000€</li>
             <li><em>Contact :</em>
                 <ul>
-                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a></li>
+                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a></li>
                     <li>Téléphone : <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a></li>
                 </ul>
             </li>
