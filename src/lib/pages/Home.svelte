@@ -1,6 +1,7 @@
 <script>
     // Import Svelte
     import {onMount} from 'svelte';
+    import emailjs from "emailjs-com"
 
     // Import composants
     import AccordionFaq from '../components/AccordionFaq.svelte';
@@ -23,21 +24,90 @@
     };
 
     // ==================== Formulaire de contact ==================== //
-    
     // Import des variables pour le formulaire
+    let nom = "";
+    let email = "";
+    let tel = "";
+    let demande = "information";
+    let urgence = "";
+    let localisation = "Montpellier";
+    let commentaire = "";
+    let errorMessage = "";
     let errorMessageForm = '';
+    let errorMessageTelMail = '';
+
+    
+
+     // Fonction pour envoyer le formulaire
+    function envoyerFormulaire() {
+        
+        if (!email && !tel) {
+            errorMessageTelMail = "Veuillez entrer au moins un email ou un numéro de téléphone.";
+            console.log(errorMessageTelMail);
+            return;
+        } else {
+            errorMessageTelMail = ''; // Si la condition est remplie, on vide le message d'erreur
+        }
+        
+        // Vérification du format du téléphone avant l'envoi
+        if (tel && !/^0[1-9](\.[0-9]{2}){4}$/.test(tel)) {
+            errorMessage = "Le numéro de téléphone doit être au format 01.02.03.04.05";
+            return;
+        }
+
+        // Si l'email est renseigné, on vérifie sa validité
+        if (email && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+            errorMessageMail = "Veuillez entrer une adresse email valide.";
+            return;
+        } else {
+            errorMessageMail = '';  // Réinitialise le message d'erreur pour l'email
+        }
+
+        // Informations à envoyer
+        let templateParams = {
+            to_email: "ptiscarabe2036@msn.com", // Remplacez par votre e-mail
+            nom,
+            email,
+            tel,
+            demande,
+            urgence,
+            localisation,
+            commentaire
+        };
+
+        // Envoi via EmailJS
+        emailjs
+            .send(
+                "service_wjuacsr",
+                "template_4bt7327",
+                templateParams,
+                "Fd61aLMeIyHeGoWgm"
+            )
+            .then(
+                function (response) {
+                    alert("Formulaire envoyé avec succès !");
+                    console.log("SUCCESS!", response.status, response.text);
+                },
+                function (error) {
+                    alert("Échec de l'envoi.");
+                    console.log("FAILED...", error);
+                }
+            );
+    }
 
     // Téléphone
-    let tel = ''; // Définition d'une variable tel avec laquelle on fait le lien dans l'input grâce a = bind:value={tel}
     let errorMessageTel = '';
 
     function formatPhoneNumber(event) {
-        let value = event.target.value.replace(/\D/g, ''); // Supprime tout les caractères numériques
-        if (value.length > 10) value = value.slice(0, 10); // Limite la longueur du numéro à 10 chiffres
-        tel = value.replace(/(\d{2})(?=\d)/g, '$1.'); // Applique le format souhaité à savoir un point tout les deux chiffres
+        let value = event.target.value.replace(/\D/g, ''); // Supprime tout sauf les chiffres
+        if (value.length > 10) value = value.slice(0, 10); // Limite à 10 chiffres
 
-        // Vérification du format
-        validatePhone();
+        // Applique le format : "01.23.45.67.89"
+        value = value.replace(/(\d{2})(?=\d)/g, '$1.');
+
+        // Met à jour l'input via event.target.value (évite les bugs avec bind:value)
+        event.target.value = value;
+        tel = value; // Met à jour la variable Svelte
     }
 
     function validatePhone() {
@@ -46,7 +116,6 @@
     }
 
     // Email
-    let email = '';
     let errorMessageMail = '';
     
     function validateEmail() {
@@ -54,16 +123,14 @@
         // - La partie avant le @ peut contenir des lettres, chiffres et certains caractères spéciaux (., _, %, +, -).
         // - Un seul @ est autorisé, suivi par le nom de domaine (lettres, chiffres, tirets, et points).
         // - L'email doit se terminer par un TLD valide (ex. .com, .fr) contenant au moins 2 lettres.
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(email)) {
-        errorMessageMail = "Veuillez entrer une adresse email valide : exemple@gmail.com";
+        if (email && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+            errorMessageMail = "Veuillez entrer une adresse email valide : exemple@gmail.com";
         } else {
-        errorMessageMail = '';
+            errorMessageMail = '';  // Si l'email est valide ou non renseigné, on efface l'erreur
         }
     }
 
     // Taille du textarea de commentaire
-    let commentaire = '';
     let textarea;
 
     function adjustSize() {
@@ -117,9 +184,9 @@
     
     <section id="contactForm" class="formulaire">
         <h2>Formulaire de contact</h2>
-        <form action="" method="post" on:submit|preventDefault={() => validateEmail()}>
+        <form on:submit|preventDefault={envoyerFormulaire}>
             <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
-            <select name="demande" id="demande" required aria-required="true">
+            <select name="demande" id="demande" bind:value={demande} required aria-required="true">
                 <option value="information">Je souhaite avoir une information</option>
                 <option value="Expertise">Expertise véhicule</option>
                 <option value="autre">Autre</option>
@@ -129,11 +196,11 @@
                 <legend>Est-elle urgente ? <span aria-hidden="true">*</span></legend>
                 <div class="flexRadio">
                     <div class="radio">
-                        <input type="radio" name="urgence" id="oui" value="oui" required>
+                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
                         <label for="oui">Oui</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="urgence" id="non" value="non" required>
+                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
                         <label for="non">Non</label>
                     </div>
                 </div>
@@ -141,7 +208,7 @@
     
             <div class="localisation">
                 <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
-                <select name="localisation" id="localisation" required aria-required="true">
+                <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
                     <option value="Montpellier">Montpellier</option>
                     <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
                     <option value="Var">Var</option>
@@ -152,12 +219,12 @@
             
             <div class="nom">
                 <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-                <input type="text" name="nom" id="nom" required aria-required="true">
+                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true">
             </div>
             
             <div class="tel">
                 <label for="tel">Votre numéro de téléphone</label>
-                <input type="tel" name="tel" id="tel" bind:value={tel} pattern="^0[1-9](\.[0-9]{2}){4}$" on:input={formatPhoneNumber} on:blur={validatePhone} placeholder="01.02.03.04.05" aria-describedby="tel-format">
+                <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05">
                 {#if errorMessageTel}
                     <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageTel}</p>
                 {/if}
@@ -175,6 +242,10 @@
                 <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
                 <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
             </div>
+
+            {#if errorMessageTelMail}
+                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageTelMail}</p>
+            {/if}
             
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
