@@ -5,15 +5,15 @@
     const services = [
         {
             title: "Assistance en cas de vice caché ou défaut de conformité :",
-            content: "Dans le cadre d’un achat ou d’une vente d’un véhicule affecté d’un vice caché ou d’un défaut de conformité."
+            content: "Dans le cadre d’un <strong>achat</strong> ou d’une <strong>vente</strong> d’un <strong>véhicule</strong> affecté d’un <strong>vice caché</strong> ou d’un <strong>défaut de conformité</strong>."
         },
         {
             title: "Recours pour mauvaise réparation automobile :",
-            content: "Après une mauvaise réparation ou une réparation n’ayant pas atteint son résultat."
+            content: "Après une <strong>mauvaise réparation</strong> ou une réparation n’ayant pas atteint son résultat."
         },
         {
             title: "Soutien en cas de défaut d’information par un garagiste :",
-            content: "Un garagiste ne vous informe pas d’une défaillance importante sur votre véhicule et cela génère des conséquences dommageables imprévues."
+            content: "Un garagiste ne vous informe pas d’une défaillance importante sur votre <strong>véhicule</strong> et cela génère des conséquences dommageables imprévues."
         },
         {
             title: "Appui pour un refus d’indemnisation par l’assureur :",
@@ -51,20 +51,20 @@
         <div class="accordeon-item" role="button" tabindex="0" aria-expanded={openIndex === index ? 'true' : 'false'} aria-controls={`panel-${index}`} on:keydown={(e) => handleKeydown(e, index)} on:click={() => toggleAccordion(index)}>
             <div class="accordeon-item-header">
                 <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
-                <h3>{service.title}</h3>
+                <h3>{@html service.title}</h3>
             </div>
 
             {#if openIndex === index}
                 <div id={`panel-${index}`} role="region" class="accordeon-item-ouvert">
                     <!-- Si l'élément est une simple chaîne de caractères, l'affiche dans un paragraphe -->
                     {#if typeof service.content === 'string'}
-                        <p>{service.content}</p>
+                        <p>{@html service.content}</p>
                     <!-- Si l'élément est un tableau, on boucle dessus -->
                     {:else if Array.isArray(service.content)}
                         {#each service.content as contentItem}
                             <!-- Si l'élément est une chaîne de caractères, l'affiche dans un paragraphe -->
                             {#if typeof contentItem === 'string'}
-                                <p>{contentItem}</p>
+                                <p>{@html contentItem}</p>
                             <!-- Si l'élément est une liste, on l'affiche dans une liste non ordonnée -->
                             {:else if contentItem.type === 'list'}
                                 <ul>
