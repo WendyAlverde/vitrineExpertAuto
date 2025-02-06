@@ -3,7 +3,7 @@
     import { onMount } from 'svelte';
 
     import logoLinkedIn from "../../assets/pictures/logoLinkedin.svg"
-    import logoIeta from "../../assets/pictures/logoIeta.png"
+    import logoIeta from "../../assets/pictures/logoIetaGood.svg"
 
     // Forcer le défilement après chaque navigation
     onMount(() => {

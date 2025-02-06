@@ -217,9 +217,9 @@
                                             <li>{@html item}</li>
                                         <!-- Si l'élément est une sous-liste -->
                                         {:else if item.type === 'subList'}
-                                            <li>
+                                            <li class="subList-wrapper">
                                                 <p>{item.title || ''}</p>
-                                                <ul>
+                                                <ul class="subList">
                                                     {#each item.items as subItem}
                                                         <li>{@html subItem}</li>
                                                     {/each}
@@ -288,6 +288,14 @@
                     li {
                         padding-top: 0.5rem;
                         list-style-type: inherit;
+                    }
+
+                    .subList-wrapper {
+                        list-style-type: none; // Supprime la puce du <li> parent contenant la sous-liste
+                    }
+
+                    .subList {
+                        list-style-type: circle;
                     }
                 }
             }

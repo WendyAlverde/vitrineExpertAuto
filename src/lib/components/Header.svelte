@@ -1,7 +1,7 @@
 <script>
     import {link} from "svelte-spa-router"
     import { onMount } from 'svelte';
-    import logoIeta from "../../assets/pictures/logoIeta.png"
+    import logoIeta from "../../assets/pictures/logoIetaGood.svg"
 
     // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
     let isScrolled = false;    
@@ -129,7 +129,6 @@
 
                 img {
                     width: 7rem;
-
                     @media (min-width: 768px) { // Tablette
                         width: 7.5rem;
                     }
