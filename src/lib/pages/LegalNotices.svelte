@@ -17,9 +17,12 @@
             <li><em>Numéro RCS / RM :</em> ***</li>
             <li><em>Hébergeur du site :</em>
                 <ul>
-                    <li>Nom : Vercel Inc.</li>
+                    <li>Nom : Vercel</li>
                     <li>Raison sociale : Vercel Inc.</li>
-                    <li>Adresse : ***</li>
+                    <li>Adresse : Vercel Inc.
+                        440 N Barranca Avenue #4133
+                        Covina, CA 91723
+                        United States</li>
                 </ul>
             </li>
             <li><em>Responsable de la publication :</em> Amaury Madani</li>
@@ -54,7 +57,7 @@
                 </ul>
             </li>
         </ul>
-        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr">cabinet.ieta@outlook.fr</a>.</p>
+        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank">cabinet.ieta@outlook.fr</a>.</p>
     </section>
 </main>
 
@@ -82,21 +85,28 @@
         padding-bottom: 0.5rem;
     }
 
+    .contact-mail {
+        text-decoration: none;
+        color: var(--text);
+    }
+
+    .contact-tel {
+        text-decoration: none;
+        color: var(--text);
+    }
+
     ul {
-        margin-left: 1.5rem;
         padding-left: 0;
         list-style-type: none;
 
         li {
             margin-bottom: 0.8rem;
-
             em {
                 color: var(--text);
                 font-weight: bold;
             }
 
             ul {
-                margin-left: 1rem;
                 list-style-type: disc;
             }
         }
@@ -110,7 +120,6 @@
             color: var(--text);
             text-decoration: none;
             font-weight: bold;
-
             &:hover {
             text-decoration: underline;
             }

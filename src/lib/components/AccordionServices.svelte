@@ -4,16 +4,28 @@
 
     const services = [
         {
-            title: "En cas de litiges... :",
-            content: "..."
+            title: "Assistance en cas de vice caché ou défaut de conformité :",
+            content: "Dans le cadre d’un achat ou d’une vente d’un véhicule affecté d’un vice caché ou d’un défaut de conformité."
         },
         {
-            title: "Expertise de véhicules... :",
-            content: "..."
+            title: "Recours pour mauvaise réparation automobile :",
+            content: "Après une mauvaise réparation ou une réparation n’ayant pas atteint son résultat."
         },
         {
-            title: "Assistance à l'achat d'un véhicule d'occasion... :",
-            content: "..."
+            title: "Soutien en cas de défaut d’information par un garagiste :",
+            content: "Un garagiste ne vous informe pas d’une défaillance importante sur votre véhicule et cela génère des conséquences dommageables imprévues."
+        },
+        {
+            title: "Appui pour un refus d’indemnisation par l’assureur :",
+            content: "Un refus d’indemnisation de sinistre par l'assureur suite à un rapport technique rendu incorrect. "
+        },
+        {
+            title: "Contestation d’un contrôle technique défaillant :",
+            content: "Le contrôle technique n’a pas observé de défaut important alors qu’il était présent lors de la visite."
+        },
+        {
+            title: "Mise en cause de la responsabilité du constructeur :",
+            content: "Mise en cause du constructeur."
         }
     ];
 
