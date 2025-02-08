@@ -14,6 +14,7 @@
     import logoMoto from "../../assets/pictures/vehicules/moto.webp";
     import logoTractor from "../../assets/pictures/vehicules/tracteur.webp";
     import logoCollection from "../../assets/pictures/vehicules/collection.webp";
+    import logoJustice from "../../assets/pictures/logosAmaury/justice.webp";
 
     // Fonction de scroll vers l'élément cible
     const scrollToAnchor = () => {
@@ -35,8 +36,6 @@
     let errorMessage = "";
     let errorMessageForm = '';
     let errorMessageTelMail = '';
-
-    
 
      // Fonction pour envoyer le formulaire
     function envoyerFormulaire() {
@@ -145,6 +144,8 @@
     });
 </script>
 
+<!-- <img src={logoJustice} alt="Juridique"> -->
+
 <section id="home">
     <section class="presentation">
         <div class="presentation-text">
@@ -169,7 +170,7 @@
     </section>
 
     <section class="services">
-        <h2>Nos Services</h2>
+        <h2>Nos Services, Expert Automobile</h2>
         <AccordionServices />
     </section>
     
@@ -180,7 +181,6 @@
         <img src={logoPorsche} alt="Voiture de sport">
         <img src={logoMoto} alt="Deux roues motorisés">
         <img src={logoTractor} alt="Véhicule agricole">
-        <!-- <img src={logoJustice} alt="Juridique"> -->
     </section>
     
     <section class="faq">
