@@ -14,6 +14,7 @@
     import logoMoto from "../../assets/pictures/vehicules/moto.webp";
     import logoTractor from "../../assets/pictures/vehicules/tracteur.webp";
     import logoCollection from "../../assets/pictures/vehicules/collection.webp";
+    import logoJustice from "../../assets/pictures/logosAmaury/justice.webp";
 
     // Fonction de scroll vers l'élément cible
     const scrollToAnchor = () => {
@@ -35,8 +36,6 @@
     let errorMessage = "";
     let errorMessageForm = '';
     let errorMessageTelMail = '';
-
-    
 
      // Fonction pour envoyer le formulaire
     function envoyerFormulaire() {
@@ -145,11 +144,19 @@
     });
 </script>
 
+<!-- <img src={logoJustice} alt="Juridique"> -->
+
 <section id="home">
     <section class="presentation">
         <div class="presentation-text">
             <h1>Amaury Madani, Expert Automobile</h1>
-            <p>Fort de plusieurs années d’expérience, nous mettons notre savoir-faire au service des <strong>automobilistes</strong> et de leur mobilité avec une approche à la fois humaine et professionnelle.<br><br> Passionnés par l’<strong>automobile</strong> et animés par une volonté d’offrir un accompagnement personnalisé, nous nous engageons à analyser chaque situation avec rigueur et transparence. Grâce à une <strong>expertise</strong> technique pointue, nous intervenons dans des domaines variés tels que les <strong>litiges</strong>, les évaluations de dommages ou encore les conseils pour l’achat et la vente de véhicules.<br><br>Attentif aux besoins de ses clients, Amaury Madani privilégie toujours un dialogue clair et constructif, afin d’apporter des solutions adaptées et de garantir leur satisfaction. Confier votre <strong>véhicule</strong> à Amaury Madani, c’est faire le choix d’un Expert à l’écoute, pour qui chaque détail compte.</p>
+            <p><em>Une passion devenue expertise.</em><br >Depuis toujours, l’automobile est l’une de mes passions. Après des études spécialisées et une immersion professionnelle dans le secteur à partir de 2013, j’ai été Expert automobile titré en 2020. <br > Fort de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’expertise technique, la résolution de litiges et l’évaluation de véhicules.</p>
+            <p class="question">Pourquoi choisir notre cabinet ?</p>
+            <ul>
+                <li><em>Une expertise reconnue :</em> Diplômé d’état comme Expert en automobile depuis 2020.</li>
+                <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
+                <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
+            </ul>
         </div>
         <div class="presentation-valeurs">
             <h2>Nos Valeurs</h2>
@@ -163,7 +170,7 @@
     </section>
 
     <section class="services">
-        <h2>Nos Services</h2>
+        <h2>Nos Services, Expert Automobile</h2>
         <AccordionServices />
     </section>
     
@@ -174,7 +181,6 @@
         <img src={logoPorsche} alt="Voiture de sport">
         <img src={logoMoto} alt="Deux roues motorisés">
         <img src={logoTractor} alt="Véhicule agricole">
-        <!-- <img src={logoJustice} alt="Juridique"> -->
     </section>
     
     <section class="faq">
@@ -282,6 +288,23 @@
 
                 h1 {
                     padding-bottom: 0.5rem;
+                }
+
+                em {
+                    font-weight: bold;
+                }
+
+                .question {
+                    padding: 1.2rem 0 0.8rem;
+                    font-weight: bold;
+                }
+
+                ul {
+                    padding-left: 1.5rem;
+
+                    li {
+                        list-style-type: disc;
+                    }
                 }
             }
 
