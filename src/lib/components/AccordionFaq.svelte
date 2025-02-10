@@ -173,16 +173,35 @@
 
     let openIndex = null;
 
-    const toggleAccordion = (index) => {
-        openIndex = openIndex === index ? null : index; // Ferme si la même section est cliquée  
-    };
+    function toggleAccordion(index, event) {
+    let previousIndex = openIndex;
+    openIndex = openIndex === index ? null : index;
 
-    // Accessibilité
-    const handleKeydown = (event, index) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-        toggleAccordion(index);
-        }
-    };
+    // Si l'utilisateur ouvre une nouvelle question, scroller vers elle
+    if (openIndex !== null) {
+        setTimeout(() => {
+            let questionElement = document.getElementById(`panel-${index}`);
+            if (questionElement) {
+                scrollToQuestion(questionElement);
+            }
+        }, 200); // Augmentation du délai pour s'assurer que le DOM est bien mis à jour
+    }
+    }
+
+    function scrollToQuestion(element) {
+    let rect = element.getBoundingClientRect();
+    let headerHeight = document.querySelector("header")?.offsetHeight || 100; // Définit une valeur par défaut si le header n'est pas trouvé
+    let offset = -headerHeight - 70; // Décalage de 20px supplémentaire pour plus d'espace visuel
+
+    // Calcul de la position cible du scroll
+    let scrollY = window.scrollY + rect.top + offset;
+
+    // Défilement en douceur avec le bon décalage
+    window.scrollTo({
+        top: scrollY,
+        behavior: "smooth"
+    });
+}
 </script>
 
 <div class="accordeon" >
@@ -190,42 +209,32 @@
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div class="accordeon-item" role="button" tabindex="0" aria-expanded={openIndex === index ? 'true' : 'false'} aria-controls={`panel-${index}`} on:keydown={(e) => handleKeydown(e, index)} on:click={() => toggleAccordion(index)}>
+        <div    class="accordeon-item"
+                role="button"
+                tabindex="0"
+                aria-expanded={openIndex === index ? 'true' : 'false'}
+                aria-controls={`panel-${index}`}
+                on:keydown={(e) => handleKeydown(e, index)}
+                on:click={(e) => toggleAccordion(index, e)}>
+
             <div class="accordeon-item-header">
                 <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
                 <h3>{@html question.title}</h3>
             </div>
 
             <!-- @html : Utilisé pour insérer le contenu HTML dynamique dans le DOM. Cela permet de rendre des éléments comme <strong>, <em>, ou tout autre HTML valide dans tes chaînes de texte. -->
-            {#if openIndex === index}
+                {#if openIndex === index}
                 <div id={`panel-${index}`} role="region" class="accordeon-item-ouvert">
-                    <!-- Si l'élément est une simple chaîne de caractères, l'affiche dans un paragraphe -->
                     {#if typeof question.content === 'string'}
                         <p>{@html question.content}</p>
-                    <!-- Si l'élément est un tableau, on boucle dessus -->
                     {:else if Array.isArray(question.content)}
                         {#each question.content as contentItem}
-                            <!-- Si l'élément est une chaîne de caractères, l'affiche dans un paragraphe -->
                             {#if typeof contentItem === 'string'}
                                 <p>{@html contentItem}</p>
-                            <!-- Si l'élément est une liste, on l'affiche dans une liste non ordonnée -->
                             {:else if contentItem.type === 'list'}
                                 <ul>
                                     {#each contentItem.items as item}
-                                        <!-- Si l'élément est une chaîne simple -->
-                                        {#if typeof item === 'string'}
-                                            <li>{@html item}</li>
-                                        <!-- Si l'élément est une sous-liste -->
-                                        {:else if item.type === 'subList'}
-                                            <li class="subList-wrapper">
-                                                <p>{item.title || ''}</p>
-                                                <ul class="subList">
-                                                    {#each item.items as subItem}
-                                                        <li>{@html subItem}</li>
-                                                    {/each}
-                                                </ul>
-                                            </li>
-                                        {/if}
+                                        <li>{@html item}</li>
                                     {/each}
                                 </ul>
                             {/if}
@@ -236,6 +245,7 @@
         </div>
     {/each}
 </div>
+
 
 <style lang="scss">
     .accordeon {
@@ -288,14 +298,6 @@
                     li {
                         padding-top: 0.5rem;
                         list-style-type: inherit;
-                    }
-
-                    .subList-wrapper {
-                        list-style-type: none; // Supprime la puce du <li> parent contenant la sous-liste
-                    }
-
-                    .subList {
-                        list-style-type: circle;
                     }
                 }
             }
