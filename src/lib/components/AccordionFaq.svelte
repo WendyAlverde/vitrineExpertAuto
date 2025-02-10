@@ -11,10 +11,10 @@
                 {
                     type: 'list',
                     items: [
-                        "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong> approprié et conforme aux règles de sécurité.",
+                        "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong> approprié et conforme aux règles de <strong>sécurité</strong>.",
                         "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, une <strong>malfaçon</strong>, ou encore un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> ou d’un <strong>achat</strong>.",
-                        "Estimation de la valeur des <strong>véhicules</strong> : <br >L’expert évalue la valeur de tout type de <strong>véhicule</strong>, qu’il s’agisse de <strong>véhicules</strong> particuliers, de collection, ou utilitaires.",
-                        "Évaluation de la sécurité des <strong>véhicules</strong> : <br >Garantir que les <strong>véhicules</strong> respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.",
+                        "Estimation de la <strong>valeur</strong> des véhicules : <br >L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.",
+                        "Évaluation de la <strong>sécurité</strong> des véhicules : <br >Garantir que les véhicules respectent les normes de <strong>sécurité</strong> en vigueur et sont aptes à circuler sur les routes.",
                     ]
                 }
             ]
@@ -23,20 +23,20 @@
             title: "Je viens d’acquérir un véhicule d'occasion et il est affecté d’avaries que dois-je faire(valable vendeur particulier et professionnel) ?",
             content: [
                 'Dans un premier temps, il est essentiel d’informer le vendeur par courrier recommandé de mise en demeure, en joignant si possible le devis de remise en état. Cette démarche formalise les échanges et constitue une étape indispensable pour protéger vos droits en cas de <strong>litige</strong> ultérieur.',
-                'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni à l’effacement des <strong>défauts</strong> électroniques enregistrés dans les calculateurs du <strong>véhicule</strong>. Ces mesures conservatoires permettent de préserver les preuves nécessaires à une analyse technique approfondie.',
+                'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni à l’effacement des <strong>défauts</strong> électroniques enregistrés dans les calculateurs du véhicule. Ces mesures conservatoires permettent de préserver les preuves nécessaires à une analyse technique approfondie.',
                 'En parallèle, il est indispensable de mandater un <strong>expert en automobiles</strong> pour :',
                 {
                     type: 'list',
                     items: [
                         "Déterminer l’origine et les causes des avaries, qu’il s’agisse d’un <strong>défaut</strong> mécanique, électronique ou structurel et de déterminer la date d’apparition de ces désordres avec les moyens techniques en sa possession ainsi que d’établir l'impact de ces avaries sur l’usage du <strong>véhicule</strong>.",
-                        "Identifier si la présence de <strong>vices cachés</strong>, de <strong>défaut de conformité</strong> sont présents sur le <strong>véhicule</strong>, tels que des dysfonctionnements connus mais non signalés par le vendeur.",
+                        "Identifier si la présence de <strong>vices cachés</strong>, de <strong>défaut de conformité</strong> sont présents sur l' <strong>automobile</strong>, tels que des dysfonctionnements connus mais non signalés par le vendeur.",
                         "Évaluer si le vendeur a commis un <strong>défaut d’information</strong> ou de conseil lors de la transaction, par exemple en omettant de mentionner :",
                         {
                             type: 'subList',
                             items: [
                                 'Des <strong>réparations</strong> antérieures importantes.',
                                 'L’historique complet du <strong>véhicule</strong> (accidenté, kilométrage falsifié, entretien).',
-                                'Des problèmes techniques susceptibles d’affecter la sécurité ou la valeur du <strong>véhicule</strong>.'
+                                'Des problèmes techniques susceptibles d’affecter la <strong>sécurité</strong> ou la <strong>valeur</strong> du véhicule.'
                             ]
                         }
                     ]
@@ -49,12 +49,12 @@
             title: 'Après une prestation de <strong>réparation</strong> sur mon véhicule, j’ai remarqué qu’il présentait la même panne qu’auparavant ou une autre panne apparait. Que dois-je faire ?',
             content: [
                 'Premièrement, il est nécessaire d’informer le <strong>réparateur</strong> par courrier recommandé de mise en demeure, en incluant si possible le devis de remise en état. Cette étape permet de formaliser les échanges et de protéger vos droits en cas de contentieux ultérieur.',
-                'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni d’effacement des <strong>défauts</strong> électroniques dans les calculateurs du <strong>véhicule</strong>, et ce, par mesure conservatoire. En parallèle de ces actions, il est impératif de mandater un <strong>expert en automobiles</strong> pour :',
+                'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni d’effacement des <strong>défauts</strong> électroniques dans les calculateurs du véhicule, et ce, par mesure conservatoire. En parallèle de ces actions, il est impératif de mandater un <strong>expert en automobiles</strong> pour :',
                 {
                     type: 'list',
                     items: [
                         "Déterminer l’origine et les causes des avaries afin d’identifier les responsabilités.",
-                        "Vérifier si une <strong>mauvaise réparation</strong> a engendré des <strong>dommages</strong> supplémentaires sur votre <strong>véhicule</strong> (<strong>malfaçon</strong> ou non-façon).",
+                        "Vérifier si une <strong>mauvaise réparation</strong> a engendré des <strong>dommages</strong> supplémentaires sur votre véhicule (<strong>malfaçon</strong> ou non-façon).",
                         "Évaluer si le <strong>réparateur</strong> a commis un <strong>défaut de conseil</strong>, par exemple en omettant de signaler des <strong>réparations</strong> nécessaires, des risques liés aux travaux effectués ou des recommandations techniques essentielles pour le bon entretien du <strong>véhicule</strong>.",
                     ]
                 }
@@ -62,7 +62,7 @@
         },
         // Contenu sous forme de paragraphe
         {
-            title: "Mon véhicule est atteint d’un <strong>défaut</strong> constructeur. Que dois-je faire ?",
+            title: "Mon véhicule est atteint d’un défaut constructeur. Que dois-je faire ?",
             content: [
                 "En l’absence de prise en charge du constructeur de votre désordre, il est tout d’abord nécessaire d’informer par courrier recommandé de mise en demeure, en incluant si possible le devis de remise en état. Cette étape permet de formaliser les échanges et de protéger vos droits en cas de contentieux ultérieur.",
                 "En parallèle, il est indispensable de mandater un <strong>expert en automobiles</strong> pour analyser le schéma d’entretien du <strong>véhicule</strong> et de déterminer l’origine et les causes des avaries afin d’identifier la responsabilité du constructeur automobile.",
@@ -75,17 +75,17 @@
                 {
                     type: 'list',
                     items: [
-                        "Première étape : <br > Informez par courrier recommandé le cabinet d’expertise et votre assureur de votre désaccord. Dans ce courrier, expliquez clairement pourquoi vous contestez la valeur fixée et demandez une révision de la VRADE.",
-                        "En cas de refus : <br > Si l’expert et votre assureur maintiennent leur position, vous devrez faire appel à un <strong>expert en automobiles</strong> indépendant. Cet expert pourra procéder à une <strong>contre-expertise</strong> avec l’expert initial pour déterminer la juste valeur de votre <strong>véhicule</strong>.",
+                        "Première étape : <br > Informez par courrier recommandé le cabinet d’expertise et votre assureur de votre désaccord. Dans ce courrier, expliquez clairement pourquoi vous contestez la <strong>valeur</strong> fixée et demandez une révision de la VRADE.",
+                        "En cas de refus : <br > Si l’expert et votre assureur maintiennent leur position, vous devrez faire appel à un <strong>expert en automobiles</strong> indépendant. Cet expert pourra procéder à une <strong>contre-expertise</strong> avec l’expert initial pour déterminer la juste <strong>valeur</strong> de votre <strong>véhicule</strong>.",
                         "Option alternative : <br > Vous pouvez également mandater un expert à titre unilatéral pour obtenir un avis éclairé avant d’entamer d’autres démarches plus longues et coûteuses comme une <strong>contre-expertise</strong>.",
                     ]
                 },
-                'Nota important : <br > Si vous contestez la VRADE après avoir signé les papiers de cession du <strong>véhicule</strong>, il est possible que l’accès au <strong>véhicule</strong> soit impossible. Cela limiterait alors la capacité d’évaluer précisément son état et pourrait affaiblir votre position dans le débat concernant sa valeur.',
+                'Nota important : <br > Si vous contestez la VRADE après avoir signé les papiers de cession du <strong>véhicule</strong>, il est possible que l’accès au véhicule soit impossible. Cela limiterait alors la capacité d’évaluer précisément son état et pourrait affaiblir votre position dans le débat concernant sa <strong>valeur</strong>.',
             ]
         },
         {
             title: "Mon assureur me demande de faire établir une valeur agréée pour fixer la valeur de mon véhicule en cas de sinistre. Que dois-je faire ?",
-            content: "Il est nécessaire de faire appel à un <strong>expert en automobiles</strong> afin d’évaluer précisément la valeur de votre <strong>véhicule</strong>. Cette expertise permettra de déterminer une valeur agréée qui sera contractuellement reconnue par votre assureur, garantissant ainsi une indemnisation adaptée en cas de <strong>sinistre</strong> (vol, mise à l’épave ect…).",
+            content: "Il est nécessaire de faire appel à un <strong>expert en automobiles</strong> afin d’évaluer précisément la valeur de votre <strong>véhicule</strong>. Cette expertise permettra de déterminer une <strong>valeur agréée</strong> qui sera contractuellement reconnue par votre assureur, garantissant ainsi une indemnisation adaptée en cas de <strong>sinistre</strong> (vol, mise à l’épave ect…).",
         },
         {
             title: 'J’ai vendu un véhicule d’occasion en tant que particulier, et l’acquéreur m’envoie un courrier de convocation à une expertise contradictoire ou une assignation judiciaire. Que faire ?',
@@ -114,12 +114,12 @@
                         "Évaluer si le <strong>véhicule</strong> correspondait aux engagements de vente, notamment en lien avec son état général, son descriptif, et les obligations du vendeur professionnel.",
                     ]
                 },
-                'L’expert en automobiles pourra ainsi examiner des points clés tels que :',
+                'L’<strong>expert en automobiles</strong> pourra ainsi examiner des points clés tels que :',
                 {
                     type: 'list',
                     items: [
                         "La présence d’éventuels de <strong>défauts</strong> majeurs et leur influence sur l’usage du <strong>véhicule</strong>.",
-                        "L’adéquation du <strong>véhicule</strong> vendu avec ce qui était annoncé, pouvant concerner la <strong>garantie légale de conformité</strong> ou l’obligation de délivrance conforme.",
+                        "L’adéquation du véhicule vendu avec ce qui était annoncé, pouvant concerner la <strong>garantie légale de conformité</strong> ou l’obligation de délivrance conforme.",
                         "Les éventuelles <strong>réparations</strong> ou modifications effectuées avant la <strong>vente</strong> et leur impact sur l’état du <strong>véhicule</strong>.",
                     ]
                 },
