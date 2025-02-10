@@ -222,7 +222,7 @@
             </div>
 
             <!-- @html : Utilisé pour insérer le contenu HTML dynamique dans le DOM. Cela permet de rendre des éléments comme <strong>, <em>, ou tout autre HTML valide dans tes chaînes de texte. -->
-                {#if openIndex === index}
+            {#if openIndex === index}
                 <div id={`panel-${index}`} role="region" class="accordeon-item-ouvert">
                     {#if typeof question.content === 'string'}
                         <p>{@html question.content}</p>
@@ -233,7 +233,20 @@
                             {:else if contentItem.type === 'list'}
                                 <ul>
                                     {#each contentItem.items as item}
-                                        <li>{@html item}</li>
+                                        <!-- Si l'élément est une chaîne simple -->
+                                        {#if typeof item === 'string'}
+                                            <li>{@html item}</li>
+                                        <!-- Si l'élément est une sous-liste -->
+                                        {:else if item.type === 'subList'}
+                                            <li class="subList-wrapper">
+                                                <p>{item.title || ''}</p>
+                                                <ul class="subList">
+                                                    {#each item.items as subItem}
+                                                        <li>{@html subItem}</li>
+                                                    {/each}
+                                                </ul>
+                                            </li>
+                                        {/if}
                                     {/each}
                                 </ul>
                             {/if}
