@@ -255,6 +255,7 @@
             
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
+        <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" target="_blank">Déontologie de l'expert en automobile</a>
     </section>
 </section>
 
