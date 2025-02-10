@@ -4,28 +4,46 @@
 
     const services = [
         {
-            title: "Assistance en cas de vice caché ou défaut de conformité :",
-            content: "Dans le cadre d’un <strong>achat</strong> ou d’une <strong>vente</strong> d’un <strong>véhicule</strong> affecté d’un <strong>vice caché</strong> ou d’un <strong>défaut de conformité</strong>."
+            title: "Litiges après l'achat ou la vente d'un véhicule :",
+            content: [
+                "Analyse des <strong>vices cachés</strong> ou des <strong>défauts de conformité</strong> affectant le véhicule.",
+                "Identification des responsabilités dans un <strong>litige</strong> entre vendeur et acheteur.",
+            ]
         },
         {
-            title: "Recours pour mauvaise réparation automobile :",
-            content: "Après une <strong>mauvaise réparation</strong> ou une réparation n’ayant pas atteint son résultat."
+            title: "Problèmes après une réparation automobile :",
+            content: [
+                "Vérification des <strong>malfaçons</strong> ou <strong>réparations</strong> non conformes.",
+                "Détermination de l’impact technique d’un <strong>défaut de réparation</strong>.",
+                "Analyse des conséquences d’un <strong>défaut d’information</strong> du garagiste.",
+            ]
         },
         {
-            title: "Soutien en cas de défaut d’information par un garagiste :",
-            content: "Un garagiste ne vous informe pas d’une défaillance importante sur votre <strong>véhicule</strong> et cela génère des conséquences dommageables imprévues."
+            title: "Refus d’indemnisation ou contestation d’un rapport d’assurance :",
+            content: [
+                "<strong>Contre-expertise</strong> en cas de désaccord avec un rapport d’assurance.",
+                "Reconstitution de <strong>sinistres</strong>, recherche des causes d’un incendie ou d’un <strong>vol de véhicule</strong>.",
+            ]
         },
         {
-            title: "Appui pour un refus d’indemnisation par l’assureur :",
-            content: "Un refus d’indemnisation de sinistre par l'assureur suite à un rapport technique rendu incorrect. "
+            title: "Évaluation de la valeur d’un véhicule :",
+            content: [
+                "Estimation de la valeur de <strong>véhicules de collection ou de prestige</strong>.",
+                "Expertise agréée pour assurer ou vendre un véhicule.",
+                "Évaluation pour divorce, succession ou <strong>revente<strong>.",
+            ]
         },
         {
             title: "Contestation d’un contrôle technique défaillant :",
-            content: "Le contrôle technique n’a pas observé de défaut important alors qu’il était présent lors de la visite."
+            content: "Analyse des <strong>défauts</strong> non détectés lors du contrôle technique."
         },
         {
-            title: "Mise en cause de la responsabilité du constructeur :",
-            content: "Mise en cause du constructeur."
+            title: "Mise en cause du constructeur automobile :",
+            content: "Évaluation des <strong>défauts</strong> de fabrication ou <strong>malfaçons</strong> engageant la responsabilité du constructeur."
+        },
+        {
+            title: "Tierce expertise :",
+            content: "Intervention pour trancher un désaccord après une <strong>contre-expertise</strong> n’ayant pas abouti."
         }
     ];
 
@@ -48,7 +66,13 @@
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div class="accordeon-item" role="button" tabindex="0" aria-expanded={openIndex === index ? 'true' : 'false'} aria-controls={`panel-${index}`} on:keydown={(e) => handleKeydown(e, index)} on:click={() => toggleAccordion(index)}>
+        <div    class="accordeon-item" 
+                role="button" 
+                tabindex="0" 
+                aria-expanded={openIndex === index ? 'true' : 'false'} 
+                aria-controls={`panel-${index}`} 
+                on:keydown={(e) => handleKeydown(e, index)} 
+                on:click={() => toggleAccordion(index)}>
             <div class="accordeon-item-header">
                 <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
                 <h3>{@html service.title}</h3>
@@ -119,23 +143,20 @@
             }
 
             &-ouvert {
+                margin-top: 0.5rem;
                 padding: 0.5rem 0.2rem;
 
                 @media screen and (min-width: 768px) {
                     padding: 0.8rem;
                 }
 
-                ul {
-                    display: flex;
-                    flex-direction: column;
-                    list-style-type: disc;
-                    padding-left: 1.1rem;
+                p {
+                    margin-bottom: 0.5rem;
 
-                    li {
-                        padding-top: 0.5rem;
-                        list-style-type: inherit;
-                        padding-bottom: 0.8rem;
+                    @media screen and (min-width: 768px) {
+                        margin-left: 2rem;
                     }
+                    
                 }
             }
         }

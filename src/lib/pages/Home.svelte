@@ -38,11 +38,20 @@
     let errorMessageTelMail = '';
 
      // Fonction pour envoyer le formulaire
+     function sanitizeInput(input) {
+    return input.replace(/<script.*?>.*?<\/script>/gi, "") // Supprime tout script
+                .replace(/<\/?[^>]+(>|$)/g, ""); // Supprime toutes les balises HTML
+}
+
+// Applique le nettoyage avant l’envoi
     function envoyerFormulaire() {
-        
+        nom = sanitizeInput(nom);
+        email = sanitizeInput(email);
+        tel = sanitizeInput(tel);
+        commentaire = sanitizeInput(commentaire);
+
         if (!email && !tel) {
             errorMessageTelMail = "Veuillez entrer au moins un email ou un numéro de téléphone.";
-            console.log(errorMessageTelMail);
             return;
         } else {
             errorMessageTelMail = ''; // Si la condition est remplie, on vide le message d'erreur
@@ -255,7 +264,6 @@
             
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
-        <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" target="_blank">Déontologie de l'expert en automobile</a>
     </section>
 </section>
 

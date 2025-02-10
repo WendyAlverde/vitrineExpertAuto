@@ -23,7 +23,10 @@
 
 <footer>
     <div class="link">
-        <a href="/legalNotices" use:link aria-label="Aller à la page mention légales" class="legalNotices">Mention légales</a>
+        <div class="link-left">
+            <a href="/legalNotices" use:link  class="legalNotices" aria-label="Aller à la page mention légales" >Mention légales</a>
+            <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" class="deontologie" target="_blank">Déontologie</a>
+        </div>
         <a href="#home" aria-label="Retour à l'accueil"><img src={logoIeta} class="logoIeta" alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
         <a href="https://www.linkedin.com/in/amaury-m-5638a1192/" aria-label="Ouverture d'une nouvelle page du profil LinkedIn d'Amaury Madani" target="_blank"><img src={logoLinkedIn} class="logoLinkedIn" alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani"></a>
     </div>
@@ -40,10 +43,18 @@
 
         .link {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
 
-            .legalNotices {
+            &-left {
+                display: flex;
+                flex-direction: column;
+
+                .legalNotices {
+                    padding-bottom :0.5rem ;
+                }
+
+                .legalNotices, .deontologie {
                 color: white;
                 font-size: 0.7rem;
 
@@ -54,7 +65,10 @@
                 @media (min-width: 1024px) { // Laptop
                     font-size: 1rem;
                 }
-            }        
+            }       
+            }
+
+             
             
             .logoIeta {
                 width: 5rem;

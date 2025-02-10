@@ -304,13 +304,22 @@
                 }
 
                 p {
-                    margin-bottom: 1rem;
+                    margin-bottom: 0.5rem;
+                    
+                    @media screen and (min-width: 768px) {
+                        padding: 1rem;
+                        margin-left: 2rem;
+                    }
                 }
 
                 ul {
                     list-style-type: disc;
                     padding-left: 2rem;
                     margin-bottom: 1rem;
+
+                    @media screen and (min-width: 768px) {
+                        margin-left: 2rem;
+                    }
 
                     li {
                         padding-top: 1rem;
