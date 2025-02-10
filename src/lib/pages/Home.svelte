@@ -37,8 +37,8 @@
     let errorMessageForm = '';
     let errorMessageTelMail = '';
 
-     // Fonction pour envoyer le formulaire
-     function sanitizeInput(input) {
+    // Fonction pour envoyer le formulaire
+    function sanitizeInput(input) {
     return input.replace(/<script.*?>.*?<\/script>/gi, "") // Supprime tout script
                 .replace(/<\/?[^>]+(>|$)/g, ""); // Supprime toutes les balises HTML
 }
@@ -94,11 +94,9 @@
             .then(
                 function (response) {
                     alert("Formulaire envoyé avec succès !");
-                    console.log("SUCCESS!", response.status, response.text);
                 },
                 function (error) {
                     alert("Échec de l'envoi.");
-                    console.log("FAILED...", error);
                 }
             );
     }
@@ -184,12 +182,12 @@
     </section>
     
     <section class="logoVehicules">
-        <img src={logoBerline} alt="Berline">
-        <img src={logoCollection} alt="Voiture de collection">
-        <img src={logoTruck} alt="Camion">
-        <img src={logoPorsche} alt="Voiture de sport">
-        <img src={logoMoto} alt="Deux roues motorisés">
-        <img src={logoTractor} alt="Véhicule agricole">
+        <img src={logoBerline} loading="lazy" alt="Berline">
+        <img src={logoCollection} loading="lazy" alt="Voiture de collection">
+        <img src={logoTruck} loading="lazy" alt="Camion">
+        <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
+        <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
+        <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
     </section>
     
     <section class="faq">
@@ -234,7 +232,7 @@
             
             <div class="nom">
                 <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true">
+                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire">
             </div>
             
             <div class="tel">

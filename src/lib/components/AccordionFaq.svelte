@@ -7,11 +7,11 @@
         {
             title: 'Pourquoi faire appel à un expert en automobiles ?',
             content: [
-                'L’<strong>Expertise automobile</strong> répond à plusieurs besoins techniques et pratiques :',
+                'L’<strong>expertise automobile</strong> répond à plusieurs besoins techniques et pratiques :',
                 {
                     type: 'list',
                     items: [
-                        "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong>approprié et conforme aux règles de sécurité.",
+                        "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong> approprié et conforme aux règles de sécurité.",
                         "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, une <strong>malfaçon</strong>, ou encore un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> ou d’un <strong>achat</strong>.",
                         "Estimation de la valeur des <strong>véhicules</strong> : <br >L’expert évalue la valeur de tout type de <strong>véhicule</strong>, qu’il s’agisse de <strong>véhicules</strong> particuliers, de collection, ou utilitaires.",
                         "Évaluation de la sécurité des <strong>véhicules</strong> : <br >Garantir que les <strong>véhicules</strong> respectent les normes de sécurité en vigueur et sont aptes à circuler sur les routes.",
@@ -76,8 +76,8 @@
                     type: 'list',
                     items: [
                         "Première étape : <br > Informez par courrier recommandé le cabinet d’expertise et votre assureur de votre désaccord. Dans ce courrier, expliquez clairement pourquoi vous contestez la valeur fixée et demandez une révision de la VRADE.",
-                        "En cas de refus : <br > Si l’expert et votre assureur maintiennent leur position, vous devrez faire appel à un <strong>expert en automobiles</strong> indépendant. Cet expert pourra procéder à une évaluation contradictoire avec l’expert initial pour déterminer la juste valeur de votre <strong>véhicule</strong>.",
-                        "Option alternative : <br > Vous pouvez également mandater un expert à titre unilatéral pour obtenir un avis éclairé avant d’entamer d’autres démarches plus longues et coûteuses.",
+                        "En cas de refus : <br > Si l’expert et votre assureur maintiennent leur position, vous devrez faire appel à un <strong>expert en automobiles</strong> indépendant. Cet expert pourra procéder à une <strong>contre-expertise</strong> avec l’expert initial pour déterminer la juste valeur de votre <strong>véhicule</strong>.",
+                        "Option alternative : <br > Vous pouvez également mandater un expert à titre unilatéral pour obtenir un avis éclairé avant d’entamer d’autres démarches plus longues et coûteuses comme une <strong>contre-expertise</strong>.",
                     ]
                 },
                 'Nota important : <br > Si vous contestez la VRADE après avoir signé les papiers de cession du <strong>véhicule</strong>, il est possible que l’accès au <strong>véhicule</strong> soit impossible. Cela limiterait alors la capacité d’évaluer précisément son état et pourrait affaiblir votre position dans le débat concernant sa valeur.',
@@ -158,7 +158,7 @@
             title: "Un cabinet d'expertise en automobiles établit que ma déclaration de <strong>sinistre</strong> est incohérente avec les <strong>dommages</strong> observés sur mon véhicule. Que dois-je faire ?",
             content: [
                 'Si l’incohérence provient d’une imprécision majeure dans la déclaration du <strong>sinistre</strong> (vol, incendie, choc en stationnement ou choc avec un tiers), qu’elle soit volontaire ou involontaire, il est fortement recommandé de ne pas persister dans une version erronée.',
-                "En revanche, si votre déclaration est sincère et véritable, il est essentiel de faire appel à un <strong>expert en automobiles</strong> indépendant pour réaliser une expertise contradictoire (contre-expertise).",
+                "En revanche, si votre déclaration est sincère et véritable, il est essentiel de faire appel à un <strong>expert en automobiles</strong> indépendant pour réaliser une expertise contradictoire (<strong>contre-expertise</strong>).",
                 {
                     type: 'list',
                     items: [
@@ -260,82 +260,9 @@
 
 
 <style lang="scss">
-    .accordeon {
-        cursor: pointer; 
-
+    .accordeon { 
         &-item {
             border: 0.15rem solid var(--faqLogo);
-            border-radius: 0.625rem;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem; 
-
-            &-header {
-                display: flex;
-                align-items: center;
-
-                .arrow {
-                    width: 1rem;
-                    transition: transform 0.3s ease;
-                    transform: rotate(270deg);
-
-                    @media screen and (min-width: 768px) {
-                        width: 1.5rem;
-                    }
-
-                    &.down {
-                        transform: rotate(360deg); 
-                    }
-                }  
-                
-                h3 {
-                    padding-left: 0.5rem;
-
-                    @media screen and (min-width: 768px) {
-                        padding-left: 1.5rem;
-                    }
-                }
-            }
-
-            &-ouvert {
-                padding: 0.5rem 0.2rem;
-
-                @media screen and (min-width: 768px) {
-                    padding: 0.8rem;
-                }
-
-                p {
-                    margin-bottom: 0.5rem;
-                    
-                    @media screen and (min-width: 768px) {
-                        padding: 1rem;
-                        margin-left: 2rem;
-                    }
-                }
-
-                ul {
-                    list-style-type: disc;
-                    padding-left: 2rem;
-                    margin-bottom: 1rem;
-
-                    @media screen and (min-width: 768px) {
-                        margin-left: 2rem;
-                    }
-
-                    li {
-                        padding-top: 1rem;
-                        list-style-type: inherit;
-                    }
-
-                    .subList-wrapper {
-                        padding: 0;
-                        list-style-type: none; // Supprime la puce du <li> parent contenant la sous-liste
-                    }
-
-                    .subList {
-                        list-style-type: circle;
-                    }
-                }
-            }
         } 
     }
 </style>

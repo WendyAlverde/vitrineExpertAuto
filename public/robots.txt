@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://IETA.com/sitemap.xml

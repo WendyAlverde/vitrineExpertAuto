@@ -107,58 +107,8 @@
 
 <style lang="scss">
     .accordeon {
-        cursor: pointer; 
-
         &-item {
             border: 0.15rem solid var(--backgroundComponents);
-            border-radius: 0.625rem;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem; 
-
-            &-header {
-                display: flex;
-                align-items: center;
-
-                .arrow {
-                    width: 1rem;
-                    transition: transform 0.3s ease;
-                    transform: rotate(270deg);
-
-                    @media screen and (min-width: 768px) {
-                        width: 1.5rem;
-                    }
-
-                    &.down {
-                        transform: rotate(360deg); 
-                    }
-                }  
-                
-                h3 {
-                    padding-left: 0.5rem;
-
-                    @media screen and (min-width: 768px) {
-                        padding-left: 1.5rem;
-                    }
-                }
-            }
-
-            &-ouvert {
-                margin-top: 0.5rem;
-                padding: 0.5rem 0.2rem;
-
-                @media screen and (min-width: 768px) {
-                    padding: 0.8rem;
-                }
-
-                p {
-                    margin-bottom: 0.5rem;
-
-                    @media screen and (min-width: 768px) {
-                        margin-left: 2rem;
-                    }
-                    
-                }
-            }
         }
     }
 </style>
