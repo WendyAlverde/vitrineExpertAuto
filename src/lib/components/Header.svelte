@@ -65,7 +65,9 @@
 
             <!-- Partie Laptop -->
             <div class="nav">
-                <a class="accueil-tablette" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="tablette" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="tablette center" href="#services" aria-label="Découvrir nos services">Services</a>
+                <a class="tablette" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
             </div>
         </div>
     </div>
@@ -316,12 +318,13 @@
                 @media screen and (min-width: 1024px) and (max-width: 1439px) {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    gap: 8rem;
                     padding-bottom: 1rem;
                 }
 
                 a {
                     color: var(--clickableElement);
-                    // font-size: 0.8rem;
                     letter-spacing: 0.05rem;
                     cursor: pointer; 
                 }
@@ -329,6 +332,7 @@
                 a:active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
                     border-bottom: 0.2rem solid var(--clickableElement);
                 }
+
             } 
         }  
     }
