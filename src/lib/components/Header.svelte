@@ -35,15 +35,20 @@
     };
 
     // ==================== Gère les liens actif ==================== //
-    let currentPath;
+    // let currentPath;
 
-    // Souscription à la valeur du store location
-    location.subscribe(($location) => {
-        currentPath = $location.split('?')[0]; // Récupère l'URL sans les paramètres de query
+    // // Souscription à la valeur du store location
+    // location.subscribe(($location) => {
+    //     currentPath = $location.split('?')[0]; // Récupère l'URL sans les paramètres de query
+    // });
+
+    let currentPath = window.location.hash || "#home";
+
+    onMount(() => {
+        window.addEventListener("hashchange", () => {
+            currentPath = window.location.hash || "#home";
+        });
     });
-
-    // handleClick n'est plus nécessaire car on utilise la réactivité de Svelte pour suivre les routes
-
 </script>
 
 <header class="header {isScrolled ? 'scrolled' : ''}">
@@ -69,15 +74,15 @@
                 </div>
                 <div  class="contact-droite">
                     <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
-                    <a class="accueil-mobile {currentPath === '/home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                    <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 </div>
             </div>
 
             <!-- Partie Laptop -->
             <div class="nav">
-                <a class="tablette {currentPath === '/home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
-                <a class="tablette center" href="#services" aria-label="Découvrir nos services">Services</a>
-                <a class="tablette" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
+                <a class="tablette {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="tablette {currentPath === '#services' ? 'active' : ''}" href="#services" aria-label="Découvrir nos services">Services</a>
+                <a class="tablette {currentPath === '#faq' ? 'active' : ''}" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
             </div>
         </div>
     </div>
@@ -93,7 +98,7 @@
         height: auto;
         
         &.scrolled {
-            height: 6rem; // Header réduit après scroll
+            height: 5rem; // Header réduit après scroll
 
             @media (min-width: 768px) { // Tablette
                 height: 6.5rem;
@@ -112,8 +117,8 @@
                 transform: translateY(-5.5rem); // Décale le contenu vers le haut
                 transition: transform 0.6s ease; 
 
-                @media screen and (min-width: 1024px) { // Laptop
-                    transform: translateY(-6.2rem); // Décale le contenu vers le haut
+                @media screen and (min-width: 768px) { // Laptop
+                    transform: translateY(-5.8rem); // Décale le contenu vers le haut
                 }
 
                 @media screen and (min-width: 1024px) { // Laptop
@@ -347,12 +352,11 @@
                     color: var(--clickableElement);
                     letter-spacing: 0.05rem;
                     cursor: pointer; 
-                }
 
-                a:active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
-                    // border-bottom: 0.2rem solid var(--clickableElement);
-                    border-bottom: 2rem solid var(--table) !important;
-                    padding-bottom: 0.2rem !important ;
+                    &.active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
+                        border-bottom: 0.2rem solid var(--clickableElement) !important;
+                        padding-bottom: 0.2rem !important ;
+                    }
                 }
             } 
         }  
