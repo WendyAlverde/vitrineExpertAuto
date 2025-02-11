@@ -55,20 +55,18 @@
                 }
 
                 .legalNotices, .deontologie {
-                color: white;
-                font-size: 0.7rem;
+                    color: white;
+                    font-size: 0.7rem;
 
-                @media (min-width: 768px) { // Tablette
-                    font-size: 0.9rem;
-                }
+                    @media (min-width: 768px) { // Tablette
+                        font-size: 0.9rem;
+                    }
 
-                @media (min-width: 1024px) { // Laptop
-                    font-size: 1rem;
-                }
-            }       
+                    @media (min-width: 1024px) { // Laptop
+                        font-size: 1rem;
+                    }
+                }       
             }
-
-             
             
             .logoIeta {
                 width: 5rem;
@@ -99,6 +97,7 @@
             text-align: center;
             color: white;
             font-size: 0.6rem;
+            padding-bottom: 0.3rem;
 
             @media (min-width: 768px) { // Tablette
                 font-size: 0.8rem;
