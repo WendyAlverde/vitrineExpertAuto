@@ -1,5 +1,5 @@
 <script>
-    import {link} from "svelte-spa-router"
+    import { link, location } from "svelte-spa-router"
     import { onMount } from 'svelte';
     import logoIeta from "../../assets/pictures/logoIetaGood.svg"
 
@@ -34,6 +34,16 @@
 
     };
 
+    // ==================== Gère les liens actif ==================== //
+    let currentPath;
+
+    // Souscription à la valeur du store location
+    location.subscribe(($location) => {
+        currentPath = $location.split('?')[0]; // Récupère l'URL sans les paramètres de query
+    });
+
+    // handleClick n'est plus nécessaire car on utilise la réactivité de Svelte pour suivre les routes
+
 </script>
 
 <header class="header {isScrolled ? 'scrolled' : ''}">
@@ -59,13 +69,13 @@
                 </div>
                 <div  class="contact-droite">
                     <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
-                    <a class="accueil-mobile" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                    <a class="accueil-mobile {currentPath === '/home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 </div>
             </div>
 
             <!-- Partie Laptop -->
             <div class="nav">
-                <a class="tablette" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="tablette {currentPath === '/home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
                 <a class="tablette center" href="#services" aria-label="Découvrir nos services">Services</a>
                 <a class="tablette" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
             </div>
@@ -86,7 +96,7 @@
             height: 6rem; // Header réduit après scroll
 
             @media (min-width: 768px) { // Tablette
-                height: 7rem;
+                height: 6.5rem;
             }
 
             @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
@@ -98,6 +108,7 @@
             }
 
             .header-content {
+                background: linear-gradient(135deg, #2b2b3d, #41415c);
                 transform: translateY(-5.5rem); // Décale le contenu vers le haut
                 transition: transform 0.6s ease; 
 
@@ -121,7 +132,14 @@
             align-items: center;
             padding: 0 0.5rem;
             position: relative;
-            
+
+            @media (min-width: 768px) { // Tablette
+                padding-bottom: 0.3rem;
+            }
+
+            @media (min-width: 1024px) { // Laptop
+                padding-bottom: 0.8rem;
+            }
 
             a {
                 display: block;
@@ -178,6 +196,8 @@
         }
 
         .sticky {
+            // Une ligne ombrée pour faire resortir les liens
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 
             .contact {
                 padding: 0.5rem;
@@ -330,9 +350,10 @@
                 }
 
                 a:active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
-                    border-bottom: 0.2rem solid var(--clickableElement);
+                    // border-bottom: 0.2rem solid var(--clickableElement);
+                    border-bottom: 2rem solid var(--table) !important;
+                    padding-bottom: 0.2rem !important ;
                 }
-
             } 
         }  
     }

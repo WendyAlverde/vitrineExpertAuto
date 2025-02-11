@@ -176,7 +176,7 @@
         </div>
     </section>
 
-    <section class="services">
+    <section id="services" class="services">
         <h2>Nos Services, Expert Automobile</h2>
         <AccordionServices />
     </section>
@@ -190,7 +190,7 @@
         <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
     </section>
     
-    <section class="faq">
+    <section id="faq" class="faq">
         <h2>Foire aux Questions</h2>
         <AccordionFaq />
     </section>
