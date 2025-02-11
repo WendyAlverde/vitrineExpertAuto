@@ -41,6 +41,14 @@
         background: linear-gradient(135deg, #2b2b3d, #41415c); 
         padding: 0 1rem;
 
+        @media (min-width: 1024px) { // Laptop
+            padding: 0 2rem;
+        }
+
+        @media (min-width: 1440px) { // Grand écran
+            padding: 0 3rem;
+        }
+
         .link {
             display: flex;
             align-items: center;

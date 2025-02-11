@@ -64,88 +64,65 @@
 <style lang="scss">
 
     main {
-        max-width: 800px;
-        margin: 2rem auto;
+        max-width: 1000px;
+        margin: 1rem;
         padding: 1.5rem;
         background-color: #fff;
-        border-radius: 8px;
+        border-radius: 0.625rem;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
 
-    h1 {
-        color: var(--text);
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-
-    h2 {
-        color: var(--text);
-        margin-top: 2rem;
-        border-bottom: 2px solid var(--text);
-        padding-bottom: 0.5rem;
-    }
-
-    .contact-mail {
-        text-decoration: none;
-        color: var(--text);
-    }
-
-    .contact-tel {
-        text-decoration: none;
-        color: var(--text);
-    }
-
-    ul {
-        padding-left: 0;
-        list-style-type: none;
-
-        li {
-            margin-bottom: 0.8rem;
-            em {
-                color: var(--text);
-                font-weight: bold;
-            }
-
-            ul {
-                list-style-type: disc;
-            }
-        }
-    }
-
-    p {
-        line-height: 1.6;
-        margin: 1rem 0;
-
-        a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: bold;
-            &:hover {
-            text-decoration: underline;
-            }
-        }
-    }
-
-    section {
-        margin-bottom: 2rem;
-    }
-
-    @media (max-width: 768px) {
-        main {
-            margin: 1rem;
-            padding: 1rem;
+        @media (min-width: 1024px) {
+            margin: 2rem auto;
         }
 
         h1 {
-            font-size: 1.8rem;
+            text-align: center;
         }
 
         h2 {
-            font-size: 1.3rem;
+            margin-top: 2rem;
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 0.5rem;
         }
 
-        p, ul li {
-            font-size: 0.95rem;
+        .contact-mail {
+            color: var(--text);
+        }
+
+        .contact-tel {
+            color: var(--text);
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+
+            li {
+                margin: 1rem 0;
+
+                em {
+                    font-weight: bold;
+                }
+
+                ul {
+                    list-style-type: disc;
+                }
+            }
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 1rem 0;
+
+            a {
+                color: var(--text);
+                text-decoration: none;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 </style>
