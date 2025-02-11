@@ -209,11 +209,11 @@
                 <legend>Est-elle urgente ? <span aria-hidden="true">*</span></legend>
                 <div class="flexRadio">
                     <div class="radio">
-                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
+                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required aria-checked="true">
                         <label for="oui">Oui</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
+                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required aria-checked="true">
                         <label for="non">Non</label>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
                 <label for="tel">Votre numéro de téléphone</label>
                 <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05">
                 {#if errorMessageTel}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageTel}</p>
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTel}</p>
                 {/if}
             </div>
             
@@ -247,7 +247,7 @@
                 <label for="email">Votre e-mail</label>
                 <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
                 {#if errorMessageMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageMail}</p>
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageMail}</p>
                 {/if}
             </div>
             
@@ -257,9 +257,13 @@
             </div>
 
             {#if errorMessageTelMail}
-                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;">{errorMessageTelMail}</p>
+                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTelMail}</p>
             {/if}
-            
+            <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
+            <label class="autorisation">
+                <input type="checkbox" name="autorisation" required aria-required="true">
+                Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
+            </label>
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
     </section>
@@ -581,6 +585,25 @@
                     @media screen and (min-width: 768px) { // Grand écran
                         font-size: 1.25rem;
                     }
+                }
+            }
+            
+            .obligatoire {
+                color: #CF1F31;
+                font-size: 0.8rem;
+                padding-bottom: 0.5rem;
+            }
+
+            .autorisation {
+                font-size: 0.813rem;
+                margin: 0.5rem 0 0.8rem;
+
+                @media screen and (min-width: 768px) { // Grand écran
+                    font-size: 1rem;
+                }
+
+                input {
+                    margin-right: 0.5rem;
                 }
             }
         }
