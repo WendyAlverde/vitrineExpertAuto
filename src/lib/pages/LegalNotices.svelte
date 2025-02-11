@@ -8,6 +8,7 @@
             <li><em>Dénomination sociale :</em> IETA : Innovation, Expertise des Technologies Automobiles</li>
             <li><em>Forme juridique :</em> SARL</li>
             <li><em>Montant du capital social :</em> 1000€</li>
+            <li><em>Adresse du siège social :</em> 145 Rue Lapérouse, 13600 LA CIOTAT</li>
             <li><em>Contact :</em>
                 <ul>
                     <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a></li>
@@ -19,10 +20,7 @@
                 <ul>
                     <li>Nom : Vercel</li>
                     <li>Raison sociale : Vercel Inc.</li>
-                    <li>Adresse : Vercel Inc.
-                        440 N Barranca Avenue #4133
-                        Covina, CA 91723
-                        United States</li>
+                    <li>Adresse : 440 N Barranca Avenue #4133, Covina, CA 91723, United States</li>
                 </ul>
             </li>
             <li><em>Responsable de la publication :</em> Amaury Madani</li>
