@@ -166,7 +166,7 @@
                 <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
             </ul>
         </div>
-        <div class="presentation-valeurs">
+        <aside class="presentation-valeurs">
             <h2>Nos Valeurs</h2>
             <ul>
                 <li>Impartialité</li>
@@ -174,7 +174,7 @@
                 <li>Indépendance</li>
                 <li>Excellence</li>
             </ul>
-        </div>
+        </aside>
     </section>
 
     <section id="services" class="services">
@@ -240,7 +240,7 @@
                 <label for="tel">Votre numéro de téléphone</label>
                 <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05">
                 {#if errorMessageTel}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTel}</p>
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTel}</p>
                 {/if}
             </div>
             
@@ -248,7 +248,7 @@
                 <label for="email">Votre e-mail</label>
                 <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
                 {#if errorMessageMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageMail}</p>
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageMail} aria-live="polite"</p>
                 {/if}
             </div>
             
@@ -258,12 +258,12 @@
             </div>
 
             {#if errorMessageTelMail}
-                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTelMail}</p>
+                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
             {/if}
             <div>
                 <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
-                <label class="autorization">
-                    <input type="checkbox" name="autorisation" required aria-required="true">
+                <label class="autorization" for="autorization">
+                    <input type="checkbox" name="autorization" id="autorisation" required aria-required="true">
                     Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
                 </label>
             </div>
