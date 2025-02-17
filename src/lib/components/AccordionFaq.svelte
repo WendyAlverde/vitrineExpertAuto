@@ -12,7 +12,7 @@
                     type: 'list',
                     items: [
                         "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong> approprié et conforme aux règles de <strong>sécurité</strong>.",
-                        "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, une <strong>malfaçon</strong>, ou encore un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> ou d’un <strong>achat</strong>.",
+                        "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, une <strong>malfaçon</strong> (<strong>mauvaise réparation</strong>), ou encore un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> (<strong>vice caché</strong>, <strong>garantie légale de conformité</strong>), ou d’un <strong>achat</strong>, ect ...",
                         "Estimation de la <strong>valeur</strong> des véhicules : <br >L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.",
                         "Évaluation de la <strong>sécurité</strong> des véhicules : <br >Garantir que les véhicules respectent les normes de <strong>sécurité</strong> en vigueur et sont aptes à circuler sur les routes.",
                     ]
@@ -20,7 +20,7 @@
             ]
         },
         {
-            title: "Je viens d’acquérir un véhicule d'occasion et il est affecté d’avaries que dois-je faire(valable vendeur particulier et professionnel) ?",
+            title: "Je viens d’acquérir un véhicule d'occasion et il est affecté d’avaries que dois-je faire (valable vendeur particulier et professionnel) ?",
             content: [
                 'Dans un premier temps, il est essentiel d’informer le vendeur par courrier recommandé de mise en demeure, en joignant si possible le devis de remise en état. Cette démarche formalise les échanges et constitue une étape indispensable pour protéger vos droits en cas de <strong>litige</strong> ultérieur.',
                 'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni à l’effacement des <strong>défauts</strong> électroniques enregistrés dans les calculateurs du véhicule. Ces mesures conservatoires permettent de préserver les preuves nécessaires à une analyse technique approfondie.',
@@ -66,7 +66,7 @@
             content: [
                 "En l’absence de prise en charge du constructeur de votre désordre, il est tout d’abord nécessaire d’informer par courrier recommandé de mise en demeure, en incluant si possible le devis de remise en état. Cette étape permet de formaliser les échanges et de protéger vos droits en cas de contentieux ultérieur.",
                 "En parallèle, il est indispensable de mandater un <strong>expert en automobiles</strong> pour analyser le schéma d’entretien du <strong>véhicule</strong> et de déterminer l’origine et les causes des avaries afin d’identifier la responsabilité du constructeur automobile.",
-                "En règle générale, aucun lien contractuel direct ne lie l'acheteur et le constructeur dans la majeure partie des cas le vendeur du <strong>véhicule</strong> doit également être appeler à la cause. "
+                "En règle générale, aucun lien contractuel direct ne lie l'acheteur et le constructeur dans la majeure partie des cas le vendeur du <strong>véhicule</strong> doit également être appeler à la cause (<strong>vice caché</strong> ou <strong>défaut de conformité</strong>). "
             ]
         },
         {
