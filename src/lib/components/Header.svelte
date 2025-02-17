@@ -34,14 +34,6 @@
 
     };
 
-    // ==================== Gère les liens actif ==================== //
-    // let currentPath;
-
-    // // Souscription à la valeur du store location
-    // location.subscribe(($location) => {
-    //     currentPath = $location.split('?')[0]; // Récupère l'URL sans les paramètres de query
-    // });
-
     let currentPath = window.location.hash || "#home";
 
     onMount(() => {
@@ -81,8 +73,6 @@
             <!-- Partie Laptop -->
             <div class="nav">
                 <a class="tablette {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
-                <a class="tablette {currentPath === '#services' ? 'active' : ''}" href="#services" aria-label="Découvrir nos services">Services</a>
-                <a class="tablette {currentPath === '#faq' ? 'active' : ''}" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
             </div>
         </div>
     </div>
@@ -221,7 +211,7 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    width: 50%;
+                    width: 60%;
                     height: 5rem;
                     
                     .contact-pc {
@@ -235,10 +225,6 @@
 
                     .contact-mail {
                         padding-left: 1rem;
-                        
-                        @media screen and (min-width: 768px) { // Laptop
-                            padding: 0;
-                        }
                     }
 
                     @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
@@ -352,11 +338,7 @@
                     color: var(--clickableElement);
                     letter-spacing: 0.05rem;
                     cursor: pointer; 
-
-                    &.active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
-                        border-bottom: 0.2rem solid var(--clickableElement) !important;
-                        padding-bottom: 0.2rem !important ;
-                    }
+                    // border-bottom: 0.2rem solid var(--clickableElement);
                 }
             } 
         }  
