@@ -157,10 +157,11 @@
     <section class="presentation">
         <div class="presentation-text">
             <h1>Amaury Madani, Expert Automobile</h1>
-            <p><em>Une passion devenue expertise.</em><br >Depuis toujours, l’automobile est l’une de mes passions. Après des études spécialisées et une immersion professionnelle dans le secteur à partir de 2013, j’ai été Expert automobile titré en 2020. <br > Fort de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’expertise technique, la résolution de litiges et l’évaluation de véhicules.</p>
+            <p><em>Une expertise technique au service de vos besoins.</em><br >Curieux et passionné de l'automobile, l’expertise fut une évidence et une révélation. <br >Après des études spécialisées et une immersion professionnelle dans le secteur automobile à partir de 2013, j’ai été <strong>Expert automobile</strong> <em>titré en 2020</em>.</p>
+            <p>Fort et ancré de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’<strong>expertise technique</strong>, la <strong>résolution de litiges</strong> et l’<strong>évaluation de véhicules</strong>.</p>
             <p class="question">Pourquoi choisir notre cabinet ?</p>
             <ul>
-                <li><em>Une expertise reconnue :</em> Diplômé d’état comme Expert en automobile depuis 2020.</li>
+                <li><em>Une expertise reconnue :</em> Diplômé d’état comme expert en automobile depuis 2020.</li>
                 <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
                 <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
             </ul>
