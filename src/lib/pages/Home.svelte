@@ -260,11 +260,13 @@
             {#if errorMessageTelMail}
                 <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTelMail}</p>
             {/if}
-            <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
-            <label class="autorisation">
-                <input type="checkbox" name="autorisation" required aria-required="true">
-                Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
-            </label>
+            <div>
+                <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
+                <label class="autorization">
+                    <input type="checkbox" name="autorisation" required aria-required="true">
+                    Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
+                </label>
+            </div>
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
     </section>
@@ -561,13 +563,33 @@
                         min-height: 2rem;
                         overflow: hidden;
 
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 768px) {// Tablette
                             min-width: 80%;
                             max-width: 100%;
                             display: flex;
                             flex-direction: column;
                             // font-size: 1rem;
                         }
+                    }
+                }
+
+                .obligatoire {
+                    color: #CF1F31;
+                    font-size: 0.8rem;
+                    padding-bottom: 0.5rem;
+                }
+
+                .autorization {
+                    font-size: 0.8rem;
+                    margin: 0.5rem 0 0.8rem;
+
+                    @media screen and (min-width: 768px) { // Tablette
+                        font-size: 1rem;
+                    }
+
+                    input {
+                        margin-right: 0.5rem;
+                        margin-bottom: 0;
                     }
                 }
                 
@@ -582,29 +604,11 @@
                     letter-spacing: 0.02rem;
                     padding: 0.5rem;
                     width: 100%;
+                    margin-top: 0.5rem;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1.25rem;
                     }
-                }
-            }
-            
-            .obligatoire {
-                color: #CF1F31;
-                font-size: 0.8rem;
-                padding-bottom: 0.5rem;
-            }
-
-            .autorisation {
-                font-size: 0.813rem;
-                margin: 0.5rem 0 0.8rem;
-
-                @media screen and (min-width: 768px) { // Grand écran
-                    font-size: 1rem;
-                }
-
-                input {
-                    margin-right: 0.5rem;
                 }
             }
         }
