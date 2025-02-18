@@ -1,22 +1,34 @@
 <script>
     import { link, location } from "svelte-spa-router"
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import logoIeta from "../../assets/pictures/logoIetaGood.svg"
 
-    // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
-    let isScrolled = false;    
+    // Variables
+    let isScrolled = false; 
+    let currentPath = "";   
 
+    // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
+    const handleScroll = () => {
+        isScrolled = window.scrollY > 0;
+    };
 
     onMount(() => {
-        const handleScroll = () => {
-            isScrolled = window.scrollY > 0;
-        };
+        
 
         // Vérifie si la route actuelle correspond à "Mentions Légales"
         window.addEventListener("scroll", handleScroll);
-        // Nettoyage pour éviter les fuites mémoire
+
+        // Mise à jour du chemin actuel
+        const updatePath = () => {
+            currentPath = window.location.hash || "#home";
+        };
+        window.addEventListener("hashchange", updatePath);
+        updatePath(); // Initialisation
+
+        // Nettoyage des événements pour éviter les fuites mémoire
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("hashchange", updatePath);
         };
     });
 
@@ -25,14 +37,14 @@
         const targetId = event.target.getAttribute('href').substring(2); // Ex: "#contactForm" → "contactForm"
 
         // Vérifie si on est déjà sur la page d'accueil
-        if (window.location.pathname === "/home") {
+        if (location.pathname === "/") {
             // Si on est déjà sur la Home, on scrolle directement
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
-            }, 100);
+            });
         } else {
             // Sinon, on change de page puis on attend le chargement
             window.location.href = `/#${targetId}`;
@@ -47,7 +59,7 @@
         }
     };
 
-    let currentPath = window.location.hash || "#home";
+    // let currentPath = window.location.hash || "#home";
 
     onMount(() => {
         window.addEventListener("hashchange", () => {
@@ -59,7 +71,9 @@
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="#home" aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
+            <a href="#home" aria-label="Retour à l'accueil">
+                <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles">
+            </a>
             
             <div class="entreprise-name">
                 <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
@@ -67,32 +81,50 @@
             </div>
         </div>
     
-        <div class="sticky">
+        <div class="sticky" role="navigation" aria-label="Menu principal">
             <div class="contact">
                 <div class="contact-gauche ">
-                    <a href="/#contactForm" class="contact-form form" onclick={scrollToAnchor}>
+                    <!-- Title permet d'ajouter une infobulle -->
+                    <a href="/#contactForm" class="contact-form form" on:click={scrollToAnchor} 
+                        aria-label="Aller au formulaire de contact (défilement automatique)" title="Aller au formulaire de contact">
                         Formulaire Contact
                     </a>
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
-                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a>
+                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" 
+                        aria-label="Ouvrir votre application mail pour écrire à cabinet.ieta@outlook.fr">
+                        cabinet.ieta@outlook.fr
+                    </a>
                 </div>
                 <div  class="contact-droite">
-                    <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
-                    <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                    <a class="contact-tel" href="tel:0628406288"
+                        aria-label="Appeler le 06 28 40 62 88">
+                        06 28 40 62 88
+                    </a>
+                    <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" 
+                        href="#home" 
+                        aria-current="{currentPath === '#home' ? 'page' : undefined}" 
+                        aria-label="Aller sur la page d'accueil"
+                        title="Retour à l'accueil">
+                        Accueil
+                    </a>
                 </div>
             </div>
 
             <!-- Partie Laptop -->
             <div class="nav">
-                <a class="tablette {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                <a class="tablette {currentPath === '#home' ? 'active' : ''}" 
+                    href="#home" 
+                    aria-current="{currentPath === '#home' ? 'page' : undefined}" 
+                    aria-label="Aller sur la page d'accueil"
+                    title="Retour à l'accueil">
+                    Accueil</a>
             </div>
         </div>
     </div>
 </header>
 
-<style lang="scss">
-    
+<style lang="scss"> 
     .header {
         position: sticky;
         top: 0; 
