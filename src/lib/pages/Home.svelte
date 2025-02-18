@@ -151,127 +151,128 @@
 </script>
 
 <!-- <img src={logoJustice} alt="Juridique"> -->
-
-<section id="home">
-    <section class="presentation">
-        <div class="presentation-text">
-            <h1>Amaury Madani, Expert Automobile</h1>
-            <p><em>Une expertise technique au service de vos besoins.</em><br >Curieux et passionné de l'automobile, l’expertise fut une évidence et une révélation. <br >Après des études spécialisées et une immersion professionnelle dans le secteur automobile à partir de 2013, j’ai été <strong>Expert automobile</strong> <em>titré en 2020</em>.</p>
-            <p>Fort et ancré de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’<strong>expertise technique</strong>, la <strong>résolution de litiges</strong> et l’<strong>évaluation de véhicules</strong>.</p>
-            <p class="question">Pourquoi choisir notre cabinet ?</p>
-            <ul>
-                <li><em>Une expertise reconnue :</em> Diplômé d’état comme expert en automobile depuis 2020.</li>
-                <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
-                <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
-            </ul>
-        </div>
-        <aside class="presentation-valeurs">
-            <h2>Nos Valeurs</h2>
-            <ul>
-                <li>Impartialité</li>
-                <li>Intégrité</li>
-                <li>Indépendance</li>
-                <li>Excellence</li>
-            </ul>
-        </aside>
-    </section>
-
-    <section id="services" class="services">
-        <h2>Nos Services, Expert Automobile</h2>
-        <AccordionServices />
-    </section>
+<main>
+    <section id="home">
+        <section class="presentation">
+            <div class="presentation-text">
+                <h1>Amaury Madani, Expert Automobile</h1>
+                <p><em>Une expertise technique au service de vos besoins.</em><br >Curieux et passionné de l'automobile, l’expertise fut une évidence et une révélation. <br >Après des études spécialisées et une immersion professionnelle dans le secteur automobile à partir de 2013, j’ai été <strong>Expert automobile</strong> <em>titré en 2020</em>.</p>
+                <p>Fort et ancré de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’<strong>expertise technique</strong>, la <strong>résolution de litiges</strong> et l’<strong>évaluation de véhicules</strong>.</p>
+                <p class="question">Pourquoi choisir notre cabinet ?</p>
+                <ul>
+                    <li><em>Une expertise reconnue :</em> Diplômé d’état comme expert en automobile depuis 2020.</li>
+                    <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
+                    <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
+                </ul>
+            </div>
+            <aside class="presentation-valeurs">
+                <h2>Nos Valeurs</h2>
+                <ul>
+                    <li>Impartialité</li>
+                    <li>Intégrité</li>
+                    <li>Indépendance</li>
+                    <li>Excellence</li>
+                </ul>
+            </aside>
+        </section>
     
-    <section class="logoVehicules">
-        <img src={logoBerline} loading="lazy" alt="Voiture Berline">
-        <img src={logoCollection} loading="lazy" alt="Voiture de collection">
-        <img src={logoTruck} loading="lazy" alt="Camion">
-        <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
-        <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
-        <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
-    </section>
+        <section id="services" class="services">
+            <h2>Nos Services, Expert Automobile</h2>
+            <AccordionServices />
+        </section>
+        
+        <section class="logoVehicules">
+            <img src={logoBerline} loading="lazy" alt="Voiture Berline">
+            <img src={logoCollection} loading="lazy" alt="Voiture de collection">
+            <img src={logoTruck} loading="lazy" alt="Camion">
+            <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
+            <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
+            <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
+        </section>
+        
+        <section id="faq" class="faq">
+            <h2>Foire aux Questions</h2>
+            <AccordionFaq />
+        </section>
+        
+        <section id="contactForm" class="formulaire">
+            <h2>Formulaire de contact</h2>
     
-    <section id="faq" class="faq">
-        <h2>Foire aux Questions</h2>
-        <AccordionFaq />
-    </section>
-    
-    <section id="contactForm" class="formulaire">
-        <h2>Formulaire de contact</h2>
-
-        <form on:submit|preventDefault={envoyerFormulaire}>
-            <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
-            <select name="demande" id="demande" bind:value={demande} required aria-required="true">
-                <option value="information">Je souhaite avoir une information</option>
-                <option value="Expertise">Expertise véhicule</option>
-                <option value="autre">Autre</option>
-            </select>
-    
-            <fieldset aria-labelledby="urgence-label">
-                <legend id="urgence-label">Est-elle urgente ? <span aria-hidden="true">*</span></legend>
-                <div class="flexRadio">
-                    <div class="radio">
-                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
-                        <label for="oui">Oui</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
-                        <label for="non">Non</label>
-                    </div>
-                </div>
-            </fieldset>
-    
-            <div class="localisation">
-                <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
-                <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
-                    <option value="Montpellier">Montpellier</option>
-                    <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
-                    <option value="Var">Var</option>
-                    <option value="Gard">Gard</option>
-                    <option value="Hérault">Hérault</option>
+            <form on:submit|preventDefault={envoyerFormulaire}>
+                <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
+                <select name="demande" id="demande" bind:value={demande} required aria-required="true">
+                    <option value="information">Je souhaite avoir une information</option>
+                    <option value="Expertise">Expertise véhicule</option>
+                    <option value="autre">Autre</option>
                 </select>
-            </div>
-            
-            <div class="nom">
-                <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire" autocomplete="name">
-            </div>
-            
-            <div class="tel">
-                <label for="tel">Votre numéro de téléphone</label>
-                <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05" autocomplete="tel">
-                {#if errorMessageTel}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTel}</p>
+        
+                <fieldset aria-labelledby="urgence-label">
+                    <legend id="urgence-label">Est-elle urgente ? <span aria-hidden="true">*</span></legend>
+                    <div class="flexRadio">
+                        <div class="radio">
+                            <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
+                            <label for="oui">Oui</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
+                            <label for="non">Non</label>
+                        </div>
+                    </div>
+                </fieldset>
+        
+                <div class="localisation">
+                    <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
+                    <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
+                        <option value="Montpellier">Montpellier</option>
+                        <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
+                        <option value="Var">Var</option>
+                        <option value="Gard">Gard</option>
+                        <option value="Hérault">Hérault</option>
+                    </select>
+                </div>
+                
+                <div class="nom">
+                    <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
+                    <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire" autocomplete="name">
+                </div>
+                
+                <div class="tel">
+                    <label for="tel">Votre numéro de téléphone</label>
+                    <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05" autocomplete="tel">
+                    {#if errorMessageTel}
+                        <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTel}</p>
+                    {/if}
+                </div>
+                
+                <div class="email">
+                    <label for="email">Votre e-mail</label>
+                    <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="exemple@gmail.com" aria-describedby="exemple d'email : exemple@gmail.com" autocomplete="email">
+                    {#if errorMessageMail}
+                        <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageMail}</p>
+                    {/if}
+                </div>
+                
+                <div class="commentaire">
+                    <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
+                    <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
+                </div>
+    
+                {#if errorMessageTelMail}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
                 {/if}
-            </div>
-            
-            <div class="email">
-                <label for="email">Votre e-mail</label>
-                <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="exemple@gmail.com" aria-describedby="exemple d'email : exemple@gmail.com" autocomplete="email">
-                {#if errorMessageMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageMail}</p>
-                {/if}
-            </div>
-            
-            <div class="commentaire">
-                <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
-                <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
-            </div>
-
-            {#if errorMessageTelMail}
-                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
-            {/if}
-            <div>
-                <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
-                <label class="autorization" for="autorization">
-                    <input type="checkbox" name="autorization" id="autorization" required aria-required="true">
-                    Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
-                </label>
-            </div>
-            
-            <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
-        </form>
+                <div>
+                    <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
+                    <label class="autorization" for="autorization">
+                        <input type="checkbox" name="autorization" id="autorization" required aria-required="true">
+                        Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
+                    </label>
+                </div>
+                
+                <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
+            </form>
+        </section>
     </section>
-</section>
+</main>
 
 <style lang="scss">
     #home {

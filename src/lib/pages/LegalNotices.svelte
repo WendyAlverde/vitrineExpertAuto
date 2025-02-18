@@ -11,7 +11,7 @@
             <li><em>Adresse du siège social :</em> 145 Rue Lapérouse, 13600 LA CIOTAT</li>
             <li><em>Contact :</em>
                 <ul>
-                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a></li>
+                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" rel="noopener noreferrer" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a></li>
                     <li>Téléphone : <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a></li>
                 </ul>
             </li>
@@ -24,7 +24,7 @@
                 </ul>
             </li>
             <li><em>Responsable de la publication :</em> Amaury Madani</li>
-            <li><em>Responsable de la rédaction (en cas de contenu éditorial) :</em> Amaury Madani</li>
+            <li><em>Responsable de la rédaction :</em> Amaury Madani</li>
         </ul>
     </section>
 
@@ -55,7 +55,7 @@
                 </ul>
             </li>
         </ul>
-        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank">cabinet.ieta@outlook.fr</a>.</p>
+        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" rel="noopener noreferrer">cabinet.ieta@outlook.fr</a>.</p>
     </section>
 </main>
 
