@@ -13,8 +13,6 @@
     };
 
     onMount(() => {
-        
-
         // Vérifie si la route actuelle correspond à "Mentions Légales"
         window.addEventListener("scroll", handleScroll);
 

@@ -33,8 +33,11 @@
     let urgence = "";
     let localisation = "Montpellier";
     let commentaire = "";
+    // Variable errors
     let errorMessage = "";
     let errorMessageForm = '';
+    let errorMessageTel = '';
+    let errorMessageMail = '';
     let errorMessageTelMail = '';
 
     // Fonction pour envoyer le formulaire
@@ -102,8 +105,6 @@
     }
 
     // Téléphone
-    let errorMessageTel = '';
-
     function formatPhoneNumber(event) {
         let value = event.target.value.replace(/\D/g, ''); // Supprime tout sauf les chiffres
         if (value.length > 10) value = value.slice(0, 10); // Limite à 10 chiffres
@@ -122,8 +123,6 @@
     }
 
     // Email
-    let errorMessageMail = '';
-    
     function validateEmail() {
         // vérifie la validité d'une adresse email en respectant les règles suivantes :
         // - La partie avant le @ peut contenir des lettres, chiffres et certains caractères spéciaux (., _, %, +, -).
@@ -141,8 +140,8 @@
 
     function adjustSize() {
         if (textarea) {
-        textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
         }
     }
 
@@ -183,7 +182,7 @@
     </section>
     
     <section class="logoVehicules">
-        <img src={logoBerline} loading="lazy" alt="Berline">
+        <img src={logoBerline} loading="lazy" alt="Voiture Berline">
         <img src={logoCollection} loading="lazy" alt="Voiture de collection">
         <img src={logoTruck} loading="lazy" alt="Camion">
         <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
@@ -198,6 +197,7 @@
     
     <section id="contactForm" class="formulaire">
         <h2>Formulaire de contact</h2>
+
         <form on:submit|preventDefault={envoyerFormulaire}>
             <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
             <select name="demande" id="demande" bind:value={demande} required aria-required="true">
@@ -206,22 +206,22 @@
                 <option value="autre">Autre</option>
             </select>
     
-            <fieldset>
-                <legend>Est-elle urgente ? <span aria-hidden="true">*</span></legend>
+            <fieldset aria-labelledby="urgence-label">
+                <legend id="urgence-label">Est-elle urgente ? <span aria-hidden="true">*</span></legend>
                 <div class="flexRadio">
                     <div class="radio">
-                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required aria-checked="true">
+                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
                         <label for="oui">Oui</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required aria-checked="true">
+                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
                         <label for="non">Non</label>
                     </div>
                 </div>
             </fieldset>
     
             <div class="localisation">
-                <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
+                <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
                 <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
                     <option value="Montpellier">Montpellier</option>
                     <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
@@ -233,12 +233,12 @@
             
             <div class="nom">
                 <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire">
+                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire" autocomplete="name">
             </div>
             
             <div class="tel">
                 <label for="tel">Votre numéro de téléphone</label>
-                <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05">
+                <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05" autocomplete="tel">
                 {#if errorMessageTel}
                     <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTel}</p>
                 {/if}
@@ -246,9 +246,9 @@
             
             <div class="email">
                 <label for="email">Votre e-mail</label>
-                <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
+                <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="exemple@gmail.com" aria-describedby="exemple d'email : exemple@gmail.com" autocomplete="email">
                 {#if errorMessageMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageMail} aria-live="polite"</p>
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageMail}</p>
                 {/if}
             </div>
             
@@ -263,10 +263,11 @@
             <div>
                 <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
                 <label class="autorization" for="autorization">
-                    <input type="checkbox" name="autorization" id="autorisation" required aria-required="true">
+                    <input type="checkbox" name="autorization" id="autorization" required aria-required="true">
                     Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
                 </label>
             </div>
+            
             <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
         </form>
     </section>
