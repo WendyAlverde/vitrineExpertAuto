@@ -58,9 +58,9 @@
         if (event.key === 'Enter' || event.key === ' ') {
             toggleAccordion(index);
         } else if (event.key === 'ArrowDown') {
-            document.querySelectorAll('.accordeon-item')[index + 1]?.focus();
+            document.querySelectorAll('.service')[index + 1]?.focus();
         } else if (event.key === 'ArrowUp') {
-            document.querySelectorAll('.accordeon-item')[index - 1]?.focus();
+            document.querySelectorAll('.service')[index - 1]?.focus();
         }
     };
 </script>
@@ -70,7 +70,7 @@
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div class="accordeon-item" 
+        <div class="accordeon-item service" 
             role="button" 
             tabindex="0" 
             aria-expanded={openIndex === index ? 'true' : 'false'} 
