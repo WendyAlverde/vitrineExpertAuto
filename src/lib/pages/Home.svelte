@@ -39,6 +39,7 @@
     let errorMessageTel = '';
     let errorMessageMail = '';
     let errorMessageTelMail = '';
+    let autorization = false;
 
     // Fonction pour envoyer le formulaire
     function sanitizeInput(input) {
@@ -52,6 +53,12 @@
         email = sanitizeInput(email);
         tel = sanitizeInput(tel);
         commentaire = sanitizeInput(commentaire);
+
+        if (!autorization) {
+            alert("Vous devez consentir à la collecte de vos données.");
+            return;
+        }
+        console.log("Formulaire envoyé !");
 
         if (!email && !tel) {
             errorMessageTelMail = "Veuillez entrer au moins un email ou un numéro de téléphone.";
@@ -263,12 +270,12 @@
                 <div>
                     <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
                     <label class="autorization" for="autorization">
-                        <input type="checkbox" name="autorization" id="autorization" required aria-required="true">
+                        <input type="checkbox" name="autorization" id="autorization" bind:checked={autorization} required>
                         Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
                     </label>
                 </div>
                 
-                <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
+                <button type="submit" class ={autorization ? "enabled" : "disabled"} disabled={!autorization}>Envoyer</button>
             </form>
         </section>
     </section>
@@ -593,6 +600,16 @@
                         margin-right: 0.5rem;
                         margin-bottom: 0;
                     }
+                }
+                
+                .disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                .enabled {
+                    opacity: 1;
+                    cursor: pointer;
                 }
                 
                 button {
