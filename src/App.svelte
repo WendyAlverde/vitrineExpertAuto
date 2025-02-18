@@ -38,5 +38,5 @@
 </script>
 
 <Header />
-<Router {routes} on:routeLoaded={onRouteLoaded} />
+<Router {routes} let:component on:routeLoaded={onRouteLoaded} />
 <Footer />
