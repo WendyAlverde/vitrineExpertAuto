@@ -11,9 +11,10 @@
     import LegalNotices from "./lib/pages/LegalNotices.svelte";
     import NotFound from "./lib/pages/NotFound.svelte";
 
+    // kebab-case plus naturel pour le SEO
     const routes = {
         "/": Home,
-        "/legalNotices": LegalNotices,
+        "/legal-notices": LegalNotices,
         "*": NotFound,
     };
 
@@ -21,14 +22,16 @@
         // Forcer le scroll en haut de la page
         window.scrollTo(0, 0);
 
-        // Vérifier si l'URL contient une ancre, et si oui, faire défiler
-        const hash = window.location.hash;
-        if (hash) {
-            const target = document.querySelector(hash);
-            if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+            // Vérifier si l'URL contient une ancre, et si oui, faire défiler
+            const hash = window.location.hash.replace("#", ""); // Enlève le #
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
             }
-        }
+        }, 100);
     };
 
     // Empêcher le navigateur de restaurer la position de scroll automatiquement

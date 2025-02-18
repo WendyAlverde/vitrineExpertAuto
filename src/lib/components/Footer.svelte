@@ -24,7 +24,7 @@
 <footer>
     <div class="link">
         <div class="link-left">
-            <a href="/legalNotices" use:link  class="legalNotices" aria-label="Aller à la page mention légales" >Mention légales</a>
+            <a href="/legal-notices" use:link  class="legalNotices" aria-label="Aller à la page mention légales" >Mention légales</a>
             <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" class="deontologie" target="_blank">Déontologie</a>
         </div>
         <a href="/#home" aria-label="Retour à l'accueil"><img src={logoIeta} class="logoIeta" loading="lazy" alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>

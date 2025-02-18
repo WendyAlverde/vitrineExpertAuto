@@ -22,16 +22,29 @@
 
     const scrollToAnchor = (event) => {
         event.preventDefault(); // Empêche le comportement par défaut du navigateur
-        const targetId = event.target.getAttribute('href').substring(2); // Récupère l'ID cible (sans le #)
-        const targetElement = document.getElementById(targetId);
+        const targetId = event.target.getAttribute('href').substring(2); // Ex: "#contactForm" → "contactForm"
 
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll fluide vers l'élément cible
+        // Vérifie si on est déjà sur la page d'accueil
+        if (window.location.pathname === "/home") {
+            // Si on est déjà sur la Home, on scrolle directement
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            // Sinon, on change de page puis on attend le chargement
+            window.location.href = `/#${targetId}`;
+            
+            // Attendre le chargement de la nouvelle route et scroller ensuite
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 400); // Temps suffisant pour le changement de page
         }
-
-        // Assure-toi que la page d'accueil est correctement affichée
-        window.location.hash = `#${targetId}`; // Ajoute l'ancre dans l'URL
-
     };
 
     let currentPath = window.location.hash || "#home";
