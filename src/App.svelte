@@ -22,7 +22,8 @@
         // Forcer le scroll en haut de la page
         window.scrollTo(0, 0);
 
-        setTimeout(() => {
+        // requestAnimationFrame plus fluide que le setTimeout
+        requestAnimationFrame(() => {
             // Vérifier si l'URL contient une ancre, et si oui, faire défiler
             const hash = window.location.hash.replace("#", ""); // Enlève le #
             if (hash) {
@@ -31,7 +32,7 @@
                     target.scrollIntoView({ behavior: "smooth" });
                 }
             }
-        }, 100);
+        });
     };
 
     // Empêcher le navigateur de restaurer la position de scroll automatiquement
@@ -41,5 +42,5 @@
 </script>
 
 <Header />
-<Router {routes} let:component on:routeLoaded={onRouteLoaded} />
+<Router {routes} on:routeLoaded={onRouteLoaded} />
 <Footer />
