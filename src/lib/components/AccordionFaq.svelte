@@ -188,19 +188,31 @@
     }
 
     function scrollToQuestion(element) {
-    let rect = element.getBoundingClientRect();
-    let headerHeight = document.querySelector("header")?.offsetHeight || 100; // Définit une valeur par défaut si le header n'est pas trouvé
-    let offset = -headerHeight - 70; // Décalage de 20px supplémentaire pour plus d'espace visuel
+        let rect = element.getBoundingClientRect();
+        let headerHeight = document.querySelector("header")?.offsetHeight || 100; // Définit une valeur par défaut si le header n'est pas trouvé
+        let offset = -headerHeight - 70; // Décalage de 20px supplémentaire pour plus d'espace visuel
 
-    // Calcul de la position cible du scroll
-    let scrollY = window.scrollY + rect.top + offset;
+        // Calcul de la position cible du scroll
+        let scrollY = window.scrollY + rect.top + offset;
 
-    // Défilement en douceur avec le bon décalage
-    window.scrollTo({
-        top: scrollY,
-        behavior: "smooth"
-    });
-}
+        // Défilement en douceur avec le bon décalage
+        window.scrollTo({
+            top: scrollY,
+            behavior: "smooth"
+        });
+    }
+
+    // Accessibilité
+    const handleKeydown = (event, index) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            toggleAccordion(index);
+        } else if (event.key === 'ArrowDown') {
+            document.querySelectorAll('.accordeon-item')[index + 1]?.focus();
+        } else if (event.key === 'ArrowUp') {
+            document.querySelectorAll('.accordeon-item')[index - 1]?.focus();
+        }
+    };
+
 </script>
 
 <div class="accordeon" >
