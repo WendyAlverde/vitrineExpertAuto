@@ -6,6 +6,7 @@
 
 - Faire la commande : ```npm install```
 - Aller sur la branche sur laquelle on souhaite travailler : ```git checkout nomBranche```
+- Faire la commande : ```npm install emailjs-com```
 - Lancer la commande pour ouvrir le serveur et voir le résultat : ```npm run dev```
 - Commencer à travailler
 

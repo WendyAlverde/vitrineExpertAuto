@@ -1,10 +1,10 @@
-<div class="error">
-    <div class="error-content">
+<section class="error" role="document">
+    <div class="error-content" role="alert">
         <h2>Oups ! Page non trouvée</h2>
         <p class="error-content-message">Désolé, la page que vous cherchez n'existe pas ou a été déplacée.</p>
         <a href="/" class="error-content-link">Retourner à l'accueil</a>
     </div>
-</div>
+</section>
 
 <style lang="scss">
     .error {
@@ -45,22 +45,11 @@
                 border-radius: 4px;
                 transition: background-color 0.3s ease;
             }
+
+            &-link:hover {
+                background-color: var(--form);
+                color: white;
+            }
         }
-
-    }
-
-    .error-link {
-        font-size: 1.1rem;
-        color: #3498db;
-        text-decoration: none;
-        padding: 10px 20px;
-        border: 2px solid #3498db;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    .error-link:hover {
-        background-color: #3498db;
-        color: white;
     }
 </style>

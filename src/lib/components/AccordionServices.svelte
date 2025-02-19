@@ -4,16 +4,46 @@
 
     const services = [
         {
-            title: "En cas de litiges... :",
-            content: "..."
+            title: "Litiges après l'achat ou la vente d'un véhicule :",
+            content: [
+                "Analyse des <strong>vices cachés</strong> ou des <strong>défauts de conformité</strong> affectant le véhicule.",
+                "Identification des responsabilités dans un <strong>litige</strong> entre vendeur et acheteur.",
+            ]
         },
         {
-            title: "Expertise de véhicules... :",
-            content: "..."
+            title: "Problèmes après une réparation automobile :",
+            content: [
+                "Vérification des <strong>malfaçons</strong> ou <strong>réparations</strong> non conformes.",
+                "Détermination de l’impact technique d’un <strong>défaut de réparation</strong>.",
+                "Analyse des conséquences d’un <strong>défaut d’information</strong> du garagiste.",
+            ]
         },
         {
-            title: "Assistance à l'achat d'un véhicule d'occasion... :",
-            content: "..."
+            title: "Refus d’indemnisation ou contestation d’un rapport d’expert d’assurance (contre-expertise) :",
+            content: [
+                "<strong>Contre-expertise</strong> en cas de désaccord avec un rapport d’assurance.",
+                "Reconstitution de <strong>sinistres</strong>, recherche des causes d’un incendie ou d’un <strong>vol de véhicule</strong>.",
+            ]
+        },
+        {
+            title: "Évaluation de la valeur d’un véhicule :",
+            content: [
+                "Estimation de la valeur de <strong>véhicules de collection ou de prestige</strong>.",
+                "Expertise agréée pour assurer ou vendre un véhicule.",
+                "Évaluation pour divorce, succession ou <strong>revente</strong>.",
+            ]
+        },
+        {
+            title: "Contestation d’un contrôle technique défaillant :",
+            content: "Analyse des <strong>défauts</strong> non détectés lors du contrôle technique."
+        },
+        {
+            title: "Mise en cause du constructeur automobile :",
+            content: "Évaluation des <strong>défauts</strong> de fabrication ou <strong>malfaçons</strong> engageant la responsabilité du constructeur."
+        },
+        {
+            title: "Tierce expertise :",
+            content: "Intervention pour trancher un désaccord après une <strong>contre-expertise</strong> n’ayant pas abouti."
         }
     ];
 
@@ -25,8 +55,12 @@
 
     // Accessibilité
     const handleKeydown = (event, index) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-        toggleAccordion(index);
+        if (event.key === 'Enter' || event.key === ' ') {
+            toggleAccordion(index);
+        } else if (event.key === 'ArrowDown') {
+            document.querySelectorAll('.service')[index + 1]?.focus();
+        } else if (event.key === 'ArrowUp') {
+            document.querySelectorAll('.service')[index - 1]?.focus();
         }
     };
 </script>
@@ -36,23 +70,30 @@
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div class="accordeon-item" role="button" tabindex="0" aria-expanded={openIndex === index ? 'true' : 'false'} aria-controls={`panel-${index}`} on:keydown={(e) => handleKeydown(e, index)} on:click={() => toggleAccordion(index)}>
+        <div class="accordeon-item service" 
+            role="button" 
+            tabindex="0" 
+            aria-expanded={openIndex === index ? 'true' : 'false'} 
+            aria-controls={`panel-${index}`} 
+            on:keydown={(e) => handleKeydown(e, index)} 
+            on:click={() => toggleAccordion(index)}>
+            
             <div class="accordeon-item-header">
                 <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
-                <h3>{service.title}</h3>
+                <h3>{@html service.title}</h3>
             </div>
 
             {#if openIndex === index}
                 <div id={`panel-${index}`} role="region" class="accordeon-item-ouvert">
                     <!-- Si l'élément est une simple chaîne de caractères, l'affiche dans un paragraphe -->
                     {#if typeof service.content === 'string'}
-                        <p>{service.content}</p>
+                        <p>{@html service.content}</p>
                     <!-- Si l'élément est un tableau, on boucle dessus -->
                     {:else if Array.isArray(service.content)}
                         {#each service.content as contentItem}
                             <!-- Si l'élément est une chaîne de caractères, l'affiche dans un paragraphe -->
                             {#if typeof contentItem === 'string'}
-                                <p>{contentItem}</p>
+                                <p>{@html contentItem}</p>
                             <!-- Si l'élément est une liste, on l'affiche dans une liste non ordonnée -->
                             {:else if contentItem.type === 'list'}
                                 <ul>
@@ -71,61 +112,8 @@
 
 <style lang="scss">
     .accordeon {
-        cursor: pointer; 
-
         &-item {
             border: 0.15rem solid var(--backgroundComponents);
-            border-radius: 0.625rem;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem; 
-
-            &-header {
-                display: flex;
-                align-items: center;
-
-                .arrow {
-                    width: 1rem;
-                    transition: transform 0.3s ease;
-                    transform: rotate(270deg);
-
-                    @media screen and (min-width: 768px) {
-                        width: 1.5rem;
-                    }
-
-                    &.down {
-                        transform: rotate(360deg); 
-                    }
-                }  
-                
-                h3 {
-                    padding-left: 0.5rem;
-
-                    @media screen and (min-width: 768px) {
-                        padding-left: 1.5rem;
-                    }
-                }
-            }
-
-            &-ouvert {
-                padding: 0.5rem 0.2rem;
-
-                @media screen and (min-width: 768px) {
-                    padding: 0.8rem;
-                }
-
-                ul {
-                    display: flex;
-                    flex-direction: column;
-                    list-style-type: disc;
-                    padding-left: 1.1rem;
-
-                    li {
-                        padding-top: 0.5rem;
-                        list-style-type: inherit;
-                        padding-bottom: 0.8rem;
-                    }
-                }
-            }
         }
     }
 </style>
