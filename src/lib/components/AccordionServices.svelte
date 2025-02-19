@@ -19,7 +19,7 @@
             ]
         },
         {
-            title: "Refus d’indemnisation ou contestation d’un rapport d’assurance :",
+            title: "Refus d’indemnisation ou contestation d’un rapport d’expert d’assurance (contre-expertise) :",
             content: [
                 "<strong>Contre-expertise</strong> en cas de désaccord avec un rapport d’assurance.",
                 "Reconstitution de <strong>sinistres</strong>, recherche des causes d’un incendie ou d’un <strong>vol de véhicule</strong>.",
