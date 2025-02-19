@@ -33,9 +33,13 @@
     let urgence = "";
     let localisation = "Montpellier";
     let commentaire = "";
+    // Variable errors
     let errorMessage = "";
     let errorMessageForm = '';
+    let errorMessageTel = '';
+    let errorMessageMail = '';
     let errorMessageTelMail = '';
+    let autorization = false;
 
     // Fonction pour envoyer le formulaire
     function sanitizeInput(input) {
@@ -49,6 +53,11 @@
         email = sanitizeInput(email);
         tel = sanitizeInput(tel);
         commentaire = sanitizeInput(commentaire);
+
+        if (!autorization) {
+            alert("Vous devez consentir à la collecte de vos données.");
+            return;
+        }
 
         if (!email && !tel) {
             errorMessageTelMail = "Veuillez entrer au moins un email ou un numéro de téléphone.";
@@ -102,8 +111,6 @@
     }
 
     // Téléphone
-    let errorMessageTel = '';
-
     function formatPhoneNumber(event) {
         let value = event.target.value.replace(/\D/g, ''); // Supprime tout sauf les chiffres
         if (value.length > 10) value = value.slice(0, 10); // Limite à 10 chiffres
@@ -122,8 +129,6 @@
     }
 
     // Email
-    let errorMessageMail = '';
-    
     function validateEmail() {
         // vérifie la validité d'une adresse email en respectant les règles suivantes :
         // - La partie avant le @ peut contenir des lettres, chiffres et certains caractères spéciaux (., _, %, +, -).
@@ -141,8 +146,8 @@
 
     function adjustSize() {
         if (textarea) {
-        textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
         }
     }
 
@@ -151,123 +156,136 @@
     });
 </script>
 
-<!-- <img src={logoJustice} alt="Juridique"> -->
+<main>
+    <section id="home">
+        <section class="presentation">
+            <div class="presentation-text">
+                <h1>Amaury Madani, Expert Automobile</h1>
+                <p><em>Une expertise technique au service de vos besoins.</em><br >Curieux et passionné de l'automobile, l’expertise fut une évidence et une révélation. <br >Après des études spécialisées et une immersion professionnelle dans le secteur automobile à partir de 2013, j’ai été <strong>Expert automobile</strong> <em>titré en 2020</em>.</p>
+                <p>Fort et ancré de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’<strong>expertise technique</strong>, la <strong>résolution de litiges</strong> et l’<strong>évaluation de véhicules</strong>.</p>
+                <p class="question">Pourquoi choisir notre cabinet ?</p>
+                <ul>
+                    <li><em>Une expertise reconnue :</em> Diplômé d’état comme expert en automobile depuis 2020.</li>
+                    <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
+                    <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
+                </ul>
+            </div>
+            <aside class="presentation-valeurs">
+                <h2>Nos Valeurs</h2>
+                <ul>
+                    <li>Impartialité</li>
+                    <li>Intégrité</li>
+                    <li>Indépendance</li>
+                    <li>Excellence</li>
+                </ul>
+            </aside>
+        </section>
+    
+        <section id="services" class="services">
+            <h2>Nos Services, Expert Automobile</h2>
+            <AccordionServices />
+        </section>
 
-<section id="home">
-    <section class="presentation">
-        <div class="presentation-text">
-            <h1>Amaury Madani, Expert Automobile</h1>
-            <p><em>Une passion devenue expertise.</em><br >Depuis toujours, l’automobile est l’une de mes passions. Après des études spécialisées et une immersion professionnelle dans le secteur à partir de 2013, j’ai été Expert automobile titré en 2020. <br > Fort de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’expertise technique, la résolution de litiges et l’évaluation de véhicules.</p>
-            <p class="question">Pourquoi choisir notre cabinet ?</p>
-            <ul>
-                <li><em>Une expertise reconnue :</em> Diplômé d’état comme Expert en automobile depuis 2020.</li>
-                <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
-                <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
-            </ul>
-        </div>
-        <div class="presentation-valeurs">
-            <h2>Nos Valeurs</h2>
-            <ul>
-                <li>Impartialité</li>
-                <li>Intégrité</li>
-                <li>Indépendance</li>
-                <li>Excellence</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <h2>Nos Services, Expert Automobile</h2>
-        <AccordionServices />
-    </section>
+        <section class="choice">
+            <p class="choice-un">Vous ne savez pas si votre situation relève d’un <strong>vice caché</strong> ou d’une <strong>malfaçon</strong> ? Pas d’inquiétude, contactez-nous et nous analyserons votre cas pour vous orienter vers la meilleure solution.</p>
+            <div class="juridique">
+                <img src={logoJustice} alt="Juridique">
+                <p>Vous avez le droit de choisir librement votre <strong>expert</strong>, même si votre assureur vous a désigné un autre professionnel de l’expertise. Nous pouvons, par votre intermédiaire, collaborer avec votre assureur de <em>protection juridique</em> pour défendre vos intérêts. Ce droit est garanti par l’<em>Article L127-3 du Code des assurances</em>.</p>    
+            </div> 
+        </section>
+        
+        <section class="logoVehicules">
+            <img src={logoBerline} loading="lazy" alt="Voiture Berline">
+            <img src={logoCollection} loading="lazy" alt="Voiture de collection">
+            <img src={logoTruck} loading="lazy" alt="Camion">
+            <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
+            <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
+            <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
+        </section>
+        
+        <section id="faq" class="faq">
+            <h2>Foire aux Questions</h2>
+            <AccordionFaq />
+        </section>
+        
+        <section id="contactForm" class="formulaire">
+            <h2>Formulaire de contact</h2>
     
-    <section class="logoVehicules">
-        <img src={logoBerline} loading="lazy" alt="Berline">
-        <img src={logoCollection} loading="lazy" alt="Voiture de collection">
-        <img src={logoTruck} loading="lazy" alt="Camion">
-        <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
-        <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
-        <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
-    </section>
-    
-    <section id="faq" class="faq">
-        <h2>Foire aux Questions</h2>
-        <AccordionFaq />
-    </section>
-    
-    <section id="contactForm" class="formulaire">
-        <h2>Formulaire de contact</h2>
-        <form on:submit|preventDefault={envoyerFormulaire}>
-            <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
-            <select name="demande" id="demande" bind:value={demande} required aria-required="true">
-                <option value="information">Je souhaite avoir une information</option>
-                <option value="Expertise">Expertise véhicule</option>
-                <option value="autre">Autre</option>
-            </select>
-    
-            <fieldset>
-                <legend>Est-elle urgente ? <span aria-hidden="true">*</span></legend>
-                <div class="flexRadio">
-                    <div class="radio">
-                        <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required aria-checked="true">
-                        <label for="oui">Oui</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required aria-checked="true">
-                        <label for="non">Non</label>
-                    </div>
-                </div>
-            </fieldset>
-    
-            <div class="localisation">
-                <label for="location">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
-                <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
-                    <option value="Montpellier">Montpellier</option>
-                    <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
-                    <option value="Var">Var</option>
-                    <option value="Gard">Gard</option>
-                    <option value="Hérault">Hérault</option>
+            <form on:submit|preventDefault={envoyerFormulaire}>
+                <label for="demande">Quel est votre demande ? <span aria-hidden="true">*</span></label>
+                <select name="demande" id="demande" bind:value={demande} required aria-required="true">
+                    <option value="information">Je souhaite avoir une information</option>
+                    <option value="Expertise">Expertise véhicule</option>
+                    <option value="autre">Autre</option>
                 </select>
-            </div>
-            
-            <div class="nom">
-                <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
-                <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire">
-            </div>
-            
-            <div class="tel">
-                <label for="tel">Votre numéro de téléphone</label>
-                <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05">
-                {#if errorMessageTel}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTel}</p>
+        
+                <fieldset aria-labelledby="urgence-label">
+                    <legend id="urgence-label">Est-elle urgente ? <span aria-hidden="true">*</span></legend>
+                    <div class="flexRadio">
+                        <div class="radio">
+                            <input type="radio" name="urgence" id="oui" bind:group={urgence} value="oui" required>
+                            <label for="oui">Oui</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="urgence" id="non" bind:group={urgence} value="non" required>
+                            <label for="non">Non</label>
+                        </div>
+                    </div>
+                </fieldset>
+        
+                <div class="localisation">
+                    <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
+                    <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
+                        <option value="Montpellier">Montpellier</option>
+                        <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
+                        <option value="Var">Var</option>
+                        <option value="Gard">Gard</option>
+                        <option value="Hérault">Hérault</option>
+                    </select>
+                </div>
+                
+                <div class="nom">
+                    <label for="nom">Votre nom <span aria-hidden="true">*</span></label>
+                    <input type="text" name="nom" id="nom" bind:value={nom} required aria-required="true" aria-describedby="nom-obligatoire" autocomplete="name">
+                </div>
+                
+                <div class="tel">
+                    <label for="tel">Votre numéro de téléphone</label>
+                    <input type="tel" id="tel" bind:value={tel} on:input={formatPhoneNumber} placeholder="01.02.03.04.05" autocomplete="tel">
+                    {#if errorMessageTel}
+                        <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTel}</p>
+                    {/if}
+                </div>
+                
+                <div class="email">
+                    <label for="email">Votre e-mail</label>
+                    <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="exemple@gmail.com" aria-describedby="exemple d'email : exemple@gmail.com" autocomplete="email">
+                    {#if errorMessageMail}
+                        <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageMail}</p>
+                    {/if}
+                </div>
+                
+                <div class="commentaire">
+                    <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
+                    <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
+                </div>
+    
+                {#if errorMessageTelMail}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
                 {/if}
-            </div>
-            
-            <div class="email">
-                <label for="email">Votre e-mail</label>
-                <input type="email" name="email" id="email" bind:value={email} on:blur={validateEmail} placeholder="example@gmail.com" aria-describedby="email-example">
-                {#if errorMessageMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageMail}</p>
-                {/if}
-            </div>
-            
-            <div class="commentaire">
-                <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
-                <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
-            </div>
-
-            {#if errorMessageTelMail}
-                <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert">{errorMessageTelMail}</p>
-            {/if}
-            <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
-            <label class="autorisation">
-                <input type="checkbox" name="autorisation" required aria-required="true">
-                Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
-            </label>
-            <button type="submit" disabled={!!errorMessageForm}>Envoyer</button>
-        </form>
+                <div>
+                    <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
+                    <label class="autorization" for="autorization">
+                        <input type="checkbox" name="autorization" id="autorization" bind:checked={autorization} required>
+                        Je consens à la collecte de mes données personnelles conformément à la politique de confidentialité.
+                    </label>
+                </div>
+                
+                <button type="submit" class ={autorization ? "enabled" : "disabled"} disabled={!autorization}>Envoyer</button>
+            </form>
+        </section>
     </section>
-</section>
+</main>
 
 <style lang="scss">
     #home {
@@ -358,11 +376,59 @@
             background-color: white;
             border-radius: 0.625rem;
             padding: 1rem;
+            margin-bottom: 1rem;
 
             h2 {
                 padding-bottom: 0.8rem;
                 text-align: center;
             }
+        }
+
+        .choice {
+            background-color: white;
+            border-radius: 0.625rem;
+            padding: 1rem;
+
+            em {
+                font-weight: bold;
+            }
+
+            &-un {
+                padding-bottom: 0.5rem;
+            }
+
+            .juridique {
+
+                @media screen and (min-width: 1440px) { // Grand écran
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                img {
+                    width: 3rem;
+                    display: block;
+                    margin: 0 auto;
+
+                    @media screen and (min-width: 768px) { // Tablette
+                        width: 5rem;
+                    }
+
+                    @media screen and (min-width: 1024px) { // Laptop
+                        width: 6rem;
+                    }
+
+                    @media screen and (min-width: 1440px) { // Grand écran
+                        width: 7rem;
+                        margin: 0;
+                    }
+                }
+
+                p {
+                    padding-top: 0.8rem;
+                }
+            }
+
         }
 
         .logoVehicules {
@@ -560,7 +626,7 @@
                         min-height: 2rem;
                         overflow: hidden;
 
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 768px) {// Tablette
                             min-width: 80%;
                             max-width: 100%;
                             display: flex;
@@ -568,6 +634,36 @@
                             // font-size: 1rem;
                         }
                     }
+                }
+
+                .obligatoire {
+                    color: #CF1F31;
+                    font-size: 0.8rem;
+                    padding-bottom: 0.5rem;
+                }
+
+                .autorization {
+                    font-size: 0.8rem;
+                    margin: 0.5rem 0 0.8rem;
+
+                    @media screen and (min-width: 768px) { // Tablette
+                        font-size: 1rem;
+                    }
+
+                    input {
+                        margin-right: 0.5rem;
+                        margin-bottom: 0;
+                    }
+                }
+                
+                .disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+
+                .enabled {
+                    opacity: 1;
+                    cursor: pointer;
                 }
                 
                 button {
@@ -581,29 +677,11 @@
                     letter-spacing: 0.02rem;
                     padding: 0.5rem;
                     width: 100%;
+                    margin-top: 0.5rem;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1.25rem;
                     }
-                }
-            }
-            
-            .obligatoire {
-                color: #CF1F31;
-                font-size: 0.8rem;
-                padding-bottom: 0.5rem;
-            }
-
-            .autorisation {
-                font-size: 0.813rem;
-                margin: 0.5rem 0 0.8rem;
-
-                @media screen and (min-width: 768px) { // Grand écran
-                    font-size: 1rem;
-                }
-
-                input {
-                    margin-right: 0.5rem;
                 }
             }
         }

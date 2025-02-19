@@ -12,7 +12,7 @@
                     type: 'list',
                     items: [
                         "Évaluation des <strong>dommages</strong> et des <strong>réparations</strong> : <br >L’expert identifie la nature des dommages, leur mode de <strong>réparations</strong> approprié et conforme aux règles de <strong>sécurité</strong>.",
-                        "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, une <strong>malfaçon</strong>, ou encore un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> ou d’un <strong>achat</strong>.",
+                        "Recherche des causes et des origines des <strong>sinistres</strong> ou dysfonctionnements : <br >Cela peut inclure l’analyse d’un <strong>défaut de conformité</strong>, d'une <strong>malfaçon</strong> (<strong>mauvaise réparation</strong>), ou encore d'un <strong>litige</strong> dans le cadre d’une <strong>vente</strong> (<strong>vice caché</strong>, <strong>garantie légale de conformité</strong>), ou d’un <strong>achat</strong>, etc.",
                         "Estimation de la <strong>valeur</strong> des véhicules : <br >L’expert évalue la valeur de tout type de véhicule, qu’il s’agisse de véhicules particuliers, de collection, ou utilitaires.",
                         "Évaluation de la <strong>sécurité</strong> des véhicules : <br >Garantir que les véhicules respectent les normes de <strong>sécurité</strong> en vigueur et sont aptes à circuler sur les routes.",
                     ]
@@ -20,7 +20,7 @@
             ]
         },
         {
-            title: "Je viens d’acquérir un véhicule d'occasion et il est affecté d’avaries que dois-je faire(valable vendeur particulier et professionnel) ?",
+            title: "Je viens d’acquérir un véhicule d'occasion et il est affecté d’avaries (valable vendeur particulier et professionnel). Que dois-je faire ?",
             content: [
                 'Dans un premier temps, il est essentiel d’informer le vendeur par courrier recommandé de mise en demeure, en joignant si possible le devis de remise en état. Cette démarche formalise les échanges et constitue une étape indispensable pour protéger vos droits en cas de <strong>litige</strong> ultérieur.',
                 'Il est également impératif de ne procéder à aucun démontage du <strong>véhicule</strong> ni à l’effacement des <strong>défauts</strong> électroniques enregistrés dans les calculateurs du véhicule. Ces mesures conservatoires permettent de préserver les preuves nécessaires à une analyse technique approfondie.',
@@ -66,7 +66,7 @@
             content: [
                 "En l’absence de prise en charge du constructeur de votre désordre, il est tout d’abord nécessaire d’informer par courrier recommandé de mise en demeure, en incluant si possible le devis de remise en état. Cette étape permet de formaliser les échanges et de protéger vos droits en cas de contentieux ultérieur.",
                 "En parallèle, il est indispensable de mandater un <strong>expert en automobiles</strong> pour analyser le schéma d’entretien du <strong>véhicule</strong> et de déterminer l’origine et les causes des avaries afin d’identifier la responsabilité du constructeur automobile.",
-                "En règle générale, aucun lien contractuel direct ne lie l'acheteur et le constructeur dans la majeure partie des cas le vendeur du <strong>véhicule</strong> doit également être appeler à la cause. "
+                "En règle générale, aucun lien contractuel direct ne lie l'acheteur et le constructeur. Dans la majeure partie des cas, le vendeur du <strong>véhicule</strong> doit également être appelé à la cause (<strong>vice caché</strong> ou <strong>défaut de conformité</strong>). "
             ]
         },
         {
@@ -188,27 +188,39 @@
     }
 
     function scrollToQuestion(element) {
-    let rect = element.getBoundingClientRect();
-    let headerHeight = document.querySelector("header")?.offsetHeight || 100; // Définit une valeur par défaut si le header n'est pas trouvé
-    let offset = -headerHeight - 70; // Décalage de 20px supplémentaire pour plus d'espace visuel
+        let rect = element.getBoundingClientRect();
+        let headerHeight = document.querySelector("header")?.offsetHeight || 100; // Définit une valeur par défaut si le header n'est pas trouvé
+        let offset = -headerHeight - 70; // Décalage de 20px supplémentaire pour plus d'espace visuel
 
-    // Calcul de la position cible du scroll
-    let scrollY = window.scrollY + rect.top + offset;
+        // Calcul de la position cible du scroll
+        let scrollY = window.scrollY + rect.top + offset;
 
-    // Défilement en douceur avec le bon décalage
-    window.scrollTo({
-        top: scrollY,
-        behavior: "smooth"
-    });
-}
+        // Défilement en douceur avec le bon décalage
+        window.scrollTo({
+            top: scrollY,
+            behavior: "smooth"
+        });
+    }
+
+    // Accessibilité
+    const handleKeydown = (event, index) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            toggleAccordion(index);
+        } else if (event.key === 'ArrowDown') {
+            document.querySelectorAll('.faq')[index + 1]?.focus();
+        } else if (event.key === 'ArrowUp') {
+            document.querySelectorAll('.faq')[index - 1]?.focus();
+        }
+    };
+
 </script>
 
-<div class="accordeon" >
+<div class="accordeon">
     {#each questions as question, index}
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div    class="accordeon-item"
+        <section class="accordeon-item faq"
                 role="button"
                 tabindex="0"
                 aria-expanded={openIndex === index ? 'true' : 'false'}
@@ -216,14 +228,22 @@
                 on:keydown={(e) => handleKeydown(e, index)}
                 on:click={(e) => toggleAccordion(index, e)}>
 
-            <div class="accordeon-item-header">
-                <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
-                <h3>{@html question.title}</h3>
-            </div>
+            <header class="accordeon-item-header">
+                <img src={arrow} 
+                    class="arrow" 
+                    class:down={openIndex === index}
+                    alt=""
+                    aria-hidden="true"
+                >
+                <h3 id={`title-${index}`}>{@html question.title}</h3>
+            </header>
 
             <!-- @html : Utilisé pour insérer le contenu HTML dynamique dans le DOM. Cela permet de rendre des éléments comme <strong>, <em>, ou tout autre HTML valide dans tes chaînes de texte. -->
             {#if openIndex === index}
-                <div id={`panel-${index}`} role="region" class="accordeon-item-ouvert">
+                <section id={`panel-${index}`} 
+                    aria-labelledby={`title-${index}`}
+                    class="accordeon-item-ouvert">
+
                     {#if typeof question.content === 'string'}
                         <p>{@html question.content}</p>
                     {:else if Array.isArray(question.content)}
@@ -252,9 +272,9 @@
                             {/if}
                         {/each}
                     {/if}
-                </div>
+                </section>
             {/if}
-        </div>
+        </section>
     {/each}
 </div>
 

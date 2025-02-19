@@ -24,11 +24,27 @@
 <footer>
     <div class="link">
         <div class="link-left">
-            <a href="/legalNotices" use:link  class="legalNotices" aria-label="Aller à la page mention légales" >Mention légales</a>
-            <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" class="deontologie" target="_blank">Déontologie</a>
+            <a href="/legal-notices" use:link class="legalNotices" 
+                aria-label="Aller à la page des mentions légales" >
+                Mention légales
+            </a>
+            <a href="http://cfea-expertauto.fr/wp-content/uploads/2014/07/Code-de-déontologie-Experts-en_automobile_adopte_par-CFEA_5avril2016.pdf" 
+                class="deontologie" target="_blank"
+                aria-label="Ouverture d'une nouvelle page du Code de déontologie des experts en automobile">
+                Déontologie
+            </a>
         </div>
-        <a href="#home" aria-label="Retour à l'accueil"><img src={logoIeta} class="logoIeta" loading="lazy" alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
-        <a href="https://www.linkedin.com/in/amaury-m-5638a1192/" aria-label="Ouverture d'une nouvelle page du profil LinkedIn d'Amaury Madani" target="_blank"><img src={logoLinkedIn} class="logoLinkedIn" alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani"></a>
+
+        <a href="/#home" aria-label="Retour à l'accueil">
+            <img src={logoIeta} class="logoIeta" loading="lazy" alt="Logo IETA : Innovation, expertise des technologies automobiles">
+        </a>
+
+        <a href="https://www.linkedin.com/in/amaury-m-5638a1192/" 
+            aria-label="Ouverture d'une nouvelle page du profil LinkedIn d'Amaury Madani" 
+            target="_blank"
+            title="Voir le profil LinkedIn d'Amaury Madani">
+            <img src={logoLinkedIn} class="logoLinkedIn" alt="Lien pour aller sur le profil LinkedIn d'Amaury Madani">
+        </a>
     </div>
     
     <p>© 2025 - IETA. Tous droits réservés.</p>

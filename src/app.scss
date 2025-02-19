@@ -17,6 +17,8 @@
     --text:#072445;
     --faqLogo:#F1C289;
     --background: #F5F7FB;
+    --focus: #32A9D1;
+    --errorMessage: #CF1F31;
 }
 
 @font-face {
@@ -48,6 +50,16 @@ p, li, label, a {
     }
 }
 
+a:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
+input:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+}
+
 strong {
     font-weight: bold;
 }
@@ -55,6 +67,11 @@ strong {
 // ============================= Accordeon Services et FAQ
 .accordeon {
     cursor: pointer; 
+
+    .accordeon-item:focus {
+        outline: 2px solid var(--focus); /* Bordure bleue au focus */
+        outline-offset: 3px;
+    }
 
     &-item {
         border-radius: 0.625rem;

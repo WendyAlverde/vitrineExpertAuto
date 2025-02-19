@@ -19,7 +19,7 @@
             ]
         },
         {
-            title: "Refus d’indemnisation ou contestation d’un rapport d’assurance :",
+            title: "Refus d’indemnisation ou contestation d’un rapport d’expert d’assurance (contre-expertise) :",
             content: [
                 "<strong>Contre-expertise</strong> en cas de désaccord avec un rapport d’assurance.",
                 "Reconstitution de <strong>sinistres</strong>, recherche des causes d’un incendie ou d’un <strong>vol de véhicule</strong>.",
@@ -30,7 +30,7 @@
             content: [
                 "Estimation de la valeur de <strong>véhicules de collection ou de prestige</strong>.",
                 "Expertise agréée pour assurer ou vendre un véhicule.",
-                "Évaluation pour divorce, succession ou <strong>revente<strong>.",
+                "Évaluation pour divorce, succession ou <strong>revente</strong>.",
             ]
         },
         {
@@ -55,8 +55,12 @@
 
     // Accessibilité
     const handleKeydown = (event, index) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-        toggleAccordion(index);
+        if (event.key === 'Enter' || event.key === ' ') {
+            toggleAccordion(index);
+        } else if (event.key === 'ArrowDown') {
+            document.querySelectorAll('.service')[index + 1]?.focus();
+        } else if (event.key === 'ArrowUp') {
+            document.querySelectorAll('.service')[index - 1]?.focus();
         }
     };
 </script>
@@ -66,13 +70,14 @@
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
         <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
-        <div    class="accordeon-item" 
-                role="button" 
-                tabindex="0" 
-                aria-expanded={openIndex === index ? 'true' : 'false'} 
-                aria-controls={`panel-${index}`} 
-                on:keydown={(e) => handleKeydown(e, index)} 
-                on:click={() => toggleAccordion(index)}>
+        <div class="accordeon-item service" 
+            role="button" 
+            tabindex="0" 
+            aria-expanded={openIndex === index ? 'true' : 'false'} 
+            aria-controls={`panel-${index}`} 
+            on:keydown={(e) => handleKeydown(e, index)} 
+            on:click={() => toggleAccordion(index)}>
+            
             <div class="accordeon-item-header">
                 <img src={arrow} aria-hidden="true" class="arrow" class:down={openIndex === index} alt="">
                 <h3>{@html service.title}</h3>

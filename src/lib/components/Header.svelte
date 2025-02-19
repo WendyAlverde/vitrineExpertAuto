@@ -1,48 +1,63 @@
 <script>
     import { link, location } from "svelte-spa-router"
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import logoIeta from "../../assets/pictures/logoIetaGood.svg"
 
-    // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
-    let isScrolled = false;    
+    // Variables
+    let isScrolled = false; 
+    let currentPath = "";   
 
+    // ==================== Gère le changement de hauteur du header lors du scroll ==================== //
+    const handleScroll = () => {
+        isScrolled = window.scrollY > 0;
+    };
 
     onMount(() => {
-        const handleScroll = () => {
-            isScrolled = window.scrollY > 0;
-        };
-
         // Vérifie si la route actuelle correspond à "Mentions Légales"
         window.addEventListener("scroll", handleScroll);
-        // Nettoyage pour éviter les fuites mémoire
+
+        // Mise à jour du chemin actuel
+        const updatePath = () => {
+            currentPath = window.location.hash || "#home";
+        };
+        window.addEventListener("hashchange", updatePath);
+        updatePath(); // Initialisation
+
+        // Nettoyage des événements pour éviter les fuites mémoire
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("hashchange", updatePath);
         };
     });
 
     const scrollToAnchor = (event) => {
         event.preventDefault(); // Empêche le comportement par défaut du navigateur
-        const targetId = event.target.getAttribute('href').substring(2); // Récupère l'ID cible (sans le #)
-        const targetElement = document.getElementById(targetId);
+        const targetId = event.target.getAttribute('href').substring(2); // Ex: "#contactForm" → "contactForm"
 
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' }); // Scroll fluide vers l'élément cible
+        // Vérifie si on est déjà sur la page d'accueil
+        if (location.pathname === "/") {
+            // Si on est déjà sur la Home, on scrolle directement
+            requestAnimationFrame(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        } else {
+            // Sinon, on change de page puis on attend le chargement
+            window.location.href = `/#${targetId}`;
+            
+            // Attendre le chargement de la nouvelle route et scroller ensuite
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 400); // Temps suffisant pour le changement de page
         }
-
-        // Assure-toi que la page d'accueil est correctement affichée
-        window.location.hash = `#${targetId}`; // Ajoute l'ancre dans l'URL
-
     };
 
-    // ==================== Gère les liens actif ==================== //
-    // let currentPath;
-
-    // // Souscription à la valeur du store location
-    // location.subscribe(($location) => {
-    //     currentPath = $location.split('?')[0]; // Récupère l'URL sans les paramètres de query
-    // });
-
-    let currentPath = window.location.hash || "#home";
+    // let currentPath = window.location.hash || "#home";
 
     onMount(() => {
         window.addEventListener("hashchange", () => {
@@ -54,7 +69,9 @@
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="#home" aria-label="Retour à l'accueil"><img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"></a>
+            <a href="#home" aria-label="Retour à l'accueil">
+                <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles">
+            </a>
             
             <div class="entreprise-name">
                 <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
@@ -62,34 +79,50 @@
             </div>
         </div>
     
-        <div class="sticky">
+        <div class="sticky" role="navigation" aria-label="Menu principal">
             <div class="contact">
                 <div class="contact-gauche ">
-                    <a href="/#contactForm" class="contact-form form" onclick={scrollToAnchor}>
+                    <!-- Title permet d'ajouter une infobulle -->
+                    <a href="/#contactForm" class="contact-form form" on:click={scrollToAnchor} 
+                        aria-label="Aller au formulaire de contact (défilement automatique)" title="Aller au formulaire de contact">
                         Formulaire Contact
                     </a>
                     <!-- Invisible pour la partie mobile -->
                     <p class="contact-pc">Amaury Madani</p>
-                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a>
+                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" 
+                        aria-label="Ouvrir votre application mail pour écrire à cabinet.ieta@outlook.fr">
+                        cabinet.ieta@outlook.fr
+                    </a>
                 </div>
                 <div  class="contact-droite">
-                    <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a>
-                    <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
+                    <a class="contact-tel" href="tel:0628406288"
+                        aria-label="Appeler le 06 28 40 62 88">
+                        06 28 40 62 88
+                    </a>
+                    <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" 
+                        href="#home" 
+                        aria-current="{currentPath === '#home' ? 'page' : undefined}" 
+                        aria-label="Aller sur la page d'accueil"
+                        title="Retour à l'accueil">
+                        Accueil
+                    </a>
                 </div>
             </div>
 
             <!-- Partie Laptop -->
             <div class="nav">
-                <a class="tablette {currentPath === '#home' ? 'active' : ''}" href="#home" aria-label="Aller sur la page d'accueil">Accueil</a>
-                <a class="tablette {currentPath === '#services' ? 'active' : ''}" href="#services" aria-label="Découvrir nos services">Services</a>
-                <a class="tablette {currentPath === '#faq' ? 'active' : ''}" href="#faq" aria-label="Consulter la FAQ">FAQ</a>
+                <a class="tablette {currentPath === '#home' ? 'active' : ''}" 
+                    href="#home" 
+                    aria-current="{currentPath === '#home' ? 'page' : undefined}" 
+                    aria-label="Aller sur la page d'accueil"
+                    title="Retour à l'accueil">
+                    Accueil</a>
             </div>
         </div>
     </div>
 </header>
 
-<style lang="scss">
-    
+<style lang="scss"> 
     .header {
         position: sticky;
         top: 0; 
@@ -221,7 +254,7 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    width: 50%;
+                    width: 60%;
                     height: 5rem;
                     
                     .contact-pc {
@@ -235,10 +268,6 @@
 
                     .contact-mail {
                         padding-left: 1rem;
-                        
-                        @media screen and (min-width: 768px) { // Laptop
-                            padding: 0;
-                        }
                     }
 
                     @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
@@ -352,11 +381,7 @@
                     color: var(--clickableElement);
                     letter-spacing: 0.05rem;
                     cursor: pointer; 
-
-                    &.active { // Pas tout à fait le bon reprendre celui qu'on a fait sur Yoga
-                        border-bottom: 0.2rem solid var(--clickableElement) !important;
-                        padding-bottom: 0.2rem !important ;
-                    }
+                    // border-bottom: 0.2rem solid var(--clickableElement);
                 }
             } 
         }  
