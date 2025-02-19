@@ -44,7 +44,9 @@
             <li><em>Base légale justifiant le traitement :</em> Consentement explicite donné par l’utilisateur lors de la soumission du formulaire.</li>
             <li><em>Caractère obligatoire ou facultatif :</em> Les champs du formulaire marqués comme obligatoires doivent être remplis pour envoyer une demande.</li>
             <li><em>Personnes ayant accès aux données collectées :</em> Amaury Madani</li>
-            <li><em>Durée de conservation :</em> Les données sont conservées pendant une durée de *** mois/années.</li>
+            <li><em>Durée de conservation :</em> D'après les recommandations de la CNIL en France, les données sont conservées jusqu'à 3 ans après le dernier contact. 
+                Si la demande a été traité et qu'aucun suivi n'est nécessaire, les données seront supprimées. 
+                Les utilisateurs peuvent demander à tout moment la suppression de leurs données.</li>
             <li><em>Droits des utilisateurs :</em>
                 <ul>
                     <li>Droit d’accès à leurs données.</li>
