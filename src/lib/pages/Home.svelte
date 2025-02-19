@@ -58,7 +58,6 @@
             alert("Vous devez consentir à la collecte de vos données.");
             return;
         }
-        console.log("Formulaire envoyé !");
 
         if (!email && !tel) {
             errorMessageTelMail = "Veuillez entrer au moins un email ou un numéro de téléphone.";
@@ -157,7 +156,6 @@
     });
 </script>
 
-<!-- <img src={logoJustice} alt="Juridique"> -->
 <main>
     <section id="home">
         <section class="presentation">
@@ -186,6 +184,14 @@
         <section id="services" class="services">
             <h2>Nos Services, Expert Automobile</h2>
             <AccordionServices />
+        </section>
+
+        <section class="choice">
+            <p class="choice-un">Vous ne savez pas si votre situation relève d’un <strong>vice caché</strong> ou d’une <strong>malfaçon</strong> ? Pas d’inquiétude, contactez-nous et nous analyserons votre cas pour vous orienter vers la meilleure solution.</p>
+            <div class="juridique">
+                <img src={logoJustice} alt="Juridique">
+                <p>Vous avez le droit de choisir librement votre <strong>expert</strong>, même si votre assureur vous a désigné un autre professionnel de l’expertise. Nous pouvons, par votre intermédiaire, collaborer avec votre assureur de <em>protection juridique</em> pour défendre vos intérêts. Ce droit est garanti par l’<em>Article L127-3 du Code des assurances</em>.</p>    
+            </div> 
         </section>
         
         <section class="logoVehicules">
@@ -370,11 +376,59 @@
             background-color: white;
             border-radius: 0.625rem;
             padding: 1rem;
+            margin-bottom: 1rem;
 
             h2 {
                 padding-bottom: 0.8rem;
                 text-align: center;
             }
+        }
+
+        .choice {
+            background-color: white;
+            border-radius: 0.625rem;
+            padding: 1rem;
+
+            em {
+                font-weight: bold;
+            }
+
+            &-un {
+                padding-bottom: 0.5rem;
+            }
+
+            .juridique {
+
+                @media screen and (min-width: 1440px) { // Grand écran
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                img {
+                    width: 3rem;
+                    display: block;
+                    margin: 0 auto;
+
+                    @media screen and (min-width: 768px) { // Tablette
+                        width: 5rem;
+                    }
+
+                    @media screen and (min-width: 1024px) { // Laptop
+                        width: 6rem;
+                    }
+
+                    @media screen and (min-width: 1440px) { // Grand écran
+                        width: 7rem;
+                        margin: 0;
+                    }
+                }
+
+                p {
+                    padding-top: 0.8rem;
+                }
+            }
+
         }
 
         .logoVehicules {
