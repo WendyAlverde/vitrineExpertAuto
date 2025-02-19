@@ -82,7 +82,7 @@
 
         // Informations à envoyer
         let templateParams = {
-            to_email: "ptiscarabe2036@msn.com", // Remplacez par votre e-mail
+            to_email: "cabinet.ieta@outlook.fr", // Remplacez par votre e-mail
             nom,
             email,
             tel,
@@ -95,10 +95,10 @@
         // Envoi via EmailJS
         emailjs
             .send(
-                "service_wjuacsr",
-                "template_4bt7327",
+                "service_405jwa6",
+                "template_z88e3j9",
                 templateParams,
-                "Fd61aLMeIyHeGoWgm"
+                "eBbDWuvmgPWRdg3x7"
             )
             .then(
                 function (response) {
