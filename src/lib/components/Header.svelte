@@ -69,7 +69,7 @@
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="#home" aria-label="Retour à l'accueil">
+            <a href="#home" aria-label="Retour à l'accueil" class="logoIeta">
                 <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles">
             </a>
             
@@ -163,227 +163,250 @@
         .header-content {
             height: auto; // Taille réelle du contenu 
             transition: transform 0.8s ease; 
-        }
-        
-        .entreprise {
-            display: flex;
-            align-items: center;
-            padding: 0 0.5rem;
-            position: relative;
 
-            @media (min-width: 768px) { // Tablette
-                padding-bottom: 0.3rem;
-            }
-
-            @media (min-width: 1024px) { // Laptop
-                padding-bottom: 0.8rem;
-            }
-
-            a {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-
-                img {
-                    width: 7rem;
-                    @media (min-width: 768px) { // Tablette
-                        width: 7.5rem;
-                    }
-
-                    @media (min-width: 1024px) { // Laptop
-                        width: 8rem;
-                    }
-                }
-            }
-
-            &-name { 
+            .entreprise {
                 display: flex;
-                flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                width: 100%;
-                margin-left: 7rem;
-                height: 6rem;
+                padding: 0 0.5rem;
+                position: relative;
 
-                &-titre {
-                    font-weight: bold;
-                    
-                    color: white;
-                    letter-spacing: 0.07rem;
-                    padding-bottom: 0.2rem;
+                @media (min-width: 768px) { // Tablette
+                    padding-bottom: 0.3rem;
+                }
 
-                    em {
-                        letter-spacing: 0.3rem;
-                        font-size: 1rem;
+                @media (min-width: 1024px) { // Laptop
+                    padding-bottom: 0.8rem;
+                }
+
+                a {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    // top: -0.5rem;
+                    left: 0;
+
+                    // Essai 2 pour img flou sur iphone
+                    // background-image: url('../../assets/pictures/logoIetaGood.svg'); // Remplacez par le chemin de votre image
+                    // background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible
+                    // background-repeat: no-repeat; // Évite que l'image se répète
+                    // background-position: center; // Centre l'image
+                    // width: 7rem; // Largeur de base
+                    // height: 7rem; // Hauteur de base
+
+                    // @media (min-width: 768px) { // Tablette
+                    //     width: 7.5rem;
+                    //     height: 7.5rem;
+                    // }
+
+                    // @media (min-width: 1024px) { // Laptop
+                    //     width: 8rem;
+                    //     height: 8rem;
+                    // }
+
+                    img {
+                        width: 7rem;
+                        // Essai 1 pour img flou sur iphone
+                        image-rendering: -webkit-optimize-contrast;
+                        image-rendering: crisp-edges;
 
                         @media (min-width: 768px) { // Tablette
-                            font-size: 1.8rem;
+                            width: 7.5rem;
+                        }
+
+                        @media (min-width: 1024px) { // Laptop
+                            width: 8rem;
                         }
                     }
                 }
 
-                &-p {
-                    
-                    color: white;
-                    letter-spacing: 0.03rem;
-                    text-align: center;
-                    line-height: 1.2rem;
-                }
-            }  
-        }
-
-        .sticky {
-            // Une ligne ombrée pour faire resortir les liens
-            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
-
-            .contact {
-                padding: 0.5rem;
-                display: flex;
-                width: 100%;
-
-                @media (min-width: 768px) { // Tablette
-                    padding-bottom: 1rem;
-                }
-
-                @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
-                    padding: 0;
-                }
-                
-                &-gauche {
+                &-name { 
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    width: 60%;
-                    height: 5rem;
-                    
-                    .contact-pc {
-                        display: none;
+                    justify-content: center;
+                    width: 100%;
+                    margin-left: 7rem;
+                    height: 6rem;
 
-                        @media screen and (min-width: 1024px) { // Laptop
-                            display: block;
-                            color: white;
+                    &-titre {
+                        font-weight: bold;
+                        
+                        color: white;
+                        letter-spacing: 0.07rem;
+                        padding-bottom: 0.2rem;
+
+                        em {
+                            letter-spacing: 0.3rem;
+                            font-size: 1rem;
+
+                            @media (min-width: 768px) { // Tablette
+                                font-size: 1.8rem;
+                            }
                         }
                     }
 
-                    .contact-mail {
-                        padding-left: 1rem;
+                    &-p {
+                        
+                        color: white;
+                        letter-spacing: 0.03rem;
+                        text-align: center;
+                        line-height: 1.2rem;
+                    }
+                }  
+            }
+
+            .sticky {
+                // Une ligne ombrée pour faire resortir les liens
+                box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+
+                .contact {
+                    padding: 0.5rem;
+                    display: flex;
+                    width: 100%;
+
+                    @media (min-width: 768px) { // Tablette
+                        padding-bottom: 1rem;
                     }
 
                     @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
-                        flex-direction: row;
-                        width: 80%;
-                        justify-content: space-around;
-                        height: 4.5rem;
+                        padding: 0;
                     }
-
-                    @media screen and (min-width: 1440px) { // Grand écran
-                        flex-direction: row;
-                        justify-content: space-around;
+                    
+                    &-gauche {
+                        display: flex;
+                        flex-direction: column;
                         align-items: center;
                         width: 60%;
-                    }
-                }
-
-                &-droite {
-                    display: flex;
-                    flex-direction: column;
-                    width: 50%;
-                    height: 5rem;
-
-                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
-                        flex-direction: row;
-                        width: 20%;
-                        justify-content: space-around;
-                        align-items: center;
-                        height: 4.5rem;
-                    }
-
-                    @media screen and (min-width: 1440px) {
-                        flex-direction: row;
-                        justify-content: space-around;
-                        align-items: center;
-                        width: 40%;
-                    }
-
-                    .accueil-mobile {
-                        color: var(--clickableElement);
-
-                        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        height: 5rem;
+                        
+                        .contact-pc {
                             display: none;
+
+                            @media screen and (min-width: 1024px) { // Laptop
+                                display: block;
+                                color: white;
+                            }
+                        }
+
+                        .contact-mail {
+                            padding-left: 1rem;
+                        }
+
+                        @media screen and (min-width: 1024px) and (max-width: 1439px) { // Laptop
+                            flex-direction: row;
+                            width: 80%;
+                            justify-content: space-around;
+                            height: 4.5rem;
+                        }
+
+                        @media screen and (min-width: 1440px) { // Grand écran
+                            flex-direction: row;
+                            justify-content: space-around;
+                            align-items: center;
+                            width: 60%;
                         }
                     }
-                }
 
-                a {
-                    color: white;
-                    letter-spacing: 0.05rem;
-                    cursor: pointer;
-                    text-align: center;
-                    margin-bottom: 0.5rem;
-                    height: 50%;
-                    align-content: center;
+                    &-droite {
+                        display: flex;
+                        flex-direction: column;
+                        width: 50%;
+                        height: 5rem;
 
-                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
-                        margin-bottom: 0;
+                        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                            flex-direction: row;
+                            width: 20%;
+                            justify-content: space-around;
+                            align-items: center;
+                            height: 4.5rem;
+                        }
+
+                        @media screen and (min-width: 1440px) {
+                            flex-direction: row;
+                            justify-content: space-around;
+                            align-items: center;
+                            width: 40%;
+                        }
+
+                        .accueil-mobile {
+                            color: var(--clickableElement);
+
+                            @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                                display: none;
+                            }
+                        }
                     }
 
-                    @media screen and (min-width: 1440px) {
-                        margin-bottom: 0;
+                    a {
+                        color: white;
+                        letter-spacing: 0.05rem;
+                        cursor: pointer;
+                        text-align: center;
+                        margin-bottom: 0.5rem;
+                        height: 50%;
+                        align-content: center;
+
+                        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                            margin-bottom: 0;
+                        }
+
+                        @media screen and (min-width: 1440px) {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    &-form {
+                        background-color: var(--clickableElement);
+                        border-radius: 0.4rem;
+                        padding: 0.3rem;
+
+                        @media screen and (min-width: 768px) {
+                            padding: 0.2rem 1rem;
+                        }
+                    }
+
+                    .form {
+                        color: var(--backgroundComponents);
+                        font-weight: bold;
+                    }
+
+                    .form, .contact-tel {
+                        margin-bottom: 1rem;
+
+                        @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                            margin-bottom: 0;
+                        }
+
+                        @media screen and (min-width: 1440px) {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    &-pc {
+                        display: none;
                     }
                 }
 
-                &-form {
-                    background-color: var(--clickableElement);
-                    border-radius: 0.4rem;
-                    padding: 0.3rem;
-
-                    @media screen and (min-width: 768px) {
-                        padding: 0.2rem 1rem;
-                    }
-                }
-
-                .form {
-                    color: var(--backgroundComponents);
-                    font-weight: bold;
-                }
-
-                .form, .contact-tel {
-                    margin-bottom: 1rem;
-
-                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
-                        margin-bottom: 0;
-                    }
-
-                    @media screen and (min-width: 1440px) {
-                        margin-bottom: 0;
-                    }
-                }
-
-                &-pc {
+                // Partie Laptop
+                .nav {
                     display: none;
-                }
-            }
 
-            // Partie Laptop
-            .nav {
-                display: none;
+                    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 8rem;
+                        padding-bottom: 1rem;
+                    }
 
-                @media screen and (min-width: 1024px) and (max-width: 1439px) {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 8rem;
-                    padding-bottom: 1rem;
-                }
-
-                a {
-                    color: var(--clickableElement);
-                    letter-spacing: 0.05rem;
-                    cursor: pointer; 
-                    // border-bottom: 0.2rem solid var(--clickableElement);
-                }
-            } 
-        }  
+                    a {
+                        color: var(--clickableElement);
+                        letter-spacing: 0.05rem;
+                        cursor: pointer; 
+                        // border-bottom: 0.2rem solid var(--clickableElement);
+                    }
+                } 
+            }  
+        }
     }
 </style>
