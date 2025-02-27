@@ -236,11 +236,15 @@
                 <div class="localisation">
                     <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
                     <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
-                        <option value="Montpellier">Montpellier</option>
+                        <option value="Alpes-de-Haute-Provence">Alpes-de-Haute-Provence</option>
+                        <option value="Alpes-Maritimes">Alpes-Maritimes</option>
                         <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
-                        <option value="Var">Var</option>
+                        <option value="Drôme">Drôme</option>
                         <option value="Gard">Gard</option>
+                        <option value="Hautes-Alpes">Hautes-Alpes</option>
                         <option value="Hérault">Hérault</option>
+                        <option value="Var">Var</option>
+                        <option value="Vaucluse">Vaucluse</option>
                     </select>
                 </div>
                 
@@ -264,15 +268,16 @@
                         <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageMail}</p>
                     {/if}
                 </div>
+
+                {#if errorMessageTelMail}
+                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
+                {/if}
                 
                 <div class="commentaire">
                     <label for="commentaire">Un commentaire <span aria-hidden="true">*</span></label>
                     <textarea name="commentaire" id="commentaire" bind:value={commentaire} bind:this={textarea} on:input={adjustSize} required aria-required="true"></textarea>
                 </div>
-    
-                {#if errorMessageTelMail}
-                    <p style="color: #CF1F31; font-size: 0.8rem; padding-bottom: 0.5rem;" role="alert" aria-live="polite">{errorMessageTelMail}</p>
-                {/if}
+                
                 <div>
                     <p class="obligatoire">Les champs marqués d'une astérisque (*) sont obligatoires.</p>
                     <label class="autorization" for="autorization">
