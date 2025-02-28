@@ -203,12 +203,12 @@
                         height: 8rem;
                     }
 
-                    // img {
-                    //     width: 7rem;
-                    //     // Essai 1 pour img flou sur iphone
-                    //     image-rendering: -webkit-optimize-contrast;
-                    //     image-rendering: crisp-edges;
-
+                    img {
+                        width: 7rem;
+                    // Essai 1 pour img flou sur iphone
+                        image-rendering: -webkit-optimize-contrast;
+                        image-rendering: crisp-edges;
+                    }
                     //     @media (min-width: 768px) { // Tablette
                     //         width: 7.5rem;
                     //     }
