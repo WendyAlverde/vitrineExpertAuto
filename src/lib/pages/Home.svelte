@@ -289,6 +289,22 @@
                 <button type="submit" class ={autorization ? "enabled" : "disabled"} disabled={!autorization}>Envoyer</button>
             </form>
         </section>
+
+        <section class="zonesIntervention">
+            <h2>Zones d'intervention</h2>
+            <p>Notre cabinet se déplace dans les départements suivants :</p>
+            <ul>
+                <li>Alpes-de-Haute-Provence (04)</li>
+                <li>Alpes-Maritimes (06)</li>
+                <li>Bouches-du-Rhône (13)</li>
+                <li>Drôme (26)</li>
+                <li>Gard (30)</li>
+                <li>Hautes-Alpes (05)</li>
+                <li>Hérault (34)</li>
+                <li>Var (83)</li>
+                <li>Vaucluse (84)</li>
+            </ul>
+        </section>
     </section>
 </main>
 
@@ -298,13 +314,13 @@
 
         scroll-margin-top: 5rem;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 768px) { // Tablette
             padding: 2rem 3rem;
         }
 
         .presentation {
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) { // Tablette
                 display: flex;
                 flex-direction: row-reverse;
                 align-items: center;
@@ -316,7 +332,7 @@
                 padding: 1rem;
                 margin-bottom: 1rem;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     margin-left: 1rem;
                 }
 
@@ -348,7 +364,7 @@
                 padding: 1rem;
                 margin-bottom: 1rem;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     height: 13rem;
                 }
 
@@ -364,7 +380,7 @@
                     list-style-type: disc;
                     padding-left: 1rem;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         flex-direction: column;
                     }
 
@@ -493,7 +509,7 @@
                 display: flex;
                 flex-direction: column;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     flex-direction: row;
                     flex-wrap: wrap;
                 }
@@ -503,7 +519,7 @@
                     font-size: 0.813rem;
                     font-weight: bold;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1.375rem;
                     }
 
@@ -521,7 +537,7 @@
                     padding: 0.5rem;
                     margin: 0.5rem 0 0.8rem;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1rem;
                     }
                 }
@@ -536,7 +552,7 @@
                     color: var(--form);
                     cursor: pointer;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1rem;
                     }
                 }
@@ -544,7 +560,7 @@
                 fieldset {
                     display: flex;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                     
@@ -572,7 +588,7 @@
                             } 
 
                             label {
-                                @media screen and (min-width: 768px) { // Grand écran
+                                @media screen and (min-width: 768px) { // Tablette
                                     font-size: 1rem;
                                 }
                             }
@@ -581,7 +597,7 @@
                 }
 
                 .localisation {
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                 }
@@ -589,7 +605,7 @@
                 .nom {
 
                     #nom {
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 768px) { // Tablette
                             margin-right: 1rem;
                         }
                     }
@@ -599,7 +615,7 @@
                     display: flex;
                     flex-direction: column;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                 }
@@ -614,7 +630,7 @@
                 }
 
                 .commentaire {
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 100%;
                     }
 
@@ -687,6 +703,42 @@
                     @media screen and (min-width: 768px) { // Tablette
                         font-size: 1.25rem;
                     }
+                }
+            }
+        }
+
+        .zonesIntervention {
+            background-color: white;
+            border-radius: 0.625rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                padding-bottom: 0.8rem;
+                text-align: center;
+            }
+
+            p {
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            ul {
+                // padding-left: 3rem;
+                border: 0.1rem solid #ccc;
+                border-color: var(--form);
+                border-radius: 0.5rem;
+                padding: 0.8rem 2rem;
+
+                @media screen and (min-width: 768px) { // Tablette
+                    padding: 1rem 3rem;
+                }
+
+                li {
+                    list-style-type: disc;
+                    padding-bottom: 0.2rem;
                 }
             }
         }
