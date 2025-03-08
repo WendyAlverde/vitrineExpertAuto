@@ -69,9 +69,7 @@
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="#home" aria-label="Retour à l'accueil" class="logoIeta">
-                <!-- <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"> -->
-            </a>
+            <a href="#home" aria-label="Retour à l'accueil" class="logoIeta"></a>
             
             <div class="entreprise-name">
                 <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
@@ -181,13 +179,13 @@
                 a {
                     display: block;
                     position: absolute;
-                    // top: 0;
                     top: -0.5rem;
                     left: 0;
 
-                    // Essai 2 pour img flou sur iphone
+                    // Logo IETA
                     background-image: url('../../assets/pictures/logoIetaGood.svg'); // Remplacez par le chemin de votre image
-                    background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible
+                    // background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible pour PNG/JPG
+                    background-size: 100% 100%; // Ajuste l'image pour qu'elle soit entièrement visible pour SVG
                     background-repeat: no-repeat; // Évite que l'image se répète
                     background-position: center; // Centre l'image
                     width: 7rem; // Largeur de base
@@ -202,21 +200,6 @@
                         width: 8rem;
                         height: 8rem;
                     }
-
-                    img {
-                        width: 7rem;
-                    // Essai 1 pour img flou sur iphone
-                    //   image-rendering: -webkit-optimize-contrast;
-                    //    image-rendering: crisp-edges;
-                    }
-                    //     @media (min-width: 768px) { // Tablette
-                    //         width: 7.5rem;
-                    //     }
-
-                    //     @media (min-width: 1024px) { // Laptop
-                    //         width: 8rem;
-                    //     }
-                    // }
                 }
 
                 &-name { 
