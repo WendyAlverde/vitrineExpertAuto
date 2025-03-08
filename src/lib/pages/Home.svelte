@@ -726,7 +726,6 @@
             }
 
             ul {
-                // padding-left: 3rem;
                 border: 0.1rem solid #ccc;
                 border-color: var(--form);
                 border-radius: 0.5rem;
@@ -734,6 +733,17 @@
 
                 @media screen and (min-width: 768px) { // Tablette
                     padding: 1rem 3rem;
+                }
+
+                @media screen and (min-width: 1024px) { // Laptop
+                    display: grid;
+                    grid-template-columns: repeat(2, auto); // Deux colonnes auto-ajustables
+                    gap: 0.5rem 2.8rem; // Espacement entre les éléments
+                }
+
+                @media screen and (min-width: 1440px) { // Grand écran
+                    grid-template-columns: repeat(3, auto); // Deux colonnes auto-ajustables
+                    gap: 0.8rem 3.5rem; // Espacement entre les éléments
                 }
 
                 li {
