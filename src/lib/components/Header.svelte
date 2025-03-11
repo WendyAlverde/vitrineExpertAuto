@@ -70,7 +70,7 @@
     <div class="header-content">
         <div class="entreprise">
             <a href="#home" aria-label="Retour à l'accueil" class="logoIeta">
-                <!-- <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles"> -->
+                <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles">
             </a>
             
             <div class="entreprise-name">
@@ -186,12 +186,12 @@
                     left: 0;
 
                     // Essai 2 pour img flou sur iphone
-                    background-image: url('../../assets/pictures/logoIetaGood.svg'); // Remplacez par le chemin de votre image
-                    background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible
-                    background-repeat: no-repeat; // Évite que l'image se répète
-                    background-position: center; // Centre l'image
-                    width: 7rem; // Largeur de base
-                    height: 7rem; // Hauteur de base
+                    // background-image: url('../../assets/pictures/logoIetaGood.svg'); // Remplacez par le chemin de votre image
+                    // background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible
+                    // background-repeat: no-repeat; // Évite que l'image se répète
+                    // background-position: center; // Centre l'image
+                    // width: 7rem; // Largeur de base
+                    // height: 7rem; // Hauteur de base
 
                     @media (min-width: 768px) { // Tablette
                         width: 7.5rem;
@@ -202,12 +202,25 @@
                         width: 8rem;
                         height: 8rem;
                     }
-
+                    
+                    .logoIeta {
+                    background-image: url('../../assets/pictures/logoIetaGood.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 7rem;
+                    height: 7rem;
+                    display: block;
+                    }
                     img {
+                        // Essai 3 pour le flou du logo
                         width: 7rem;
-                    // Essai 1 pour img flou sur iphone
-                    //   image-rendering: -webkit-optimize-contrast;
-                    //    image-rendering: crisp-edges;
+                        height: auto;
+                        image-rendering: -webkit-optimize-contrast;
+                        image-rendering: crisp-edges;
+                        image-rendering: pixelated;
+                        transform: translateZ(0); /* Force un nouveau contexte de rendu */
+                        backface-visibility: hidden; /* Aide à éviter le flou */
                     }
                     //     @media (min-width: 768px) { // Tablette
                     //         width: 7.5rem;
