@@ -4,8 +4,9 @@
     import emailjs from "emailjs-com"
 
     // Import composants
-    import AccordionFaq from '../components/AccordionFaq.svelte';
     import AccordionServices from '../components/AccordionServices.svelte';
+    import AccordionFaq from '../components/AccordionFaq.svelte';
+    import AccordionDepartments from '../components/AccordionDepartments.svelte';
 
     // Import images
     import logoBerline from "../../assets/pictures/vehicules/berline.webp";
@@ -290,21 +291,7 @@
             </form>
         </section>
 
-        <section class="zonesIntervention">
-            <h2>Zones d'intervention</h2>
-            <p>Notre cabinet se déplace dans les départements suivants :</p>
-            <ul>
-                <li>Alpes-de-Haute-Provence (04)</li>
-                <li>Alpes-Maritimes (06)</li>
-                <li>Bouches-du-Rhône (13)</li>
-                <li>Drôme (26)</li>
-                <li>Gard (30)</li>
-                <li>Hautes-Alpes (05)</li>
-                <li>Hérault (34)</li>
-                <li>Var (83)</li>
-                <li>Vaucluse (84)</li>
-            </ul>
-        </section>
+        <AccordionDepartments />
     </section>
 </main>
 
@@ -707,50 +694,6 @@
             }
         }
 
-        .zonesIntervention {
-            background-color: white;
-            border-radius: 0.625rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            h2 {
-                padding-bottom: 0.8rem;
-                text-align: center;
-            }
-
-            p {
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-
-            ul {
-                border: 0.1rem solid #ccc;
-                border-color: var(--form);
-                border-radius: 0.5rem;
-                padding: 0.8rem 2rem;
-
-                @media screen and (min-width: 768px) { // Tablette
-                    padding: 1rem 3rem;
-                }
-
-                @media screen and (min-width: 1024px) { // Laptop
-                    display: grid;
-                    grid-template-columns: repeat(2, auto); // Deux colonnes auto-ajustables
-                    gap: 0.5rem 2.8rem; // Espacement entre les éléments
-                }
-
-                @media screen and (min-width: 1440px) { // Grand écran
-                    grid-template-columns: repeat(3, auto); // Deux colonnes auto-ajustables
-                    gap: 0.8rem 3.5rem; // Espacement entre les éléments
-                }
-
-                li {
-                    list-style-type: disc;
-                    padding-bottom: 0.2rem;
-                }
-            }
-        }
+        
     }   
 </style>
