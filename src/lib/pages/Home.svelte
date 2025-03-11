@@ -4,8 +4,9 @@
     import emailjs from "emailjs-com"
 
     // Import composants
-    import AccordionFaq from '../components/AccordionFaq.svelte';
     import AccordionServices from '../components/AccordionServices.svelte';
+    import AccordionFaq from '../components/AccordionFaq.svelte';
+    import AccordionDepartments from '../components/AccordionDepartments.svelte';
 
     // Import images
     import logoBerline from "../../assets/pictures/vehicules/berline.webp";
@@ -289,6 +290,8 @@
                 <button type="submit" class ={autorization ? "enabled" : "disabled"} disabled={!autorization}>Envoyer</button>
             </form>
         </section>
+
+        <AccordionDepartments />
     </section>
 </main>
 
@@ -298,13 +301,13 @@
 
         scroll-margin-top: 5rem;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 768px) { // Tablette
             padding: 2rem 3rem;
         }
 
         .presentation {
 
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 768px) { // Tablette
                 display: flex;
                 flex-direction: row-reverse;
                 align-items: center;
@@ -316,7 +319,7 @@
                 padding: 1rem;
                 margin-bottom: 1rem;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     margin-left: 1rem;
                 }
 
@@ -348,7 +351,7 @@
                 padding: 1rem;
                 margin-bottom: 1rem;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     height: 13rem;
                 }
 
@@ -364,7 +367,7 @@
                     list-style-type: disc;
                     padding-left: 1rem;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         flex-direction: column;
                     }
 
@@ -493,7 +496,7 @@
                 display: flex;
                 flex-direction: column;
 
-                @media screen and (min-width: 768px) {
+                @media screen and (min-width: 768px) { // Tablette
                     flex-direction: row;
                     flex-wrap: wrap;
                 }
@@ -503,7 +506,7 @@
                     font-size: 0.813rem;
                     font-weight: bold;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1.375rem;
                     }
 
@@ -521,7 +524,7 @@
                     padding: 0.5rem;
                     margin: 0.5rem 0 0.8rem;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1rem;
                     }
                 }
@@ -536,7 +539,7 @@
                     color: var(--form);
                     cursor: pointer;
 
-                    @media screen and (min-width: 768px) { // Grand écran
+                    @media screen and (min-width: 768px) { // Tablette
                         font-size: 1rem;
                     }
                 }
@@ -544,7 +547,7 @@
                 fieldset {
                     display: flex;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                     
@@ -572,7 +575,7 @@
                             } 
 
                             label {
-                                @media screen and (min-width: 768px) { // Grand écran
+                                @media screen and (min-width: 768px) { // Tablette
                                     font-size: 1rem;
                                 }
                             }
@@ -581,7 +584,7 @@
                 }
 
                 .localisation {
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                 }
@@ -589,7 +592,7 @@
                 .nom {
 
                     #nom {
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 768px) { // Tablette
                             margin-right: 1rem;
                         }
                     }
@@ -599,7 +602,7 @@
                     display: flex;
                     flex-direction: column;
 
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 50%;
                     }
                 }
@@ -614,7 +617,7 @@
                 }
 
                 .commentaire {
-                    @media screen and (min-width: 768px) {
+                    @media screen and (min-width: 768px) { // Tablette
                         width: 100%;
                     }
 
@@ -690,5 +693,7 @@
                 }
             }
         }
+
+        
     }   
 </style>
