@@ -169,7 +169,7 @@
                 align-items: center;
                 padding: 0 0.5rem;
                 position: relative;
-
+                color: white;
                 @media (min-width: 768px) { // Tablette
                     padding-bottom: 0.3rem;
                 }
