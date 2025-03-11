@@ -141,7 +141,7 @@
                 height: 7rem;
             }
 
-            @media screen and (min-width: 1440px) { // Laptop
+            @media screen and (min-width: 1440px) { // Grand écran
                 height: 5.5rem;
             }
 
@@ -150,7 +150,7 @@
                 transform: translateY(-5.5rem); // Décale le contenu vers le haut
                 transition: transform 0.6s ease; 
 
-                @media screen and (min-width: 768px) { // Laptop
+                @media screen and (min-width: 768px) { // Tablette
                     transform: translateY(-5.8rem); // Décale le contenu vers le haut
                 }
 
@@ -181,7 +181,6 @@
                 a {
                     display: block;
                     position: absolute;
-                    // top: 0;
                     top: -0.5rem;
                     left: 0;
 
@@ -216,7 +215,6 @@
                         // Essai 3 pour le flou du logo
                         width: 7rem;
                         height: auto;
-                        image-rendering: -webkit-optimize-contrast;
                         image-rendering: crisp-edges;
                         image-rendering: pixelated;
                         transform: translateZ(0); /* Force un nouveau contexte de rendu */
@@ -243,8 +241,6 @@
 
                     &-titre {
                         font-weight: bold;
-                        
-                        color: white;
                         letter-spacing: 0.07rem;
                         padding-bottom: 0.2rem;
 
@@ -334,7 +330,7 @@
                             height: 4.5rem;
                         }
 
-                        @media screen and (min-width: 1440px) {
+                        @media screen and (min-width: 1440px) { // Grand écran
                             flex-direction: row;
                             justify-content: space-around;
                             align-items: center;
@@ -363,7 +359,7 @@
                             margin-bottom: 0;
                         }
 
-                        @media screen and (min-width: 1440px) {
+                        @media screen and (min-width: 1440px) { // Grand écran
                             margin-bottom: 0;
                         }
                     }
@@ -373,7 +369,7 @@
                         border-radius: 0.4rem;
                         padding: 0.3rem;
 
-                        @media screen and (min-width: 768px) {
+                        @media screen and (min-width: 768px) { // Tablette
                             padding: 0.2rem 1rem;
                         }
                     }
@@ -390,7 +386,7 @@
                             margin-bottom: 0;
                         }
 
-                        @media screen and (min-width: 1440px) {
+                        @media screen and (min-width: 1440px) { // Grand écran
                             margin-bottom: 0;
                         }
                     }
