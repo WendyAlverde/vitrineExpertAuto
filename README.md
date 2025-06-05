@@ -29,7 +29,6 @@ Projet réalisé à deux développeurs :
 - **Wendy Alverde** – Développeuse front-end / Scrum Master  
   – Organisation des tâches via Trello  
   – Suivi quotidien (brief matin et soir)  
-  – Développement et intégration du contenu  
   – Qualité, accessibilité et responsive
 
 - **Paul Lagadec** – Développeur front-end / Product Owner  
@@ -48,7 +47,7 @@ Après analyse de plusieurs solutions, nous avons opté pour **EmailJS**, qui pe
 
 ## 📆 Statut du projet
 
-- Réalisé et livré en **février 2025**
+- Réalisé **février 2025** et livré en **mars 2025**
 
 ## 💻 Pour exécuter le projet localement
 
