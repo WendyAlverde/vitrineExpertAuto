@@ -1,3 +1,6 @@
+<!-- Ce fichier est une version anonymisée du projet client.
+Les logos, textes réels et coordonnées ont été supprimés ou remplacés par des données fictives. -->
+
 <script>
     // Import Svelte
     import {onMount} from 'svelte';
@@ -9,13 +12,9 @@
     import AccordionDepartments from '../components/AccordionDepartments.svelte';
 
     // Import images
-    import logoBerline from "../../assets/pictures/vehicules/berline.webp";
-    import logoTruck from "../../assets/pictures/vehicules/camion.webp";
-    import logoPorsche from "../../assets/pictures/vehicules/porsche.webp";
-    import logoMoto from "../../assets/pictures/vehicules/moto.webp";
-    import logoTractor from "../../assets/pictures/vehicules/tracteur.webp";
-    import logoCollection from "../../assets/pictures/vehicules/collection.webp";
-    import logoJustice from "../../assets/pictures/logosAmaury/justice.webp";
+    import logoA from "";
+    import logoB from "";
+    import logoC from "";
 
     // Fonction de scroll vers l'élément cible
     const scrollToAnchor = () => {
@@ -32,7 +31,7 @@
     let tel = "";
     let demande = "information";
     let urgence = "";
-    let localisation = "Montpellier";
+    let localisation = "";
     let commentaire = "";
     // Variable errors
     let errorMessage = "";
@@ -83,7 +82,7 @@
 
         // Informations à envoyer
         let templateParams = {
-            to_email: "cabinet.ieta@outlook.fr", // Remplacez par votre e-mail
+            to_email: " ",
             nom,
             email,
             tel,
@@ -96,10 +95,10 @@
         // Envoi via EmailJS
         emailjs
             .send(
-                "service_405jwa6",
-                "template_z88e3j9",
+                "",
+                "",
                 templateParams,
-                "eBbDWuvmgPWRdg3x7"
+                ""
             )
             .then(
                 function (response) {
@@ -161,23 +160,23 @@
     <section id="home">
         <section class="presentation">
             <div class="presentation-text">
-                <h1>Amaury Madani, Expert Automobile</h1>
-                <p><em>Une expertise technique au service de vos besoins.</em><br >Curieux et passionné de l'automobile, l’expertise fut une évidence et une révélation. <br >Après des études spécialisées et une immersion professionnelle dans le secteur automobile à partir de 2013, j’ai été <strong>Expert automobile</strong> <em>titré en 2020</em>.</p>
-                <p>Fort et ancré de plus de 10 ans d’expérience et d’une passion intacte, j’accompagne aujourd’hui particuliers, professionnels et compagnies d’assurances dans leurs démarches liées à l’<strong>expertise technique</strong>, la <strong>résolution de litiges</strong> et l’<strong>évaluation de véhicules</strong>.</p>
+                <h1>Expert Automobile</h1>
+                <p>Un client <em>expert automobile</em>.<br > <br > <strong></strong> <em></em>.</p>
+                <p><strong></strong><strong></strong> <strong></strong>.</p>
                 <p class="question">Pourquoi choisir notre cabinet ?</p>
                 <ul>
-                    <li><em>Une expertise reconnue :</em> Diplômé d’état comme expert en automobile depuis 2020.</li>
-                    <li><em>Un accompagnement sur mesure :</em> Une approche humaine et personnalisée pour chaque cas.</li>
-                    <li><em>Une passion pour la précision :</em> Que ce soit pour des litiges complexes ou l’évaluation de véhicules, chaque détail compte.</li>
+                    <li><em></em> </li>
+                    <li><em></em> </li>
+                    <li><em></em> </li>
                 </ul>
             </div>
             <aside class="presentation-valeurs">
                 <h2>Nos Valeurs</h2>
                 <ul>
-                    <li>Impartialité</li>
-                    <li>Intégrité</li>
-                    <li>Indépendance</li>
-                    <li>Excellence</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </aside>
         </section>
@@ -188,20 +187,17 @@
         </section>
 
         <section class="choice">
-            <p class="choice-un">Vous ne savez pas si votre situation relève d’un <strong>vice caché</strong> ou d’une <strong>malfaçon</strong> ? Pas d’inquiétude, contactez-nous et nous analyserons votre cas pour vous orienter vers la meilleure solution.</p>
+            <p class="choice-un"><strong></strong> <strong></strong> .</p>
             <div class="juridique">
                 <img src={logoJustice} alt="Juridique">
-                <p>Vous avez le droit de choisir librement votre <strong>expert</strong>, même si votre assureur vous a désigné un autre professionnel de l’expertise. Nous pouvons, par votre intermédiaire, collaborer avec votre assureur de <em>protection juridique</em> pour défendre vos intérêts. Ce droit est garanti par l’<em>Article L127-3 du Code des assurances</em>.</p>    
+                <p> <strong></strong>,<em></em> <em></em>.</p>    
             </div> 
         </section>
         
         <section class="logoVehicules">
-            <img src={logoBerline} loading="lazy" alt="Voiture Berline">
-            <img src={logoCollection} loading="lazy" alt="Voiture de collection">
-            <img src={logoTruck} loading="lazy" alt="Camion">
-            <img src={logoPorsche} loading="lazy" alt="Voiture de sport">
-            <img src={logoMoto} loading="lazy" alt="Deux roues motorisés">
-            <img src={logoTractor} loading="lazy" alt="Véhicule agricole">
+            <img src={logoA} loading="lazy" alt="">
+            <img src={logoB} loading="lazy" alt="">
+            <img src={logoC} loading="lazy" alt="">
         </section>
         
         <section id="faq" class="faq">
@@ -237,15 +233,10 @@
                 <div class="localisation">
                     <label for="localisation">Localisation de votre besoin ? <span aria-hidden="true">*</span></label>
                     <select name="localisation" id="localisation" bind:value={localisation} required aria-required="true">
-                        <option value="Alpes-de-Haute-Provence">Alpes-de-Haute-Provence</option>
-                        <option value="Alpes-Maritimes">Alpes-Maritimes</option>
-                        <option value="Bouches-du-Rhône">Bouches-du-Rhône</option>
-                        <option value="Drôme">Drôme</option>
-                        <option value="Gard">Gard</option>
-                        <option value="Hautes-Alpes">Hautes-Alpes</option>
-                        <option value="Hérault">Hérault</option>
-                        <option value="Var">Var</option>
-                        <option value="Vaucluse">Vaucluse</option>
+                        <option value="France">France</option>
+                        <option value="Espagne">Espagne</option>
+                        <option value="Belgique">Belgique</option>
+                        
                     </select>
                 </div>
                 
@@ -693,7 +684,5 @@
                 }
             }
         }
-
-        
     }   
 </style>

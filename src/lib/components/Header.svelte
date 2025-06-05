@@ -1,7 +1,7 @@
 <script>
     import { link, location } from "svelte-spa-router"
     import { onMount, onDestroy } from 'svelte';
-    import logoIeta from "../../assets/pictures/logoIetaGood.svg"
+    import logo from ""
 
     // Variables
     let isScrolled = false; 
@@ -57,8 +57,6 @@
         }
     };
 
-    // let currentPath = window.location.hash || "#home";
-
     onMount(() => {
         window.addEventListener("hashchange", () => {
             currentPath = window.location.hash || "#home";
@@ -69,13 +67,13 @@
 <header class="header {isScrolled ? 'scrolled' : ''}">
     <div class="header-content">
         <div class="entreprise">
-            <a href="#home" aria-label="Retour à l'accueil" class="logoIeta">
-                <img src={logoIeta} alt="Logo IETA : Innovation, expertise des technologies automobiles">
+            <a href="#home" aria-label="Retour à l'accueil" class="logo">
+                <img src={logo} alt="Logo Expertise Auto">
             </a>
             
             <div class="entreprise-name">
-                <p class="entreprise-name-titre">Cabinet <em>IETA</em></p>
-                <p class="entreprise-name-p">Innovation, Expertise des Technologies Automobiles</p>
+                <p class="entreprise-name-titre"> <em> Expertise Auto</em></p>
+                <p class="entreprise-name-p"> </p>
             </div>
         </div>
     
@@ -88,16 +86,14 @@
                         Formulaire Contact
                     </a>
                     <!-- Invisible pour la partie mobile -->
-                    <p class="contact-pc">Amaury Madani</p>
-                    <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" 
-                        aria-label="Ouvrir votre application mail pour écrire à cabinet.ieta@outlook.fr">
-                        cabinet.ieta@outlook.fr
+                    <p class="contact-pc"> </p>
+                    <a class="contact-mail" href="mailto: " target="_blank" 
+                        aria-label="Ouvrir votre application mail pour écrire à  ">
                     </a>
                 </div>
                 <div  class="contact-droite">
-                    <a class="contact-tel" href="tel:0628406288"
-                        aria-label="Appeler le 06 28 40 62 88">
-                        06 28 40 62 88
+                    <a class="contact-tel" href="tel: "
+                        aria-label="Appeler le  ">
                     </a>
                     <a class="accueil-mobile {currentPath === '#home' ? 'active' : ''}" 
                         href="#home" 
@@ -170,6 +166,7 @@
                 padding: 0 0.5rem;
                 position: relative;
                 color: white;
+
                 @media (min-width: 768px) { // Tablette
                     padding-bottom: 0.3rem;
                 }
@@ -184,14 +181,6 @@
                     top: -0.5rem;
                     left: 0;
 
-                    // Essai 2 pour img flou sur iphone
-                    // background-image: url('../../assets/pictures/logoIetaGood.svg'); // Remplacez par le chemin de votre image
-                    // background-size: contain; // Ajuste l'image pour qu'elle soit entièrement visible
-                    // background-repeat: no-repeat; // Évite que l'image se répète
-                    // background-position: center; // Centre l'image
-                    // width: 7rem; // Largeur de base
-                    // height: 7rem; // Hauteur de base
-
                     @media (min-width: 768px) { // Tablette
                         width: 7.5rem;
                         height: 7.5rem;
@@ -202,32 +191,24 @@
                         height: 8rem;
                     }
                     
-                    .logoIeta {
-                    background-image: url('../../assets/pictures/logoIetaGood.svg');
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    width: 7rem;
-                    height: 7rem;
-                    display: block;
+                    .logo {
+                        background-image: url('');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        width: 7rem;
+                        height: 7rem;
+                        display: block;
                     }
+
                     img {
-                        // Essai 3 pour le flou du logo
                         width: 7rem;
                         height: auto;
                         image-rendering: crisp-edges;
                         image-rendering: pixelated;
-                        transform: translateZ(0); /* Force un nouveau contexte de rendu */
+                        transform: translateZ(0); 
                         backface-visibility: hidden; /* Aide à éviter le flou */
                     }
-                    //     @media (min-width: 768px) { // Tablette
-                    //         width: 7.5rem;
-                    //     }
-
-                    //     @media (min-width: 1024px) { // Laptop
-                    //         width: 8rem;
-                    //     }
-                    // }
                 }
 
                 &-name { 

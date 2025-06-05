@@ -1,3 +1,5 @@
+<!-- Version anonymisée des mentions légales – les informations sensibles ou spécifiques au client ont été volontairement retirées. -->
+
 <main>
     <h1>Mentions légales</h1>
 
@@ -5,17 +7,17 @@
     <section>
         <h2>1. Informations légales</h2>
         <ul>
-            <li><em>Dénomination sociale :</em> IETA : Innovation, Expertise des Technologies Automobiles</li>
-            <li><em>Forme juridique :</em> SARL</li>
-            <li><em>Montant du capital social :</em> 1000€</li>
-            <li><em>Adresse du siège social :</em> 145 Rue Lapérouse, 13600 LA CIOTAT</li>
+            <li><em>Dénomination sociale :</em> Cabinet Expertise Auto</li>
+            <li><em>Forme juridique :</em></li>
+            <li><em>Montant du capital social :</em></li>
+            <li><em>Adresse du siège social :</em></li>
             <li><em>Contact :</em>
                 <ul>
-                    <li>Email : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" rel="noopener noreferrer" aria-label="Ouverture d'une nouvelle page sur votre application mail">cabinet.ieta@outlook.fr</a></li>
-                    <li>Téléphone : <a class="contact-tel" href="tel:0628406288">06 28 40 62 88</a></li>
+                    <li>Email : <a class="contact-mail" href="mailto: " target="_blank" rel="noopener noreferrer" aria-label="Ouverture d'une nouvelle page sur votre application mail"> </a></li>
+                    <li>Téléphone : <a class="contact-tel" href="tel: "> </a></li>
                 </ul>
             </li>
-            <li><em>Numéro RCS / RM :</em> ***</li>
+            <li><em>Numéro RCS / RM :</em></li>
             <li><em>Hébergeur du site :</em>
                 <ul>
                     <li>Nom : Vercel</li>
@@ -23,8 +25,8 @@
                     <li>Adresse : 440 N Barranca Avenue #4133, Covina, CA 91723, United States</li>
                 </ul>
             </li>
-            <li><em>Responsable de la publication :</em> Amaury Madani</li>
-            <li><em>Responsable de la rédaction :</em> Amaury Madani</li>
+            <li><em>Responsable de la publication :</em>  </li>
+            <li><em>Responsable de la rédaction :</em>  </li>
         </ul>
     </section>
 
@@ -39,11 +41,11 @@
         <h2>3. Protection des données personnelles (RGPD)</h2>
         <p>Le site respecte le RGPD (Règlement Général sur la Protection des Données) en vigueur depuis 2018. Les données personnelles collectées via le formulaire de contact (nom, emplacement, téléphone, email) sont traitées dans le cadre suivant :</p>
         <ul>
-            <li><em>Responsable du traitement des données :</em> IETA, représentée par Amaury Madani</li>
+            <li><em>Responsable du traitement des données :</em> Cabinet Expertise Auto, représentée par ... </li>
             <li><em>Finalité du traitement :</em> Les informations recueillies permettent de répondre aux demandes effectuées via le formulaire de contact.</li>
             <li><em>Base légale justifiant le traitement :</em> Consentement explicite donné par l’utilisateur lors de la soumission du formulaire.</li>
             <li><em>Caractère obligatoire ou facultatif :</em> Les champs du formulaire marqués comme obligatoires doivent être remplis pour envoyer une demande.</li>
-            <li><em>Personnes ayant accès aux données collectées :</em> Amaury Madani</li>
+            <li><em>Personnes ayant accès aux données collectées :</em>  </li>
             <li><em>Durée de conservation :</em> D'après les recommandations de la CNIL en France, les données sont conservées jusqu'à 3 ans après le dernier contact. 
                 Si la demande a été traité et qu'aucun suivi n'est nécessaire, les données seront supprimées. 
                 Les utilisateurs peuvent demander à tout moment la suppression de leurs données.</li>
@@ -57,7 +59,7 @@
                 </ul>
             </li>
         </ul>
-        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto:cabinet.ieta@outlook.fr" target="_blank" rel="noopener noreferrer">cabinet.ieta@outlook.fr</a>.</p>
+        <p>Pour toute question concernant vos données personnelles ou pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante : <a class="contact-mail" href="mailto: " target="_blank" rel="noopener noreferrer"> </a>.</p>
     </section>
 </main>
 

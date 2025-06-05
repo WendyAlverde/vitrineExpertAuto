@@ -1,3 +1,4 @@
+// Configuration Vite pour développement local avec Svelte
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 
@@ -8,7 +9,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     strictPort: true,
-    allowedHosts: ['.ngrok-free.app'], // Autorise tous les sous-domaines de ngrok
+    allowedHosts: ['.ngrok-free.app'], // utilisé pour les tests via ngrok
   },
 })
 

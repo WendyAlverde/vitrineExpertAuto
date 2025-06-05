@@ -1,16 +1,11 @@
+<!-- Version anonymisée. Les départements et villes réels du client ont été supprimé. -->
+
 <script>
     import arrow from "../../assets/pictures/fleche/arrow.webp";
 
     const zones = [
-        { dept: "Bouches-du-Rhône (13)", cities: ["Marseille", "Aix-en-Provence", "Arles"] },
-        { dept: "Var (83)", cities: ["Toulon", "Draguignan", "Fréjus"] },
-        { dept: "Vaucluse (84)", cities: ["Avignon", "Carpentras", "Orange"] },
-        { dept: "Alpes-de-Haute-Provence (04)", cities: ["Digne-les-Bains", "Manosque", "Forcalquier"] },
-        { dept: "Gard (30)", cities: ["Nîmes", "Alès", "Bagnols-sur-Cèze"] },
-        { dept: "Drôme (26)", cities: ["Valence", "Montélimar", "Romans-sur-Isère"] },
-        { dept: "Hérault (34)", cities: ["Montpellier", "Béziers", "Sète"] },
-        { dept: "Hautes-Alpes (05)", cities: ["Gap", "Briançon", "Embrun"] },
-        { dept: "Alpes-Maritimes (06)", cities: ["Nice", "Cannes", "Antibes"] },
+        { dept: "", cities: ["", "", ""] },
+        { dept: "", cities: ["", "", ""] },
     ];
 
     let openIndex = null;
@@ -32,7 +27,7 @@
 
 <section class="zonesIntervention">
     <h2>Zones d'intervention</h2>
-    <p>Notre cabinet se déplace dans les départements suivants :</p>
+    <p>Déplacements ...</p>
 
     <div class="accordeon">
         {#each zones as zone, index}
@@ -86,21 +81,15 @@
 
             @media screen and (min-width: 1024px) { // Laptop
                 display: grid;
-                grid-template-columns: repeat(2, auto); // Deux colonnes auto-ajustables
-                gap: 0.5rem 2.8rem; // Espacement entre les éléments
-                align-items: start; // Empêche les éléments adjacents de s'étirer
+                grid-template-columns: repeat(2, auto); 
+                gap: 0.5rem 2.8rem; 
+                align-items: start; 
             }
 
             @media screen and (min-width: 1440px) { // Grand écran
-                grid-template-columns: repeat(3, auto); // Deux colonnes auto-ajustables
-                gap: 0.8rem 3.5rem; // Espacement entre les éléments
+                grid-template-columns: repeat(3, auto); 
+                gap: 0.8rem 3.5rem; 
             }
         }  
     }
 </style>
-
-<!--
-@media screen and (min-width: 1440px) { // Grand écran
-    grid-template-columns: repeat(3, auto); // Deux colonnes auto-ajustables
-    gap: 0.8rem 3.5rem; // Espacement entre les éléments
-} -->

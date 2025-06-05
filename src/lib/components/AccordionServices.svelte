@@ -4,47 +4,20 @@
 
     const services = [
         {
-            title: "Litiges après l'achat ou la vente d'un véhicule :",
+            title: "",
             content: [
-                "Analyse des <strong>vices cachés</strong> ou des <strong>défauts de conformité</strong> affectant le véhicule.",
-                "Identification des responsabilités dans un <strong>litige</strong> entre vendeur et acheteur.",
+                "",
+                "",
             ]
         },
         {
-            title: "Problèmes après une réparation automobile :",
+            title: "",
             content: [
-                "Vérification des <strong>malfaçons</strong> ou <strong>réparations</strong> non conformes.",
-                "Détermination de l’impact technique d’un <strong>défaut de réparation</strong>.",
-                "Analyse des conséquences d’un <strong>défaut d’information</strong> du garagiste.",
+                "",
+                "",
+                "",
             ]
         },
-        {
-            title: "Refus d’indemnisation ou contestation d’un rapport d’expert d’assurance (contre-expertise) :",
-            content: [
-                "<strong>Contre-expertise</strong> en cas de désaccord avec un rapport d’assurance.",
-                "Reconstitution de <strong>sinistres</strong>, recherche des causes d’un incendie ou d’un <strong>vol de véhicule</strong>.",
-            ]
-        },
-        {
-            title: "Évaluation de la valeur d’un véhicule :",
-            content: [
-                "Estimation de la valeur de <strong>véhicules de collection ou de prestige</strong>.",
-                "Expertise agréée pour assurer ou vendre un véhicule.",
-                "Évaluation pour divorce, succession ou <strong>revente</strong>.",
-            ]
-        },
-        {
-            title: "Contestation d’un contrôle technique défaillant :",
-            content: "Analyse des <strong>défauts</strong> non détectés lors du contrôle technique."
-        },
-        {
-            title: "Mise en cause du constructeur automobile :",
-            content: "Évaluation des <strong>défauts</strong> de fabrication ou <strong>malfaçons</strong> engageant la responsabilité du constructeur."
-        },
-        {
-            title: "Tierce expertise :",
-            content: "Intervention pour trancher un désaccord après une <strong>contre-expertise</strong> n’ayant pas abouti."
-        }
     ];
 
     let openIndex = null;
@@ -68,7 +41,6 @@
 <div class="accordeon" >
     {#each services as service, index}
         <!-- J'ai ajouté l'événement on:click sur cette div afin de permettre de cliquer n'importe où dans l'accordéon pour le fermer.  -->
-        <!-- Si cela pose problème, vous pouvez déplacer l'événement sur la div située en dessous. -->
         <!-- La navigation clavier est prise en charge avec tabindex="0" et on:keydown. -->
         <div class="accordeon-item service" 
             role="button" 

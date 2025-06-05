@@ -1,47 +1,71 @@
-# Svelte + Vite
+# IETA – Site vitrine professionnel
 
-This template should help get you started developing with Svelte in Vite.
+Site vitrine réalisé pour **IETA – Innovation, Expertise des Technologies Automobiles**, une société spécialisée dans l’expertise et la technologie automobile.
 
-## Recommended IDE Setup
+📍 [Voir le site en ligne](https://www.expertise-automobile-ieta.fr/)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+---
 
-## Need an official Svelte framework?
+## 🎯 Objectif du projet
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+Créer un site vitrine responsive, clair et professionnel pour présenter les services de l’entreprise, inspirer confiance aux visiteurs, et faciliter la prise de contact.
 
-## Technical considerations
+---
 
-**Why use this over SvelteKit?**
+## 🛠️ Technologies utilisées
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- HTML sémantique
+- SCSS (Sass)
+- JavaScript
+- Svelte (framework JS)
+- EmailJS (formulaire de contact)
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+---
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+## 👥 Équipe et rôles
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+Projet réalisé à deux développeurs :
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+- **Wendy Alverde** – Développeuse front-end / Scrum Master  
+  – Organisation des tâches via Trello  
+  – Suivi quotidien (brief matin et soir)  
+  – Développement et intégration du contenu  
+  – Qualité, accessibilité et responsive
 
-**Why include `.vscode/extensions.json`?**
+- **Paul Lagadec** – Développeur front-end / Product Owner  
+  – Point de contact avec le client
+  – Suivi des besoins et ajustements  
+  – Tests utilisateurs et retours client
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+---
 
-**Why enable `checkJs` in the JS template?**
+## 🧪 Problématiques rencontrées
 
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
+Le choix de la solution de messagerie pour le **formulaire de contact** a été l’un des points sensibles du projet.  
+Après analyse de plusieurs solutions, nous avons opté pour **EmailJS**, qui permet d’envoyer des emails côté client sans backend, tout en assurant une mise en œuvre simple et fiable.
 
-**Why is HMR not preserving my local component state?**
+---
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
+## 📆 Statut du projet
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+- Réalisé et livré en **février 2025**
 
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+## 💻 Pour exécuter le projet localement
+
+- `npm install`
+- `npm run dev`
+
+---
+
+## 🔒 Note sur la version publiée
+
+Ce dépôt contient une version anonymisée du projet.
+Certains contenus ont été retirés ou modifiés pour respecter la confidentialité du client.
+
+- Les textes d'origine rédigés par le client ont été supprimés
+
+- Les logos et éléments graphiques appartenant à l'identité visuelle du client ont été retirés
+
+- Les coordonnées, mentions légales et zones d’intervention ont été volontairement omises
+
+- Les sections dynamiques du site (FAQ, Services, Zones) utilisent des composants accordéons accessibles développés en Svelte. Le contenu client ayant été retiré, seuls les composants vides sont fournis ici à titre d'exemple de structure.
